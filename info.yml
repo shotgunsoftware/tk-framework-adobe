@@ -1,0 +1,27 @@
+configuration:
+    installation_engines:
+        type: list
+        allows_empty: False
+        values:
+            type: str
+        default_value: ['tk-shotgun', 'tk-desktop', 'tk-desktop2', 'tk-shell']
+        description: "This list defines within which engines the framework is
+            allowed to try to install the extension. This should not be a engine,
+            that runs the extension (like tk-photoshopcc), as the install will try
+            to modify files that may be used and cannot be edited during the
+            install process."
+
+
+# the Shotgun fields that this engine needs in order to operate correctly
+requires_shotgun_fields:
+
+# More verbose description of this item
+display_name: "Adobe CC Framework"
+description: "CEP connection and rpc layer for engines that target any Adobe CC DCC-Package."
+
+# Required minimum versions for this item to run
+requires_core_version:
+requires_desktop_version:
+
+# the frameworks this framework requires
+frameworks:

@@ -1,0 +1,520 @@
+/*
+Copyright (c) 2016 Shotgun Software Inc.
+
+CONFIDENTIAL AND PROPRIETARY
+
+This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit Source
+Code License included in this distribution package. See LICENSE. By accessing,
+using, copying or modifying this work you indicate your agreement to the Shotgun
+Pipeline Toolkit Source Code License. All rights not expressly granted therein
+are reserved by Shotgun Software Inc.
+*/
+
+/* fonts... bundled Open Sans fonts which are the SG approved fonts */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans/OpenSans-Bold.ttf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans/OpenSans-Italic.ttf");
+    font-style: italic;
+}
+
+/* high level defs */
+body {
+    color: #D7D7D7;
+    font-family: "Open Sans",Verdana,sans-serif;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+}
+
+/* no underlining links */
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #18A7E3;
+}
+
+a:link.sg_small_link {
+    color: #18A7E3;
+    font-size: 10px;
+}
+
+/* links typically found in context header. not SG blue */
+a:link.sg_value_link {
+    color: #D7D7D7;
+}
+
+a:link.sg_value_link:hover {
+    color: #FFFFFF;
+}
+
+/* indicator for external links in context header */
+/*
+a:link.sg_value_link:after {
+    content: url(../images/external_link.png);
+    margin-left: 4px;
+}
+*/
+
+/* white on hover */
+a:hover {
+    color: #FFFFFF;
+}
+
+/* shift links slightly when clicking */
+a:active {
+    position: relative;
+    top: 1px;
+    left: 1px
+}
+
+/* placeholder for the context thumbnail */
+#context_thumbnail_data {
+}
+
+/* container for the context field info */
+#context_field_data {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* table for field info */
+#context_field_table {
+    vertical-align: top;
+}
+
+/* the thumbnail itself */
+#context_thumbnail {
+    max-width: 178px;
+    max-height: 100px;
+    float: left;
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+
+/* the first image that shows up when panel is loading */
+#loading_img {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* error display */
+div.sg_error {
+    width: 90%;
+    height: 100px;
+    resize: vertical;
+    overflow-x: scroll;
+    overflow-y: auto;
+    font-size: 10px;
+    background-color: #2C2C2C;
+    padding: 8px;
+    display: inline-block;
+    text-align: left;
+}
+
+/* scrollbar styling */
+::-webkit-resizer {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #4A4A4A;
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    border-top: 1px solid #222222;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    height: 8px;
+    width: 8px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    -webkit-border-radius: 4px;
+    background-color: #696969;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: #4A4A4A;
+}
+
+
+#sg_panel_contents {
+}
+
+/* the container for the favorite commands */
+#sg_panel_favorites {
+    background-color: #525152;
+    text-align: left;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    padding-bottom: 4px;
+    margin: 0;
+    border-bottom: 2px solid #373737;
+}
+
+#sg_panel_favorites_header {
+    color: #D7D7D7;
+    padding-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#sg_panel_favorites_shelf {
+    padding-left: 12px;
+}
+
+.sg_panel_command_img {
+    width: 19px;
+    height: 19px;
+}
+
+.sg_panel_command_other_img {
+    width: 19px;
+    height: 19px;
+}
+
+/* regular command button */
+.sg_command_button {
+    display: inline-block;
+    border-radius: 3px;
+    margin: 2px;
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.sg_command_button img {
+    -webkit-filter: grayscale(1) brightness(.8);
+}
+
+.sg_command_button:hover img {
+    -webkit-filter: grayscale(0) brightness(1);
+}
+
+.sg_command_button:hover {
+    border: 1px solid #666666;
+    background-color: #454545;
+}
+
+.sg_command_button_icon {
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* container for the commands */
+#sg_panel_commands {
+    margin: 0;
+    background-color: #525152;
+}
+
+/* a single command div */
+.sg_panel_command {
+    border-bottom: 1px solid #373737;
+    height: 32px;
+    padding-left: 16px;
+    padding-right: 18px;
+    padding-top: 5px;
+    color: #D7D7D7;
+}
+
+.sg_panel_command_td {
+    padding-left: 8px;
+    max-width: 1px;  /* trick to elide text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sg_panel_command img {
+    -webkit-filter: grayscale(1) brightness(.8);
+}
+
+.sg_panel_command a:link {
+    color: #D7D7D7;
+}
+
+.sg_panel_command a:link:hover {
+    color: white;
+}
+
+.sg_panel_command:hover {
+    background-color: #6B6B6B;
+    color: white;
+}
+
+.sg_panel_command:hover img {
+    -webkit-filter: grayscale(0) brightness(1);
+}
+
+.sg_panel_command:hover a:link {
+    color: white;
+}
+
+/* mouseover tooltip styling */
+#sg_panel_command_help {
+    max-width: 186px;
+    display: inline;
+    position: absolute;
+    width: auto;
+    background-color: rgba(45, 45, 45, .95);
+    color: #D7D7D7;
+    border-radius: 3px;
+    font-size: 10px;
+    line-height: 13px;
+    padding: 7px;
+    overflow: auto;
+}
+
+#sg_panel_footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   width:100%;
+}
+
+/* the blue status popup section */
+#sg_status_info {
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    color: #D7D7D7;
+    background-color: rgba(24, 167, 227, .75);
+}
+
+/* the main context header section */
+.sg_context_header {
+    padding-left: 18px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #373737;
+    background-color: #424242;
+    min-height: 100px;
+}
+
+/* general styling for labels (less emphasis) */
+.sg_label {
+    color: #777777;
+}
+
+/* general styling for values (more emphasis) */
+.sg_value {
+    color: #D7D7D7;
+}
+
+/* context field label td styling */
+.sg_label_td {
+    display: table-cell;
+    vertical-align: top;
+    text-align: right;
+    color: #777777;
+}
+
+/* context field value td styling */
+.sg_value_td {
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    color: #D7D7D7;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+}
+
+.sg_container {
+    padding: 12px;
+}
+
+.sg_error_message {
+    padding: 8px;
+    color: rgba(226, 74, 74, .75);
+    border-left: 1px solid rgba(226, 74, 74, .75);
+}
+
+#sg_status_error {
+    width: 100%;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    color: #D7D7D7;
+    background-color: rgba(226, 74, 74, .75);
+}
+
+#sg_status_warning {
+    width: 100%;
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+    color: #D7D7D7;
+    background-color: rgba(226, 159, 74, .75);
+}
+
+#sg_progress {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #222222;
+    border-bottom: 1px solid #222222;
+}
+
+#sg_progress_bar {
+    position: absolute;
+    width: 0%;
+    height: 8px;
+    background-color: rgba(24, 167, 227, .75);
+}
+
+/* console styling */
+#sg_panel_console {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 24, .85);
+    display: none;
+}
+
+#sg_panel_console_tag {
+    display: inline;
+    color: #373737;
+    border-right: 1px solid #373737;
+}
+
+.sg_panel_console_button {
+	background-color: #4A4A4A;
+	border-radius: 3px;
+	border: 1px solid #343434;
+	display: inline-block;
+	color: #D7D7D7;
+	padding: 4px 8px;
+	text-decoration: none;
+    font-family: "Open Sans",Verdana,sans-serif;
+}
+.sg_panel_console_button:hover {
+	background-color: #636363;
+    color: #FFFFFF;
+}
+.sg_panel_console_button:active {
+	position:relative;
+	top:1px;
+}
+
+#sg_panel_console_log {
+    position: fixed;
+    top: 0px;
+    bottom: calc(100% - 44px);
+    height: calc(100% - 44px);
+    width: calc(100% - 4px);
+    padding-left: 4px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+#sg_panel_console_footer {
+    position: fixed;
+    top: calc(100% - 44px);
+    left: 0px;
+    width: 100%;
+    height: 44px;
+    color: #D7D7D7;
+    background-color: #4A4A4A;
+    padding-left: 5px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-top: 1px solid #222222;
+    overflow-y:hidden;
+    overflow-x:scroll;
+}
+
+
+#sg_log_message {
+    color: #D7D7D7;
+    display: inline;
+    padding-left: 3px;
+}
+
+#sg_log_message_debug {
+    color: #18A7E3;
+    display: inline;
+    padding-left: 3px;
+}
+
+#sg_log_message_warn {
+    color: rgb(226, 159, 74);
+    display: inline;
+    padding-left: 3px;
+}
+
+#sg_log_message_error {
+    color: rgb(226, 74, 74);
+    display: inline;
+    padding-left: 3px;
+}
+
+#sg_unknown_context_table {
+    width: 100%;
+    padding: 10px;
+    vertical-align: top;
+}
+
+#sg_unknown_context_thumbnail {
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+}
+
+#sg_unknown_context_title {
+    text-align: left;
+    vertical-align: top;
+    color: #D7D7D7;
+    padding-left: 8px;
+    padding-top: 0;
+    width: 100%;
+    flex: 1;
+    display: inline-block;
+}
+
+#sg_unknown_context_details{
+    text-align: left;
+    vertical-align: top;
+    color: #777777;
+    padding-left: 8px;
+    padding-top: 0px;
+    width: 100%;
+    flex: 1;
+    display: inline-block;
+}
