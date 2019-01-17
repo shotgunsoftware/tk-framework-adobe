@@ -45,6 +45,13 @@ sg_constants.product_info = {
         display_name: "Photoshop",
         tk_engine_name: "tk-photoshopcc",
         debug_url: "http://localhost:45217"
+    },
+
+    // After Effects
+    AEFT: {
+        display_name: "After Effects",
+        tk_engine_name: "tk-aftereffectscc",
+        debug_url: "http://localhost:45218"
     }
 
     // NOTE: the debug ports are defined in .debug file at the top level of the
