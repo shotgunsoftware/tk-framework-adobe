@@ -25,7 +25,7 @@ EXIT_STATUS_NO_PYSIDE = 101
 
 def bootstrap(root_path, port, engine_name, app_id):
     """
-    Main entry point for photoshop python process.
+    Main entry point for adobe rpc python process.
 
     Blocking method. Launches a QT Application event loop.
 
@@ -65,7 +65,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     from sgtk.platform.qt import QtGui
     from sgtk.platform.engine_logging import ToolkitEngineHandler
 
-    app_name = "Shotgun Engine for Photoshop CC"
+    app_name = "Shotgun Framework for Adobe CC"
 
     # create and set up the Qt app. we don't want the app to close when the
     # last window is shut down since it's running in parallel to the CC product.
@@ -84,14 +84,15 @@ def bootstrap(root_path, port, engine_name, app_id):
     engine.post_qt_init()
 
     # log metrics for the app name and version
+    host_info = engine.host_info
     engine.log_user_attribute_metric(
-        "%s Version" % engine.adobe.app.name,
-        engine.adobe.app.version
+        "%s Version" % host_info["name"],
+        host_info["version"]
     )
 
     # debug logging for the app name/version as well
-    engine.logger.debug("Adobe CC Product: %s" % engine.adobe.app.name)
-    engine.logger.debug("Adobe CC Version: %s" % engine.adobe.app.version)
+    engine.logger.debug("Adobe CC Product: %s" % host_info["name"])
+    engine.logger.debug("Adobe CC Version: %s" % host_info["version"])
 
     # once the event loop starts, the bootstrap process is complete and
     # everything should be connected. this is a blocking call, so nothing else

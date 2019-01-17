@@ -54,7 +54,7 @@ def get_sgtk_logger(sgtk):
     sgtk.LogManager().initialize_custom_handler(bootstrap_log_handler)
 
     # initializes the file where logging output will go
-    sgtk.LogManager().initialize_base_file_handler("tk-photoshopcc")
+    sgtk.LogManager().initialize_base_file_handler("tk-adobecc")
 
     return bootstrap_log_handler
 

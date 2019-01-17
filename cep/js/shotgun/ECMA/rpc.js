@@ -169,7 +169,10 @@ function ObjectWrapper(obj) {
 
     for (i in obj.reflect.methods) {
         method_info = obj.reflect.methods[i];
-        this.methods[method_info.name] = new MethodDescriptor(method_info);
+        /* Methods with non-alphanumeric names or operators are not supported */
+        if (method_info instanceof ReflectionInfo && String(method_info).match(/[a-z]\w*/i)) {
+            this.methods[method_info.name] = new MethodDescriptor(method_info);
+        }
     }
 
     this.name = obj.name;
@@ -233,7 +236,12 @@ function rpc_new(class_name) {
     // construction in ECMA3. Sadly, tricks from more modern JS do
     // not work here. Right now we only support no-argument
     // construction.
-    var obj = new this[class_name];
+    try{
+        var obj = new this[class_name];
+    } catch(e) {
+        alert(e);
+        throw e;
+    }
     return JSON.stringify(wrap_item(obj, obj.reflect.name));
 }
 
@@ -370,12 +378,21 @@ function map_global_scope() {
         return JSON.stringify(__GLOBAL_SCOPE_WRAPPERS);
     }
 
-    var variables = this.reflect.properties;
-    var functions = this.reflect.methods;
+    var variables = [];
+    var functions = [];
+    for (var attr in this)
+    {
+        if (typeof attr === 'function') {
+            functions.push(attr);
+        } else {
+            variables.push(attr);
+        }
+    }
     var wrappers = {};
 
+
     for (i in variables) {
-        var var_name = variables[i].name;
+        var var_name = variables[i];
         var variable = this[var_name];
 
         if (variable != undefined) {
@@ -384,8 +401,8 @@ function map_global_scope() {
     }
 
     for (i in functions) {
-        var func_name = functions[i].name;
-        var func = this[functions[i].name];
+        var func_name = functions[i];
+        var func = this[functions[i]];
 
         if (func != undefined) {
             wrappers[func_name] = wrap_item(func, func_name);

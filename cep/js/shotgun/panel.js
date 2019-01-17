@@ -215,14 +215,7 @@ sg_panel.Panel = new function() {
             // setup event listeners first so we can react to various events
             _setup_event_listeners();
 
-            // If the current Adobe application is photoshop, turn on persistence.
-            // This isn't required, but provides a better user experience by not
-            // trying to reload the panel whenever it regains focus.
-            const photoshop_ids = ["PHSP", "PHXS"];
-            if (photoshop_ids.indexOf(_cs_interface.getApplicationID()) > -1) {
-                sg_logging.debug("Making panel persistent.");
-                _make_persistent(true);
-            }
+            _make_persistent(true);
 
             // track the mouse
             document.onmousemove = _on_mouse_move;
@@ -559,13 +552,25 @@ sg_panel.Panel = new function() {
     // Only valid for Photoshop.
     const _make_persistent = function(persistent) {
 
+        const photoshop_ids = ["PHSP", "PHXS"];
+        var app_name = "";
+        if (photoshop_ids.indexOf(_cs_interface.getApplicationID()) > -1) {
+            app_name = "Photoshop";
+        } else if (_cs_interface.getApplicationID() == "AEFT") {
+            app_name = "AfterEffects"
+        } else {
+            sg_logging.debug("Cannot make the app (un)persistent because the host application doesn't support it.");
+            return false;
+        }
+
         var event_type = persistent ?
-            'com.adobe.PhotoshopPersistent' :
-            'com.adobe.PhotoshopUnPersistent';
+            'com.adobe.' + app_name + 'Persistent' :
+            'com.adobe.' + app_name + 'UnPersistent';
 
         var event = new CSEvent(event_type, "APPLICATION");
         event.extensionId = _cs_interface.getExtensionID();
         _cs_interface.dispatchEvent(event);
+        return true;
     };
 
     // Handles flyout menu clicks
@@ -732,7 +737,7 @@ sg_panel.Panel = new function() {
         const subject = encodeURIComponent("Adobe Integration Error");
         const body = encodeURIComponent(
             "Greetings Shotgun Support Team!\n\n" +
-            "We have some questions about the Photoshop CC Integration.\n\n" +
+            "We have some questions about the Adobe CC Integration.\n\n" +
             "*** Please enter your questions here... ***\n\n"
         );
 

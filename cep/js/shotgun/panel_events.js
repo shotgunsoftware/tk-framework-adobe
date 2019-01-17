@@ -22,7 +22,7 @@ sg_event.create_event(sg_panel, "REQUEST_MANAGER_RELOAD");
 // sent by the panel to request an updated state from the python process
 sg_event.create_event(sg_panel, "REQUEST_STATE");
 
-// sent by the panel to alert Python of the need to run the photoshopcc
+// sent by the panel to alert Python of the need to run the engines
 // test suite.
 sg_event.create_event(sg_panel, "RUN_TESTS");
 

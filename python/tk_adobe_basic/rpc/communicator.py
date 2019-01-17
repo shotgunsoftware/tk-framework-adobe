@@ -22,8 +22,8 @@ sys.path.insert(
     0,
     os.path.normpath(
         os.path.join(
-            os.path.dirname(__file__), # ./python/tk_photoshopcc/rpc
-            os.pardir,                      # ./python/tk_photoshopcc
+            os.path.dirname(__file__), # ./python/tk_adobe_basic/rpc
+            os.pardir,                      # ./python/tk_adobe_basic
             os.pardir,                      # ./python
             os.pardir,                      # .
             "pkgs.zip",                # ./pkgs.zip

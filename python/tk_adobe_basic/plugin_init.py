@@ -73,7 +73,12 @@ def toolkit_plugin_bootstrap(plugin_root_path):
     logger.debug("Will launch the engine with entity: %s" % entity)
 
     logger.info("Bootstrapping toolkit...")
-    toolkit_mgr.bootstrap_engine("tk-photoshopcc", entity=entity)
+    engine_to_start = os.getenv("SHOTGUN_ENGINE", None)
+    if engine_to_start is None:
+        logger.error("No engine to start is specified. Make shure SHOTGUN_ENGINE is set in the bootstrap of your engine.")
+        return
+
+    toolkit_mgr.bootstrap_engine(engine_to_start, entity=entity)
 
     # ---- tear down logging
     sgtk.LogManager().root_logger.removeHandler(log_handler)
