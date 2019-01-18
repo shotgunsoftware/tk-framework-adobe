@@ -7,3 +7,4 @@ profile
 Thumbs.db
 
 *.swp
+pkgs/*
