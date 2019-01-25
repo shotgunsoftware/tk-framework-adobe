@@ -128,7 +128,10 @@ class ProxyWrapper(object):
 
         # Everything is registered by unique id. This allows us get
         # JSON data back from CEP and map it to an existing ProxyWrapper.
-        self._REGISTRY[self._uid] = self
+        # if the given _uid is -1 we don't need to register it, as it
+        # is either a nonexistent object or a new instance to be created
+        if self._uid != -1:
+            self._REGISTRY[self._uid] = self
 
     @property
     def data(self):
@@ -297,8 +300,13 @@ class ClassInstanceProxyWrapper(ProxyWrapper):
     A ProxyWrapper for class instances.
     """
     def __call__(self, *args, **kwargs):
-        # We don't actually call this. We're wrapping and returning
-        # instance objects as is. This is just to allow for the typical
-        # Python syntax of `adobe.SomeClassToInstantiate()`
-        return self
+        """
+        This method will take care of calling the new operator
+        in javascript
+        """
+        instance = self._communicator.rpc_new(self._data.get('__class__', ''), *args)
+        if isinstance(instance, ProxyWrapper):
+            return instance
+        else:
+            raise
 

@@ -428,7 +428,7 @@ class Communicator(object):
                 )
             )
 
-    def rpc_new(self, class_name):
+    def rpc_new(self, class_name, *args):
         """
         Instantiates a new remote object of the given class name.
 
@@ -445,8 +445,8 @@ class Communicator(object):
             return self.__run_rpc_command(
                 method="new",
                 proxy_object=None,
-                params=[class_name],
-                wrapper_class=ClassInstanceProxyWrapper,
+                params=[class_name, args],
+                wrapper_class=ProxyWrapper,
             )
         except RuntimeError:
             raise RuntimeError("Failed to instantiate %s" % class_name)
@@ -725,23 +725,7 @@ class Communicator(object):
         try:
             return getattr(self._global_scope, name)
         except AttributeError:
-            # If we were asked for something that's not in the global
-            # scope, it's possible that it's a class that needs to be
-            # instantiated.
-
-            # TODO: This needs to be behavior that's custom to the given
-            # environment we're dealing with. Right now, this behavior here
-            # is handling a situation that arises in ExtendScript, but might
-            # not even be appropriate for other flavors/versions of JS.
-
-            # NOTE: I'm thinking we can do this sort of thing just with a
-            # subclass. The base Communicator class can define the simpler
-            # getattr, which assumes anything requested is available from
-            # the global scope object. For Adobe, we can implement an
-            # AdobeCommunicator subclass that reimplements getattr and
-            # adds the below logic.
-            instance = self.rpc_new(name)
-            if isinstance(instance, ProxyWrapper):
-                return instance
-            else:
-                raise
+            # in case the requested attribute doesn't exist
+            # we will try to generate a new instance of the
+            # requested name
+            return ClassInstanceProxyWrapper({'__class__': name, '__uniqueid': -1}, self)

@@ -216,7 +216,8 @@ sg_socket_io.SocketManager = new function() {
             */
             this.new = function(params, next) {
                 var class_name = JSON.stringify(params.shift());
-                var cmd = "rpc_new(" + class_name + ")";
+                var param_str = JSON.stringify(params);
+                var cmd = "rpc_new(" + class_name + ", " + param_str + ")";
                 log_network_debug(cmd);
 
                 csLib.evalScript(

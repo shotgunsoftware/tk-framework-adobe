@@ -231,13 +231,14 @@ Creates an instance of the class of the given name.
 
 :param class_name: The name of the class as defined in the global scope.
 */
-function rpc_new(class_name) {
-    // TODO: Need to figure out how to expand arguments for object
-    // construction in ECMA3. Sadly, tricks from more modern JS do
-    // not work here. Right now we only support no-argument
-    // construction.
+function rpc_new(class_name, params) {
+    if (typeof params === 'undefined'){
+        params = [];
+    }
+    var args = prepare_arguments(params);
+
     try{
-        var obj = new this[class_name];
+        var obj = this[class_name].prototype.constructor.apply(null, args);
     } catch(e) {
         alert(e);
         throw e;
