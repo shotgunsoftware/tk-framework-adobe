@@ -89,7 +89,7 @@ function prepare_arguments(params) {
         return prepped;
     }
 
-    for (i in params) {
+    for (var i=0; i<params.length; i++) {
         arg = params[i];
 
         if (arg instanceof Array) {
@@ -237,11 +237,20 @@ function rpc_new(class_name, params) {
     }
     var args = prepare_arguments(params);
 
+    var obj = null;
     try{
-        var obj = this[class_name].prototype.constructor.apply(null, args);
+        obj = this[class_name].prototype.constructor.apply(null, args);
     } catch(e) {
-        alert(e);
-        throw e;
+        $.writeln("RPC new instance error:" + e)
+    }
+    if (typeof(obj) === "undefined" || obj == null)
+    {
+        try{
+            obj = new this[class_name]();
+        } catch(e) {
+            alert(e);
+            throw e;
+        }
     }
     return JSON.stringify(wrap_item(obj, obj.reflect.name));
 }
