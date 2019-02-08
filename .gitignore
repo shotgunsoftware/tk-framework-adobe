@@ -6,5 +6,6 @@
 profile
 Thumbs.db
 
+*.rnd
 *.swp
 pkgs/*
