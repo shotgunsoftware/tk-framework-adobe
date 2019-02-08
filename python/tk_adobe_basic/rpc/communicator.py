@@ -7,7 +7,6 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-
 import json
 import threading
 import sys
@@ -15,6 +14,7 @@ import os.path
 import time
 import logging
 import contextlib
+
 
 # Add our third-party packages to sys.path. We've created a zip file because some of the file paths
 # are pretty long. We're also normalizing the path or we're getting import errors.
@@ -30,6 +30,7 @@ sys.path.insert(
         )
     )
 )
+
 
 import socketIO_client.exceptions
 from socketIO_client import SocketIO
@@ -728,4 +729,4 @@ class Communicator(object):
             # in case the requested attribute doesn't exist
             # we will try to generate a new instance of the
             # requested name
-            return ClassInstanceProxyWrapper({'__class__': name, '__uniqueid': -1}, self)
+            return ClassInstanceProxyWrapper({"__class__": name, "__uniqueid": -1}, self)

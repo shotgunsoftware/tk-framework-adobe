@@ -7,9 +7,9 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-
 import json
 import threading
+
 
 class ProxyScope(object):
     """
@@ -173,7 +173,7 @@ class ProxyWrapper(object):
         else:
             return False
 
-    def __call__(self, *args): # TODO: support kwargs
+    def __call__(self, *args):
         """
         Calls this object's equivalent concrete object on the other end of the
         remote connection. Any ordered arguments provided are passed through to
@@ -304,7 +304,7 @@ class ClassInstanceProxyWrapper(ProxyWrapper):
         This method will take care of calling the new operator
         in javascript
         """
-        instance = self._communicator.rpc_new(self._data.get('__class__', ''), *args)
+        instance = self._communicator.rpc_new(self._data.get("__class__", ""), *args)
         if isinstance(instance, ProxyWrapper):
             return instance
         else:

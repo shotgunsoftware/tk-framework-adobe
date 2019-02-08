@@ -25,3 +25,4 @@ requires_desktop_version:
 
 # the frameworks this framework requires
 frameworks:
+  - {"name": "tk-framework-shotgunutils", "version": "v4.x.x"}

@@ -7,13 +7,14 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-
 import sys
 sys.dont_write_bytecode = True
+
 
 import os
 import traceback
 from environment_utils import get_extension_install_directory
+
 
 # exit status codes used when the python process dies. these are known by the
 # js process that spawned python so they can be used as a primitive form of

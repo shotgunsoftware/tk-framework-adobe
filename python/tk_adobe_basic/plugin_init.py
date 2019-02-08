@@ -7,14 +7,15 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-
 import sys
 import os
 from . import log
 
+
 # Note: the sgtk_plugin_basic_photoshopcc module is created
 # as part of the plugin build process.
 from sgtk_plugin_basic_framework_adobe import manifest
+
 
 def _progress_handler(value, message):
     """
@@ -30,8 +31,6 @@ def _progress_handler(value, message):
     # to the display.
     sys.stdout.write("|PLUGIN_BOOTSTRAP_PROGRESS,%s,%s|" % (value, message))
     sys.stdout.flush()
-
-
 
 
 def toolkit_plugin_bootstrap(plugin_root_path):
