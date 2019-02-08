@@ -9,13 +9,15 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 import sys
 import os
-from . import log
+import log
 
 
 # Note: the sgtk_plugin_basic_photoshopcc module is created
 # as part of the plugin build process.
-from sgtk_plugin_basic_framework_adobe import manifest
-
+try:
+    from sgtk_plugin_basic_framework_adobe import manifest
+except ImportError:
+    pass
 
 def _progress_handler(value, message):
     """
