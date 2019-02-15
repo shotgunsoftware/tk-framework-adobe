@@ -39,5 +39,5 @@ base_configuration:
 # uniqueness. If your plugin_id is set to 'review.maya', the python module
 # will be called sgtk_plugin_review_maya and will be located in a python subfolder
 # once the plugin has been built.
-plugin_id: "basic.framework.adobe"
+plugin_id: "basic.adobe"
 

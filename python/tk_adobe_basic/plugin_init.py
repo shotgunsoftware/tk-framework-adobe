@@ -15,7 +15,7 @@ import log
 # Note: the sgtk_plugin_basic_photoshopcc module is created
 # as part of the plugin build process.
 try:
-    from sgtk_plugin_basic_framework_adobe import manifest
+    from sgtk_plugin_basic_adobe import manifest
 except ImportError:
     pass
 
