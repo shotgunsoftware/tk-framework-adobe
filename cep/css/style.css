@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2016 Shotgun Software Inc.
+Copyright (c) 2019 Shotgun Software Inc.
 
 CONFIDENTIAL AND PROPRIETARY
 
@@ -59,14 +59,6 @@ a:link.sg_value_link {
 a:link.sg_value_link:hover {
     color: #FFFFFF;
 }
-
-/* indicator for external links in context header */
-/*
-a:link.sg_value_link:after {
-    content: url(../images/external_link.png);
-    margin-left: 4px;
-}
-*/
 
 /* white on hover */
 a:hover {
