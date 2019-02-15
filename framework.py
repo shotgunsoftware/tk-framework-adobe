@@ -34,17 +34,17 @@ class AdobeFramework(sgtk.platform.Framework):
     def ensure_extension_up_to_date(self):
         """
         Carry out the necessary operations needed in order for the
-        adobe extension to be recognized.
+        Adobe extension to be recognized.
 
         This inlcudes copying the extension from the engine location
         to a OS-specific location.
         """
 
-        # the basic plugin needs to be installed in order to launch the adobe
+        # the basic plugin needs to be installed in order to launch the Adobe
         # engine. we need to make sure the plugin is installed and up-to-date.
         # will only run if SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL is not set.
         if not "SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL" in os.environ:
-            self.logger.debug("Ensuring adobe extension is up-to-date...")
+            self.logger.debug("Ensuring Adobe extension is up-to-date...")
             try:
                 self.__ensure_extension_up_to_date()
             except Exception, e:
@@ -59,14 +59,14 @@ class AdobeFramework(sgtk.platform.Framework):
 
     def __ensure_extension_up_to_date(self):
         """
-        Ensure the basic adobe extension is installed in the OS-specific location
+        Ensure the basic Adobe extension is installed in the OS-specific location
         and that it matches the extension bundled with the installed engine.
         """
 
         environment_utils = self.import_module('environment_utils')
         extension_name = environment_utils.EXTENSION_NAME
 
-        # the adobe CEP install directory. This is where the extension is stored.
+        # the Adobe CEP install directory. This is where the extension is stored.
         adobe_cep_dir = environment_utils.get_adobe_cep_dir()
         self.logger.debug("Adobe CEP extension dir: %s" % (adobe_cep_dir,))
 
