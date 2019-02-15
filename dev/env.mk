@@ -4,6 +4,9 @@ TARGET_VERSION=0.0.1
 
 # set this to the core you are working with. eg:0.18.160
 TKCORE_VERSION=0.18.160
+# if you want to use tk-core from a non default bundle-cache location,
+# uncomment the following line and set your path accordingly.
+# TKCORE_FOLDER=
 
 ZXP_SIGN_TOOL=
 PYTHON_EXE=python

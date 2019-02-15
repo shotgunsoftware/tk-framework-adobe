@@ -12,9 +12,10 @@ call "env.cmd"
 set "PLUGIN_NAME=com.sg.basic.adobe"
 set "BUNDLE_CACHE_FOLDER=%APPDATA%\Shotgun\bundle_cache\app_store\tk-core"
 set "ADOBE_CEP_FOLDER=%APPDATA%\Adobe\CEP\extensions"
-set "TKCORE_FOLDER=%BUNDLE_CACHE_FOLDER%\v%TKCORE_VERSION%"
 set "ZXP_FILE=%~dp1\..\%PLUGIN_NAME%.zxp"
+set "TKCORE_FOLDER_DEFAULT=%BUNDLE_CACHE_FOLDER%\v%TKCORE_VERSION%"
 
+if "%TKCORE_FOLDER%"=="" (set "TKCORE_FOLDER=%TKCORE_FOLDER_DEFAULT%") else (echo using tk-core-folder: %TKCORE_FOLDER%)
 if "%CERT_LOCALITY%"=="" (set CERT_LOCALITY=) else (set "CERT_LOCALITY=-locality "%CERT_LOCALITY%" ")
 if "%CERT_ORG_UNIT%"=="" (set CERT_ORG_UNIT=) else (set "CERT_ORG_UNIT=-orgUnit "%CERT_ORG_UNIT%" ")
 if "%CERT_EMAIL%"=="" (set CERT_EMAIL=) else (set "CERT_EMAIL=-email "%CERT_EMAIL%" ")

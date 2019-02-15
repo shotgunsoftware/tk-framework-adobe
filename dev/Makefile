@@ -3,7 +3,10 @@ include env.mk
 PLUGIN_NAME=com.sg.basic.adobe
 BUNDLE_CACHE_FOLDER=~/Library/Application\ Support/Shotgun/bundle_cache/app_store/tk-core
 ADOBE_CEP_FOLDER=~/Library/Application\ Support/Adobe/CEP/extensions
+
+ifndef TKCORE_FOLDER
 TKCORE_FOLDER=${BUNDLE_CACHE_FOLDER}/v${TKCORE_VERSION}
+endif
 
 ifndef CERT_LOCALITY
 	CERT_LOCALITY:=

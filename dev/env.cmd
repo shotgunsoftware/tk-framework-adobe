@@ -4,6 +4,9 @@ set "TARGET_VERSION=0.0.1"
 
 rem set this to the core you are working with. eg:0.18.160
 set "TKCORE_VERSION=0.18.160"
+rem if you want to use tk-core from a non default bundle-cache location,
+rem uncomment the following line and set your path accordingly.
+rem set "TKCORE_FOLDER="
 
 set "ZXP_SIGN_TOOL="
 set "PYTHON_EXE=python"
