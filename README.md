@@ -1,25 +1,25 @@
 # tk-framework-adobe
 
-A framework for adobe engines
+A framework for Adobe engines
 
 
 # Contributing
 
 ## Setup development environment
 
-To setup the development environment for this project, you need to have the ZXPSignCmd tool from adobe in order to sign the extension before release.
+To setup the development environment for this project, you need to have the ZXPSignCmd tool from Adobe in order to sign the extension before release.
 
-To get the signing tool, please go to https://labs.adobe.com/downloads/extensionbuilder3.html (you need to be logged into your adobe-account) and download the ***CC Extensions Signing Toolkit***. This will contain an executable called: ***ZXPSignCmd***
+To setup the development environment for this project, you will need to obtain the _**ZXPSignCmd**_ tool provided by Adobe, which can be found [here](https://labs.adobe.com/downloads/extensionbuilder3.html). Once you have logged in using your existing Adobe user account, download the _**CC Extensions Signing Toolkit**_, which will provide you with the necessary executable
 
-If you are developing on a ***Mac*** please set all neccessary variables in `dev/env.mk`.
+If you are developing on a ***Mac*** please set all necessary variables in `dev/env.mk`.
 
-On ***Windows*** please fill all neccessary variables in `dev\env.cmd`
+On ***Windows*** please fill all necessary variables in `dev\env.cmd`
 
 From now on you may test and sign with the following targets:
 
 ---
 ***Note***
-When using the following commands, make sure you are cd'ed into the base folder of this project.
+Be sure to run all of the following commands from the top-level directory of this project.
 ---
 
 
@@ -29,7 +29,7 @@ cd dev
 make test
 ```
 
-### To sign the cep-extension
+### To sign the CEP extension
 ```
 cd dev
 make sign
@@ -49,14 +49,26 @@ automatically be evaluated if using the *sign* target.
 ---
 
 
-### To create remove the latest signed zxp file
+### To remove the latest signed zxp file
 ```
 cd dev
 make clean
 ```
 
-### Notes on editing the env-file (env.sh/env.cmd)
+### Notes on editing the env file (env.mk/env.cmd)
 
-Please be aware, that you should not commit any changes to the repo. Especially not the certificate password.
+Changes to the env files (env.mk/env.cmd) will not be tracked in git, because they were configured to be skipped using `git update-index --skip-worktree`.
+This is because changes done to these files will most likely be specific to your development environment and not apply to any others environment.
+
+If you need to change these files - because you added a feature to the build process or something else - you can follow the following commands:
+
+```
+git update-index --no-skip-worktree dev/env.mk dev/env.cmd
+git add dev\env.*
+git commit -m "your message"
+git update-index --skip-worktree dev/env.mk dev/env.cmd
+```
+
+Please make sure, that when doing so you don't accidentally commit environment specific values like the certificate file path or even your certificate password.
 
 
