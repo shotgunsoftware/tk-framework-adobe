@@ -24,9 +24,6 @@ class AdobeFramework(sgtk.platform.Framework):
 
     def init_framework(self):
         self.logger.debug("%s: Initializing..." % self)
-        installation_engines = self.get_setting('installation_engines', [])
-        if self.engine.name in installation_engines:
-            self.ensure_extension_up_to_date()
 
     def destroy_framework(self):
         self.logger.debug("%s: Destroying..." % self)

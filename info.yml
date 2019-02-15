@@ -1,16 +1,4 @@
 configuration:
-    installation_engines:
-        type: list
-        allows_empty: False
-        values:
-            type: str
-        default_value: ['tk-shotgun', 'tk-desktop', 'tk-desktop2', 'tk-shell']
-        description: "This list defines within which engines the framework is
-            allowed to try to install the extension. This should not be a engine,
-            that runs the extension (like tk-photoshopcc), as the install will try
-            to modify files that may be used and cannot be edited during the
-            install process."
-
 
 # the Shotgun fields that this engine needs in order to operate correctly
 requires_shotgun_fields:
