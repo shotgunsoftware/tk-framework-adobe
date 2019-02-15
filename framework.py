@@ -16,8 +16,6 @@ from sgtk.util.filesystem import (
     move_folder,
 )
 
-logger = sgtk.LogManager.get_logger(__name__)
-
 
 class AdobeFramework(sgtk.platform.Framework):
 
@@ -25,18 +23,18 @@ class AdobeFramework(sgtk.platform.Framework):
     # init and destroy
 
     def init_framework(self):
-        self.log_debug("%s: Initializing..." % self)
+        self.logger.debug("%s: Initializing..." % self)
         installation_engines = self.get_setting('installation_engines', [])
         if self.engine.name in installation_engines:
             self.ensure_extension_up_to_date()
 
     def destroy_framework(self):
-        self.log_debug("%s: Destroying..." % self)
+        self.logger.debug("%s: Destroying..." % self)
 
     def ensure_extension_up_to_date(self):
         """
         Carry out the necessary operations needed in order for the
-        photoshop extension to be recognized.
+        adobe extension to be recognized.
 
         This inlcudes copying the extension from the engine location
         to a OS-specific location.
@@ -46,13 +44,13 @@ class AdobeFramework(sgtk.platform.Framework):
         # engine. we need to make sure the plugin is installed and up-to-date.
         # will only run if SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL is not set.
         if not "SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL" in os.environ:
-            logger.debug("Ensuring adobe extension is up-to-date...")
+            self.logger.debug("Ensuring adobe extension is up-to-date...")
             try:
                 self.__ensure_extension_up_to_date()
             except Exception, e:
                 import traceback
                 exc = traceback.format_exc()
-                raise Exception(
+                raise sgtk.TankError(
                     "There was a problem ensuring the Adobe integration extension "
                     "was up-to-date with your toolkit engine. If this is a "
                     "recurring issue please contact support@shotgunsoftware.com. "
@@ -70,17 +68,16 @@ class AdobeFramework(sgtk.platform.Framework):
 
         # the adobe CEP install directory. This is where the extension is stored.
         adobe_cep_dir = environment_utils.get_adobe_cep_dir()
-        logger.debug("Adobe CEP extension dir: %s" % (adobe_cep_dir,))
+        self.logger.debug("Adobe CEP extension dir: %s" % (adobe_cep_dir,))
 
         installed_ext_dir = environment_utils.get_extension_install_directory()
 
         # make sure the directory exists. create it if not.
         if not os.path.exists(adobe_cep_dir):
-            logger.debug("Extension folder does not exist. Creating it.")
+            self.logger.debug("Extension folder does not exist. Creating it.")
             ensure_folder_exists(adobe_cep_dir)
 
-        # get the path to the installed engine's .zxp file. the extension_name file i
-        # is 3 levels up from this file.
+        # get the path to the installed engine's .zxp file.
         bundled_ext_path = os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
@@ -89,7 +86,7 @@ class AdobeFramework(sgtk.platform.Framework):
         )
 
         if not os.path.exists(bundled_ext_path):
-            raise Exception(
+            raise sgtk.TankError(
                 "Could not find bundled extension. Expected: '%s'" %
                 (bundled_ext_path,)
             )
@@ -105,7 +102,7 @@ class AdobeFramework(sgtk.platform.Framework):
         )
 
         if not os.path.exists(bundled_version_file_path):
-            raise Exception(
+            raise sgtk.TankError(
                 "Could not find bundled version file. Expected: '%s'" %
                 (bundled_version_file_path,)
             )
@@ -117,24 +114,24 @@ class AdobeFramework(sgtk.platform.Framework):
         # check to see if the extension is installed in the CEP extensions directory
         # if not installed, install it
         if not os.path.exists(installed_ext_dir):
-            logger.debug("Extension not installed. Installing it!")
+            self.logger.debug("Extension not installed. Installing it!")
             self.__install_extension(bundled_ext_path, installed_ext_dir)
             return
 
         # ---- already installed, check for udpate
 
-        logger.debug("Bundled extension's version is: %s" % (bundled_version,))
+        self.logger.debug("Bundled extension's version is: %s" % (bundled_version,))
 
         # get the version from the installed extension's build_version.txt file
         installed_version_file_path = os.path.join(installed_ext_dir, version_file)
 
-        logger.debug(
+        self.logger.debug(
             "The installed version file path is: %s" %
             (installed_version_file_path,)
         )
 
         if not os.path.exists(installed_version_file_path):
-            logger.debug(
+            self.logger.debug(
                "Could not find installed version file '%s'. Reinstalling" %
                (installed_version_file_path,)
             )
@@ -146,15 +143,15 @@ class AdobeFramework(sgtk.platform.Framework):
 
         # get the installed version from the installed version info file
         with open(installed_version_file_path, "r") as installed_version_file:
-            logger.debug("Extracting the version from the installed extension.")
+            self.logger.debug("Extracting the version from the installed extension.")
             installed_version = installed_version_file.read().strip()
 
         if installed_version is None:
-            logger.debug("Could not determine version for the installed extension. Reinstalling")
+            self.logger.debug("Could not determine version for the installed extension. Reinstalling")
             self.__install_extension(bundled_ext_path, installed_ext_dir)
             return
 
-        logger.debug("Installed extension's version is: %s" % (installed_version,))
+        self.logger.debug("Installed extension's version is: %s" % (installed_version,))
 
         from sgtk.util.version import is_version_older
         if bundled_version != "dev" and installed_version != "dev":
@@ -163,7 +160,7 @@ class AdobeFramework(sgtk.platform.Framework):
 
                 # the bundled version is the same or older. or it is a 'dev' build
                 # which means always install that one.
-                logger.debug(
+                self.logger.debug(
                     "Installed extension is equal to or newer than the bundled "
                     "build. Nothing to do!"
                 )
@@ -172,9 +169,9 @@ class AdobeFramework(sgtk.platform.Framework):
         # ---- extension in engine is newer. update!
 
         if bundled_version == "dev":
-            logger.debug("Installing the bundled 'dev' version of the extension.")
+            self.logger.debug("Installing the bundled 'dev' version of the extension.")
         else:
-            logger.debug(
+            self.logger.debug(
                 "Bundled extension build is newer than the installed extension " +
                 "build! Updating..."
             )
@@ -196,30 +193,30 @@ class AdobeFramework(sgtk.platform.Framework):
         # move the installed extension to the backup directory
         if os.path.exists(dest_dir):
             backup_ext_dir = tempfile.mkdtemp()
-            logger.debug("Backing up the installed extension to: %s" % (backup_ext_dir,))
+            self.logger.debug("Backing up the installed extension to: %s" % (backup_ext_dir,))
             try:
                 backup_folder(dest_dir, backup_ext_dir)
             except Exception:
                 shutil.rmtree(backup_ext_dir)
-                raise Exception("Unable to create backup during extension update.")
+                raise sgtk.TankError("Unable to create backup during extension update.")
 
             # now remove the installed extension
-            logger.debug("Removing the installed extension directory...")
+            self.logger.debug("Removing the installed extension directory...")
             try:
                 shutil.rmtree(dest_dir)
             except Exception:
                 # try to restore the backup
                 move_folder(backup_ext_dir, dest_dir)
-                raise Exception("Unable to remove the old extension during update.")
+                raise sgtk.TankError("Unable to remove the old extension during update.")
 
-        logger.debug(
+        self.logger.debug(
             "Installing bundled extension: '%s' to '%s'" % (ext_path, dest_dir))
 
         # make sure the bundled extension exists
         if not os.path.exists(ext_path):
             # retrieve backup before aborting install
             move_folder(backup_ext_dir, dest_dir)
-            raise Exception(
+            raise sgtk.TankError(
                 "Expected CEP extension does not exist. Looking for %s" %
                 (ext_path,)
             )
@@ -230,7 +227,7 @@ class AdobeFramework(sgtk.platform.Framework):
 
         # if we're here, the install was successful. remove the backup
         try:
-            logger.debug("Install success. Removing the backed up extension.")
+            self.logger.debug("Install success. Removing the backed up extension.")
             shutil.rmtree(backup_ext_dir)
         except Exception:
             # can't remove temp dir. no biggie.
