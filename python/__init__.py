@@ -9,7 +9,6 @@ except ImportError:
 
 
 from . import adobe_bridge
-from . import shotgunutils
 
 
 if sys.platform == "win32":

@@ -15,9 +15,7 @@ import threading
 from sgtk.platform.qt import QtCore
 
 
-# use api json to cover py 2.5
-from tank_vendor import shotgun_api3
-json = shotgun_api3.shotgun.json
+import json
 
 
 from tk_adobe_basic.rpc import Communicator
