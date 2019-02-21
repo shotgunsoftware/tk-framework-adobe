@@ -35,7 +35,7 @@ make sign
 ```
 
 
-### To create a certificate in for signing the CEP extension
+### To create a certificate for use when signing the CEP extension
 ```
 cd dev
 make create_certificate
@@ -43,7 +43,7 @@ make create_certificate
 
 ---
 ***Note***
-In case the configured CERTIFICATE_FILE is not existing this command will automatically be evaluated if using the *sign* target.
+In the case where the configured CERTIFICATE_FILE does not exist, the create_certificate command will be automatically run as part of the _sign_ target.
 ---
 
 
@@ -55,10 +55,9 @@ make clean
 
 ### Notes on editing the env files (env.mk/env.cmd)
 
-Changes to the env files (env.mk/env.cmd) will not be tracked in git, because they were configured to be skipped using `git update-index --skip-worktree`.
-This is because changes done to these files will most likely be specific to your development environment and not apply to any others environment.
+Changes to the env files (env.mk and env.cmd) will typically not be tracked in git. The information contained in these files is specific to a particular development environment, so tracking changes to that data in git is undesirable.
 
-If you need to change these files - for example because you added a feature to the build process - you can use the following commands:
+If you need to make changes to these files, you can use the following commands:
 
 ```
 git update-index --no-skip-worktree dev/env.mk dev/env.cmd
@@ -67,6 +66,6 @@ git commit -m "your message"
 git update-index --skip-worktree dev/env.mk dev/env.cmd
 ```
 
-Please make sure, that when doing so you don't accidentally commit environment specific values like the certificate file path or even your certificate password.
+Please be aware that these files contain potentially-sensitive information, such as a certificate password. When making changes to these files and pushing them to a git repository, be sure that you've removed any data that might be considered confidential.
 
 
