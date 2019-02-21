@@ -18,6 +18,7 @@ def get_adobe_cep_dir():
     # the adobe CEP install directory. This is where the extension is stored.
     return os.path.join(app_data, "Adobe", "CEP", "extensions")
 
+
 def get_extension_install_directory():
     return os.path.join(get_adobe_cep_dir(), EXTENSION_NAME)
 
