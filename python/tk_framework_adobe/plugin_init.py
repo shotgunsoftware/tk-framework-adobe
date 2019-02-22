@@ -19,6 +19,7 @@ try:
 except ImportError:
     pass
 
+
 def _progress_handler(value, message):
     """
     Writes the progress values in a special format that can be intercepted by

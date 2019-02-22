@@ -256,7 +256,7 @@ sg_manager.Manager = new function() {
 
         // get the bootstrap python script from the bootstrap python dir
         const plugin_bootstrap_py = path.join(plugin_python_path,
-            "plugin_bootstrap.py");
+            "tk_framework_adobe_utils", "plugin_bootstrap.py");
 
         sg_logging.debug("Bootstrapping: " + plugin_bootstrap_py);
 

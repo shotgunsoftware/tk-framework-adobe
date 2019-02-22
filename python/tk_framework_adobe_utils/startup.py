@@ -70,6 +70,7 @@ def __ensure_extension_up_to_date(logger):
         os.path.join(
             os.path.dirname(__file__),
             os.path.pardir,
+            os.path.pardir,
             "%s.zxp" % (extension_name,)
         )
     )
@@ -86,6 +87,7 @@ def __ensure_extension_up_to_date(logger):
     bundled_version_file_path = os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
+            os.path.pardir,
             os.path.pardir,
             version_file
         )
