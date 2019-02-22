@@ -38,7 +38,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     # first add our plugin python logic sys.path
     sys.path.insert(0, os.path.join(get_extension_install_directory(), "python"))
     sys.path.insert(0, root_path)
-    import tk_adobe_basic
+    import tk_framework_adobe
 
     # set the port in the env so that the engine can pick it up. this also
     # allows engine restarts to find the proper port.
@@ -52,10 +52,10 @@ def bootstrap(root_path, port, engine_name, app_id):
     # sys path with the one specified via the resolved config. it will startup
     # the engine and make Qt available to us.
     if os.environ.get("TANK_CONTEXT") and os.environ.get("TANK_ENGINE"):
-        tk_adobe_basic.toolkit_classic_bootstrap()
+        tk_framework_adobe.toolkit_classic_bootstrap()
 
     else:
-        tk_adobe_basic.toolkit_plugin_bootstrap(root_path)
+        tk_framework_adobe.toolkit_plugin_bootstrap(root_path)
 
     # core may have been swapped. import sgtk
     import sgtk

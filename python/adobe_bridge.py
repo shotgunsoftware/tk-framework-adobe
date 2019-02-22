@@ -18,7 +18,7 @@ from sgtk.platform.qt import QtCore
 import json
 
 
-from tk_adobe_basic.rpc import Communicator
+from tk_framework_adobe.rpc import Communicator
 
 
 ##########################################################################################

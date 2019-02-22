@@ -3,7 +3,7 @@ from . import environment_utils
 
 
 try:
-    from . import tk_adobe_basic
+    from . import tk_framework_adobe
 except ImportError:
     pass
 
