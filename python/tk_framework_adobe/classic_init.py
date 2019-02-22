@@ -8,9 +8,9 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
-import sys
 import os
 from . import log
+
 
 def toolkit_classic_bootstrap():
     """
@@ -30,7 +30,7 @@ def toolkit_classic_bootstrap():
     engine_name = os.environ["TANK_ENGINE"]
 
     logger.info("Starting %s using context %s..." % (engine_name, context))
-    engine = sgtk.platform.start_engine(engine_name, context.tank, context)
+    sgtk.platform.start_engine(engine_name, context.tank, context)
 
     # ---- tear down logging
     sgtk.LogManager().root_logger.removeHandler(log_handler)

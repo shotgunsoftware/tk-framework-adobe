@@ -50,8 +50,10 @@ def timeout(seconds=5.0, error_message="Timed out."):
         return functools.wraps(func)(wrapper)
     return decorator
 
+
 ##########################################################################################
 # classes
+
 
 class MessageEmitter(QtCore.QObject):
     """
@@ -337,7 +339,6 @@ class AdobeBridge(Communicator):
         id_save = self.charIDToTypeID("save")
         id_as = self.charIDToTypeID("As  ")
         desc_30 = self.ActionDescriptor()
-        id_max_compatibility = self.stringIDToTypeID("maximizeCompatibility")
         id_pht_8 = self.charIDToTypeID("Pht8")
         desc_29.putObject(id_as, id_pht_8, desc_30)
         id_in = self.charIDToTypeID("In  ")
@@ -420,8 +421,10 @@ class AdobeBridge(Communicator):
         """
         return super(AdobeBridge, self)._wait_for_response(uid)
 
+
 ##########################################################################################
 # exceptions
+
 
 class RPCTimeoutError(Exception):
     """

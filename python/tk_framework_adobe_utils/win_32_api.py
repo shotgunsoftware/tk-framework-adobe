@@ -12,7 +12,6 @@
 A minimal set of win32 functions to manage toolkit dialogs under Windows.
 """
 import ctypes
-from ctypes import wintypes
 
 ############################################################################
 # user32.dll
@@ -53,8 +52,9 @@ WS_EX_NOINHERITLAYOUT = 0x00100000
 ############################################################################
 # structures
 
+
 class PROCESSENTRY32(ctypes.Structure):
-     _fields_ = [
+    _fields_ = [
         ("dwSize", ctypes.wintypes.DWORD),
         ("cntUsage", ctypes.wintypes.DWORD),
         ("th32ProcessID", ctypes.wintypes.DWORD),
@@ -69,6 +69,7 @@ class PROCESSENTRY32(ctypes.Structure):
 
 ############################################################################
 # functions
+
 
 def find_parent_process_id(process_id):
     """
@@ -93,12 +94,13 @@ def find_parent_process_id(process_id):
                 break
 
             ret = Process32Next(h_process_snapshot, ctypes.byref(pe))
-    except Exception, e:
+    except Exception:
         pass
     else:
         CloseHandle(h_process_snapshot)
 
     return parent_process_id
+
 
 def safe_get_window_text(hwnd):
     """
@@ -125,11 +127,12 @@ def safe_get_window_text(hwnd):
 
         if result != 0:
             title = unicode_buffer.value
-    except Exception, e:
+    except Exception:
         pass
 
     return title
         
+
 def find_windows(process_id=None, class_name=None, window_text=None, stop_if_found=True):
     """
     Find top-level windows matching certain criteria.
@@ -147,7 +150,7 @@ def find_windows(process_id=None, class_name=None, window_text=None, stop_if_fou
     def enum_windows_proc(hwnd, lparam):
         # try to match process id:
         matches_proc_id = True
-        if process_id != None:
+        if process_id is not None:
             win_process_id = ctypes.c_long()      
             GetWindowThreadProcessId(hwnd, ctypes.byref(win_process_id))
             matches_proc_id = (win_process_id.value == process_id)
@@ -156,7 +159,7 @@ def find_windows(process_id=None, class_name=None, window_text=None, stop_if_fou
         
         # try to match class name:
         matches_class_name = True
-        if class_name != None:
+        if class_name is not None:
             buffer_len = 1024
             unicode_buffer = ctypes.create_unicode_buffer(buffer_len)
             RealGetWindowClass(hwnd, unicode_buffer, buffer_len)
@@ -166,7 +169,7 @@ def find_windows(process_id=None, class_name=None, window_text=None, stop_if_fou
         
         # try to match window text:
         matches_window_text = True
-        if window_text != None:
+        if window_text is not None:
             hwnd_text = safe_get_window_text(hwnd)
             matches_window_text = (window_text in hwnd_text)
         if not matches_window_text:
@@ -181,6 +184,7 @@ def find_windows(process_id=None, class_name=None, window_text=None, stop_if_fou
     EnumWindows(EnumWindowsProc(enum_windows_proc), None)
     
     return found_hwnds
+
 
 def qwidget_winid_to_hwnd(winid):
     """

@@ -31,8 +31,9 @@ CORE_BUILD_SCRIPT = os.path.join("developer", "build_plugin.py")
 
 # timestamp url for signing the extension.
 # see: http://www.davidebarranca.com/2014/05/html-panels-tips-10-packaging-zxp-installers/
-#TIMESTAMP_URL = "https://timestamp.geotrust.com/tsa"
+# TIMESTAMP_URL = "https://timestamp.geotrust.com/tsa"
 TIMESTAMP_URL = "http://timestamp.comodoca.com"
+
 
 def main():
     """
@@ -128,11 +129,11 @@ def _parse_args():
     """
 
     parser = argparse.ArgumentParser(
-        description="Build and package an Adobe extension for the " +
-                    "engine. This includes signing the extension with the " +
-                    "supplied certificate. The extension will be built " +
-                    "in the engine repo unless an output directory is " +
-                    "specified."
+        description=("Build and package an Adobe extension for the "
+                     "engine. This includes signing the extension with the "
+                     "supplied certificate. The extension will be built "
+                     "in the engine repo unless an output directory is "
+                     "specified.")
     )
 
     parser.add_argument(
@@ -160,38 +161,39 @@ def _parse_args():
         "--sign", "-s",
         nargs=3,
         metavar=("/path/to/ZXPSignCmd", "/path/to/certificate", "password"),
-        help="If supplied, sign the build extension. Requires 3 arguments: " +
-             "the path to the 'ZXPSignCmd', the certificate and the password." +
-             "Note, the ZXPSignCmd can be downloaded here: " +
-             "http://labs.adobe.com/downloads/extensionbuilder3.html",
+        help=("If supplied, sign the build extension. Requires 3 arguments: "
+              "the path to the 'ZXPSignCmd', the certificate and the password."
+              "Note, the ZXPSignCmd can be downloaded here: "
+              "http://labs.adobe.com/downloads/extensionbuilder3.html"),
     )
 
     parser.add_argument(
         "--bundle_cache", "-b",
         action="store_true",
-        help="If supplied, include the 'bundle_cache' directory in the build " +
-             "plugin. If not, it is removed after the build.",
+        help=("If supplied, include the 'bundle_cache' directory in the build "
+              "plugin. If not, it is removed after the build."),
     )
 
     parser.add_argument(
         "--version", "-v",
         metavar="v#.#.#",
-        help="The version to attached to the built plugin. If not specified, " +
-             "the version will be set to 'dev' and will override any version " +
-             "of the extension at launch/install time. The current version " +
-             "can be found in the .version file that lives next to the " +
-             "existing .zxp file."
+        help=("The version to attached to the built plugin. If not specified, "
+              "the version will be set to 'dev' and will override any version "
+              "of the extension at launch/install time. The current version "
+              "can be found in the .version file that lives next to the "
+              "existing .zxp file.")
     )
 
     parser.add_argument(
         "--output_dir", "-o",
         metavar="/path/to/output/extension",
-        help="If supplied, output the built extension here. If not supplied, " +
-             "the extension will be built in the engine directory at the top " +
-             "level.",
+        help=("If supplied, output the built extension here. If not supplied, "
+              "the extension will be built in the engine directory at the top "
+              "level."),
     )
 
     return parser.parse_args()
+
 
 def _remove_bundle_cache(args):
     """
@@ -205,7 +207,7 @@ def _remove_bundle_cache(args):
     )
     try:
         shutil.rmtree(bundle_cache_dir)
-    except Exception, e:
+    except Exception:
         logger.warning("Failed to remove bundle cache from extension.")
 
 
@@ -248,12 +250,13 @@ def _sign_plugin(args):
     # clean up the plugin build directory
     try:
         shutil.rmtree(args["plugin_build_dir"])
-    except Exception, e:
+    except Exception:
         logger.warning("Failed to remove plugin build dir.")
 
     # add the signed extension path to the args
     args["extension_path"] = extension_path
     logger.info("Signed extension: %s" % (args["extension_path"],))
+
 
 def _validate_args(args):
     """

@@ -32,12 +32,11 @@ def ensure_extension_up_to_date(logger):
     # the basic plugin needs to be installed in order to launch the Adobe
     # engine. we need to make sure the plugin is installed and up-to-date.
     # will only run if SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL is not set.
-    if not "SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL" in os.environ:
+    if "SHOTGUN_ADOBE_DISABLE_AUTO_INSTALL" not in os.environ:
         logger.debug("Ensuring Adobe extension is up-to-date...")
         try:
             __ensure_extension_up_to_date(logger)
-        except Exception, e:
-            import traceback
+        except Exception:
             exc = traceback.format_exc()
             raise sgtk.TankError(
                 "There was a problem ensuring the Adobe integration extension "
@@ -123,10 +122,8 @@ def __ensure_extension_up_to_date(logger):
     )
 
     if not os.path.exists(installed_version_file_path):
-        logger.debug(
-           "Could not find installed version file '%s'. Reinstalling" %
-           (installed_version_file_path,)
-        )
+        logger.debug("Could not find installed version file '%s'. Reinstalling" %
+                     (installed_version_file_path,))
         __install_extension(bundled_ext_path, installed_ext_dir, logger)
         return
 
@@ -147,8 +144,8 @@ def __ensure_extension_up_to_date(logger):
 
     from sgtk.util.version import is_version_older
     if bundled_version != "dev" and installed_version != "dev":
-        if (bundled_version == installed_version or
-           is_version_older(bundled_version, installed_version)):
+        if bundled_version == installed_version or \
+                is_version_older(bundled_version, installed_version):
 
             # the bundled version is the same or older. or it is a 'dev' build
             # which means always install that one.
@@ -164,8 +161,8 @@ def __ensure_extension_up_to_date(logger):
         logger.debug("Installing the bundled 'dev' version of the extension.")
     else:
         logger.debug(
-            "Bundled extension build is newer than the installed extension " +
-            "build! Updating..."
+            ("Bundled extension build is newer than the installed extension "
+             "build! Updating...")
         )
 
     # install the bundled .zxp file
