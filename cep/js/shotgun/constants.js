@@ -50,7 +50,7 @@ sg_constants.product_info = {
     // After Effects
     AEFT: {
         display_name: "After Effects",
-        tk_engine_name: "tk-aftereffectscc",
+        tk_engine_name: "tk-aftereffects",
         debug_url: "http://localhost:45218"
     }
 
