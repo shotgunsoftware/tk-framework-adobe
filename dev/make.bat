@@ -9,7 +9,7 @@ rem ------------------------------------------
 
 call "env.cmd"
 
-set "PLUGIN_NAME=com.sg.basic.adobe"
+set "PLUGIN_NAME=com.sg.basic.ps"
 set "BUNDLE_CACHE_FOLDER=%APPDATA%\Shotgun\bundle_cache\app_store\tk-core"
 set "ADOBE_CEP_FOLDER=%APPDATA%\Adobe\CEP\extensions"
 set "ZXP_FILE=%~dp1\..\%PLUGIN_NAME%.zxp"

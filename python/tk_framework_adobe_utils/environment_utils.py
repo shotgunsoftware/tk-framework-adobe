@@ -2,7 +2,9 @@ import os
 import sys
 
 
-EXTENSION_NAME = "com.sg.basic.adobe"
+# keeping the old name of the adobe extension to keep the
+# upgrade path clean
+EXTENSION_NAME = "com.sg.basic.ps"
 
 
 def get_adobe_cep_dir():
