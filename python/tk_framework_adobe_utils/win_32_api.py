@@ -29,6 +29,7 @@ EnableWindow = ctypes.windll.user32.EnableWindow
 IsWindowEnabled = ctypes.windll.user32.IsWindowEnabled
 GetWindowLong = ctypes.windll.user32.GetWindowLongW
 SetWindowLong = ctypes.windll.user32.SetWindowLongW
+SetForegroundWindow = ctypes.windll.user32.SetForegroundWindow
 
 ############################################################################
 # kernal32.dll
@@ -202,3 +203,13 @@ def qwidget_winid_to_hwnd(winid):
     hwnd = ctypes.pythonapi.PyCObject_AsVoidPtr(winid)
     
     return hwnd
+
+def bring_to_front(hwnd):
+    """
+    Brings the window associated to the given HWND to the front.
+
+    :param hwnd: Window handle to raise.
+
+    :returns: True on success, False otherwise.
+    """
+    return SetForegroundWindow(hwnd)
