@@ -10,8 +10,8 @@
             <!-- Photoshop - CC 2014+ -->
             <Host Name="PHSP" Version="15.0"/>
             <Host Name="PHXS" Version="15.0"/>
-            <!-- After Effects - CC 2014+ -->
-            <Host Name="AEFT" Version="15.0"/>
+            <!-- After Effects - CC 2017+ -->
+            <Host Name="AEFT" Version="14.0"/>
             <!-- Supporting more engines than Photoshop and After Effects can be done in this line -->
         </HostList>
         <LocaleList>
