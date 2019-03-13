@@ -15,7 +15,7 @@ var sg_event = sg_event || {};
 const _cs_interface = new CSInterface();
 
 // namespace for app events
-const _event_namespace = "com.sg.basic.ps.events";
+const _event_namespace = "com.sg.basic.adobe.events";
 
 
 // ---- Functions
