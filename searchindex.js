@@ -1,0 +1,1 @@
+Search.setIndex({envversion:49,filenames:["index"],objects:{},objnames:{},objtypes:{},terms:{applicat:0,come:0,common:0,contain:0,document:0,integr:0,more:0,part:0,platform:0,process:0,product:0,simplifi:0,soon:0,suit:0,toolkit:0,unifi:0,write:0},titles:["The Shotgun Adobe Framework"],titleterms:{adobe:0,framework:0,shotgun:0}})
