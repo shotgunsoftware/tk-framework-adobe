@@ -1,61 +1,57 @@
 # tk-framework-adobe
 
-
 A framework for Adobe engines
 
 
-# Contributing
+## Development
 
-## Setup development environment
+### How to set up your development environment
 
-To setup the development environment for this project, you will need to obtain the _**ZXPSignCmd**_ tool provided by Adobe, which can be found [here](https://labs.adobe.com/downloads/extensionbuilder3.html). Once you have logged in using your existing Adobe user account, download the _**CC Extensions Signing Toolkit**_, which will provide you with the necessary executable.
-
-If you are developing on a ***Mac*** please set all necessary variables in `dev/env.mk`.
-
-On ***Windows*** please fill all necessary variables in `dev\env.cmd`
-
-From now on you may test and sign with the following targets:
-
----
-***Note***
-Be sure to run all of the following commands from the top-level directory of this project.
----
+- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://labs.adobe.com/downloads/extensionbuilder3.html) tool provided by Adobe. 
+- Once you have logged in using your existing Adobe user account, download the **CC Extensions Signing Toolkit**, which will provide you with the necessary executable.
+- If you are developing on a **Mac**, please set all necessary variables in `dev/env.mk`.
+- If you are developing on **Windows**, please set all necessary variables in `dev\env.cmd`
 
 
 ### To install the CEP extension for testing without signing:
+
 ```
+cd path/to/tk-adobe-framework
 cd dev
 make test
 ```
 
 ### To sign the CEP extension
+
 ```
+cd path/to/tk-adobe-framework
 cd dev
 make sign
 ```
 
 
 ### To create a certificate for use when signing the CEP extension
+
 ```
+cd path/to/tk-adobe-framework
 cd dev
 make create_certificate
 ```
 
----
-***Note***
-In the case where the configured CERTIFICATE_FILE does not exist, the create_certificate command will be automatically run as part of the _sign_ target.
----
+**Note:** In the case where the configured `CERTIFICATE_FILE` does not exist, the create_certificate command will be automatically run as part of the _sign_ target.
 
 
 ### To remove the latest signed zxp file
+
 ```
+cd path/to/tk-adobe-framework
 cd dev
 make clean
 ```
 
-### Notes on editing the env files (env.mk/env.cmd)
+### Notes on editing the env files (`env.mk` and `env.cmd`)
 
-Changes to the env files (env.mk and env.cmd) will typically not be tracked in git. The information contained in these files is specific to a particular development environment, so tracking changes to that data in git is undesirable.
+Changes to the env files (`env.mk` and `env.cmd`) will typically not be tracked in git. The information contained in these files is specific to a particular development environment, so tracking changes to that data in git is undesirable.
 
 If you need to make changes to these files, you can use the following commands:
 
