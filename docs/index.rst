@@ -1,10 +1,9 @@
-The Adobe Framework
-===================
+The Shotgun Adobe Framework
+==================================================
 
-`tk-framework-adobe` holds the common code that is needed for an engine that runs
-inside an Adobe software package. Although currently only used by tk-aftereffects
-and tk-photoshopcc it is useful for all engines that target Adobe Applications that
-support the Adobe Common Extensibility Platform.
+The Shotgun Adobe Framework contains a common integration platform for Adobe Products,
+unifying and simplifying the process of writing a Shotgun Toolkit integration for an
+Application that is part of the Adobe Suite.
 
 On the following pages you will get more information about this framework and its
 specialities.
