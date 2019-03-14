@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ExtensionManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ExtensionBundleId="com.sg.basic.adobe" ExtensionBundleName="Shotgun Engine for Adobe CC" ExtensionBundleVersion="1.0" Version="6.0">
+    <ExtensionList>
+        <Extension Id="com.sg.basic.adobe.manager" Version="1.0"/>
+        <Extension Id="com.sg.basic.adobe.panel" Version="1.0"/>
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- Photoshop - CC 2014+ -->
+            <Host Name="PHSP" Version="15.0"/>
+            <Host Name="PHXS" Version="15.0"/>
+            <!-- After Effects - CC 2017+ -->
+            <Host Name="AEFT" Version="14.0"/>
+            <!-- Supporting more engines than Photoshop and After Effects can be done in this line -->
+        </HostList>
+        <LocaleList>
+            <Locale Code="All"/>
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="6.0"/>
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.sg.basic.adobe.manager">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./html/manager.html</MainPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <!-- don't show. keep it secret. keep it safe. -->
+                    <AutoVisible>false</AutoVisible>
+                    <StartOn>
+                        <!-- Adobe CEP startup event -->
+                        <Event>com.adobe.csxs.events.AppOnline</Event>
+                        <!-- Adobe CEP startup event -->
+                        <Event>com.adobe.csxs.events.ApplicationActivate</Event>
+                    </StartOn>
+                </Lifecycle>
+                <UI>
+                    <!-- Custom keeps it hidden. -->
+                    <Type>Custom</Type>
+                    <Geometry>
+                        <Size>
+                            <Height>100</Height>
+                            <Width>100</Width>
+                        </Size>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+        <Extension Id="com.sg.basic.adobe.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./html/panel.html</MainPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>Shotgun Adobe Panel</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>350</Height>
+                            <Width>400</Width>
+                        </Size>
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./images/IconLight.png</Icon>
+                        <Icon Type="RollOver">./images/IconLightRollOver.png</Icon>
+                        <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+                        <Icon Type="DarkRollOver">./images/IconDarkRollOver.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>

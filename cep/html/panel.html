@@ -1,0 +1,96 @@
+<!--
+Copyright (c) 2019 Shotgun Software Inc.
+
+CONFIDENTIAL AND PROPRIETARY
+
+This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit Source
+Code License included in this distribution package. See LICENSE. By accessing,
+using, copying or modifying this work you indicate your agreement to the Shotgun
+Pipeline Toolkit Source Code License. All rights not expressly granted therein
+are reserved by Shotgun Software Inc.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+
+    <!-- source all the necessary javascript bits-->
+
+    <!-- adobe -->
+    <script src="../js/adobe/CSInterface.js"></script>
+
+    <!-- shotgun -->
+    <script src="../js/shotgun/constants.js"></script>
+    <script src="../js/shotgun/events.js"></script>
+    <script src="../js/shotgun/logging.js"></script>
+    <script src="../js/shotgun/manager_events.js"></script>
+    <script src="../js/shotgun/panel_events.js"></script>
+    <script src="../js/shotgun/panel.js"></script>
+
+    <!-- setup the Shotgun panel extension loading and unloading -->
+
+  </head>
+
+  <body>
+
+    <!-- error -->
+    <div id="sg_status_error" style="display:none;"></div>
+
+    <!-- warning -->
+    <div id="sg_status_warning" style="display:none;"></div>
+
+    <!-- header -->
+    <div id="sg_panel_header"></div>
+
+    <!-- main contents -->
+    <div id="sg_panel_contents"></div>
+
+    <!-- command help -->
+    <div id="sg_panel_command_help" style="display:none;"></div>
+
+    <!-- footer -->
+    <div id="sg_panel_footer">
+
+      <!-- progress bar -->
+      <div id="sg_progress" style="display:none;">
+        <div id="sg_progress_bar">
+        </div>
+      </div>
+      <!-- info -->
+      <div id="sg_status_info" style="display:none;"></div>
+    </div>
+
+    <!-- console -->
+    <div id="sg_panel_console">
+
+      <!-- console logs -->
+      <div id="sg_panel_console_log">
+      </div>
+      <div id="sg_panel_console_footer">
+        <table width="100%">
+          <tr>
+            <td align="left" style="white-space: nowrap">
+              <button class="sg_panel_console_button" onclick="sg_panel.Panel.select_text('sg_panel_console_log')">Select All</button>
+              <button class="sg_panel_console_button" onclick="sg_panel.Panel.selection_to_clipboard()">Copy Selected to Clipboard</button>
+            </td>
+            <td align="right" style="white-space: nowrap">
+              <button class="sg_panel_console_button" onclick="sg_panel.Panel.show_console(false)">Close Console</button>
+              &nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <script>
+      "use strict";
+
+      // Should run when panel start is requested
+      window.addEventListener("load", sg_panel.Panel.on_load);
+      // Should run when panel is closed down.
+      window.addEventListener("unload", sg_panel.Panel.on_unload);
+    </script>
+  </body>
+</html>

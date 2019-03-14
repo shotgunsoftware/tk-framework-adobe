@@ -1,0 +1,15 @@
+configuration:
+
+# the Shotgun fields that this engine needs in order to operate correctly
+requires_shotgun_fields:
+
+# More verbose description of this item
+display_name: "Adobe CC Framework"
+description: "CEP connection and rpc layer for engines that target any Adobe CC DCC-Package."
+
+# Required minimum versions for this item to run
+requires_core_version:
+requires_desktop_version:
+
+# the frameworks this framework requires
+frameworks: []

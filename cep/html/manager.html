@@ -1,0 +1,47 @@
+<!--
+Copyright (c) 2019 Shotgun Software Inc.
+
+CONFIDENTIAL AND PROPRIETARY
+
+This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit Source
+Code License included in this distribution package. See LICENSE. By accessing,
+using, copying or modifying this work you indicate your agreement to the Shotgun
+Pipeline Toolkit Source Code License. All rights not expressly granted therein
+are reserved by Shotgun Software Inc.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+
+    <!-- source all the necessary javascript bits-->
+
+    <!-- adobe -->
+    <script src="../js/adobe/CSInterface.js"></script>
+
+    <!-- shotgun -->
+    <script src="../js/shotgun/constants.js"></script>
+    <script src="../js/shotgun/events.js"></script>
+    <script src="../js/shotgun/logging.js"></script>
+    <script src="../js/shotgun/socket_io_manager.js"></script>
+    <script src="../js/shotgun/panel_events.js"></script>
+    <script src="../js/shotgun/manager_events.js"></script>
+    <script src="../js/shotgun/manager.js"></script>
+
+    <!-- setup the Shotgun python process to startup on load -->
+    <script>
+      "use strict";
+
+      // Handles bootstrapping python/tk in a separate process. Since this
+      // extension runs invisibly, so should run once at app startup time.
+      window.addEventListener("load", sg_manager.Manager.on_load);
+
+      // Should run when the application shuts down.
+      window.addEventListener("unload", sg_manager.Manager.on_unload);
+    </script>
+  </head>
+  <body>
+    <!-- invisible extension. nothing to display -->
+  </body>
+</html>

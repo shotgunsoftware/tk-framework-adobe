@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="com.sg.basic.adobe.panel">
+        <HostList>
+           <Host Name="PHSP" Port="45216"/>
+           <Host Name="PHXS" Port="45217"/>
+           <Host Name="AEFT" Port="45218"/>
+        </HostList>
+    </Extension>
+    <Extension Id="com.sg.basic.adobe.manager">
+        <HostList>
+           <Host Name="PHSP" Port="45226"/>
+           <Host Name="PHXS" Port="45227"/>
+           <Host Name="AEFT" Port="45228"/>
+        </HostList>
+    </Extension>
+</ExtensionList>
