@@ -10,3 +10,6 @@
 
 from .classic_init import toolkit_classic_bootstrap
 from .plugin_init import toolkit_plugin_bootstrap
+
+from .adobe_bridge import Communicator
+from .errors import RPCTimeoutError
