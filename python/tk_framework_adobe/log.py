@@ -7,6 +7,7 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
+
 import os
 import logging
 
@@ -62,5 +63,4 @@ def get_sgtk_logger(sgtk):
     sgtk.LogManager().initialize_base_file_handler(log_name)
 
     return bootstrap_log_handler
-
 
