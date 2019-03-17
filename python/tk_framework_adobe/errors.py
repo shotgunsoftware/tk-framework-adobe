@@ -8,20 +8,9 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
-import sgtk
 
-
-class AdobeFramework(sgtk.platform.Framework):
+class RPCTimeoutError(Exception):
     """
-    Adobe CC Framework
+    Raised when an RPC event times out.
     """
-
-    ##########################################################################################
-    # init and destroy
-
-    def init_framework(self):
-        self.logger.debug("%s: Initializing..." % self)
-
-    def destroy_framework(self):
-        self.logger.debug("%s: Destroying..." % self)
-
+    pass
