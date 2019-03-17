@@ -54,13 +54,13 @@ The instance will always return ProxyWrapper objects, that represent javascript 
 
 
 Exceptions
-------
+----------
 
 .. autoclass:: python.tk_framework_adobe.adobe_bridge.RPCTimeoutError
 
 
-Utils
------
+Utilities
+---------
 
 In order to simplify the engine installation logic in the startup.py of the engine, the following method is provided.
 

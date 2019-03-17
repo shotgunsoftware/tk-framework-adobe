@@ -48,7 +48,7 @@ resources can be useful:
 
 
 Application specific logic
------------------------------------------
+--------------------------
 
 As the framework provides a single, signed adobe extension that is meant
 to be shared between all Adobe applications, it was was not possible
@@ -88,7 +88,7 @@ be modified:
     Please replace PORTNUM with the unique port used in ``cep/.debug``.
 
 Environment Variables
------------------------------------------
+---------------------
 
 To aid in debugging, there are a set of environment variables that change some
 of the framework's default values:

@@ -12,6 +12,7 @@ import json
 
 from .rpc import Communicator
 from .utils import timeout, MessageEmitter
+from .errors import RPCTimeoutError
 
 
 class AdobeBridge(Communicator):
@@ -105,6 +106,8 @@ class AdobeBridge(Communicator):
         """
         Pings the socket.io server to test whether the connection is still
         active.
+
+        :raises: :class:`RPCTimeoutError`
         """
         super(AdobeBridge, self).ping()
 
@@ -351,6 +354,7 @@ class AdobeBridge(Communicator):
         :param int uid: The unique id of the RPC call to wait for.
 
         :returns: The raw returned results data.
+        :raises: :class:`RPCTimeoutError`
         """
         return super(AdobeBridge, self)._wait_for_response(uid)
 
