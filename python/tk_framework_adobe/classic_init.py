@@ -17,6 +17,7 @@ def toolkit_classic_bootstrap():
     Business logic for bootstrapping toolkit as a traditional setup.
     """
     import sgtk
+
     logger = sgtk.LogManager.get_logger(__name__)
 
     # ---- setup logging
@@ -36,5 +37,3 @@ def toolkit_classic_bootstrap():
     sgtk.LogManager().root_logger.removeHandler(log_handler)
     logger.debug("Removed bootstrap log handler from root logger...")
     logger.info("Toolkit Bootstrapped!")
-
-

@@ -8,6 +8,7 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 import sys
+
 sys.dont_write_bytecode = True
 
 
@@ -87,8 +88,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     # log metrics for the app name and version
     host_info = engine.host_info
     engine.log_user_attribute_metric(
-        "%s Version" % host_info["name"],
-        host_info["version"]
+        "%s Version" % host_info["name"], host_info["version"]
     )
 
     # debug logging for the app name/version as well
@@ -124,6 +124,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     # crashes. Until this problem is fixed (#46207) we give the thread a chance
     # to exit its exec loop by sleeping a couple of seconds.
     import time
+
     time.sleep(2)
     sys.exit(ret)
 
@@ -160,4 +161,3 @@ if __name__ == "__main__":
         sys.stdout.write("[ERROR]: %s" % (traceback.format_exc(),))
         sys.stdout.flush()
         sys.exit(EXIT_STATUS_ERROR)
-

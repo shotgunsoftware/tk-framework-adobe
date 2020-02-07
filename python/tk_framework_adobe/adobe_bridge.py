@@ -34,6 +34,7 @@ def timeout(seconds=5.0, error_message="Timed out."):
     :param float seconds: The timeout duration, in seconds.
     :param str error_message: The error message to raise once timed out.
     """
+
     def decorator(func):
         def _handle_timeout():
             raise RPCTimeoutError(error_message)
@@ -48,6 +49,7 @@ def timeout(seconds=5.0, error_message="Timed out."):
             return result
 
         return functools.wraps(func)(wrapper)
+
     return decorator
 
 
@@ -74,6 +76,7 @@ class MessageEmitter(QtCore.QObject):
         document by the RPC server. The string value is the path to the new
         active document, or an empty string if the active document is unsaved.
     """
+
     logging_received = QtCore.Signal(str, str)
     command_received = QtCore.Signal(int)
     run_tests_request_received = QtCore.Signal()
@@ -85,21 +88,16 @@ class AdobeBridge(Communicator):
     """
     Bridge layer between the Adobe product and Shotgun Toolkit.
     """
+
     # Backwards compatibility added to support tk-photoshop environment vars.
     # https://support.shotgunsoftware.com/hc/en-us/articles/219039748-Photoshop#If%20the%20engine%20does%20not%20start
     SHOTGUN_ADOBE_RESPONSE_TIMEOUT = os.environ.get(
         "SHOTGUN_ADOBE_RESPONSE_TIMEOUT",
-        os.environ.get(
-            "SGTK_PHOTOSHOP_TIMEOUT",
-            300.0,
-        ),
+        os.environ.get("SGTK_PHOTOSHOP_TIMEOUT", 300.0,),
     )
     SHOTGUN_ADOBE_HEARTBEAT_TIMEOUT = os.environ.get(
         "SHOTGUN_ADOBE_HEARTBEAT_TIMEOUT",
-        os.environ.get(
-            "SGTK_PHOTOSHOP_HEARTBEAT_TIMEOUT",
-            0.5,
-        ),
+        os.environ.get("SGTK_PHOTOSHOP_HEARTBEAT_TIMEOUT", 0.5,),
     )
 
     def __init__(self, *args, **kwargs):
@@ -223,10 +221,7 @@ class AdobeBridge(Communicator):
         :param msg: The message to log.
         """
 
-        log_data = {
-            "level": level,
-            "msg": msg
-        }
+        log_data = {"level": level, "msg": msg}
 
         # NOTE: do not log in this method
         json_log_data = json.dumps(log_data)
@@ -383,8 +378,7 @@ class AdobeBridge(Communicator):
         """
         response = json.loads(response)
         self.logging_received.emit(
-            response.get("level"),
-            response.get("message"),
+            response.get("level"), response.get("message"),
         )
 
     def _forward_run_tests(self, response):
@@ -430,6 +424,5 @@ class RPCTimeoutError(Exception):
     """
     Raised when an RPC event times out.
     """
+
     pass
-
-

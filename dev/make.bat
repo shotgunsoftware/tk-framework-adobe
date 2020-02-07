@@ -90,4 +90,3 @@ goto %TMP_JMP%
 :missing_tk_core
 echo "The tk-core version given '%TKCORE_VERSION%' does not exist in disk. Please choose a version existing in the folder: '%BUNDLE_CACHE_FOLDER%'"
 goto :eof
-

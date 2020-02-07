@@ -21,5 +21,3 @@ def get_adobe_cep_dir():
 
 def get_extension_install_directory():
     return os.path.join(get_adobe_cep_dir(), EXTENSION_NAME)
-
-

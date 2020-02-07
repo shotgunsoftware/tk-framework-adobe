@@ -15,6 +15,7 @@ class ProxyScope(object):
     """
     An object representation of a remotely-accessible scope.
     """
+
     def __init__(self, data, communicator):
         """
         Constructor.
@@ -47,12 +48,9 @@ class ProxyScope(object):
         try:
             for item_name, item in self._data.iteritems():
                 self._communicator.log_network_debug("Scope registry: %s" % item_name)
-                self.__registry[item_name] = ProxyWrapper(
-                    item,
-                    self._communicator,
-                )
+                self.__registry[item_name] = ProxyWrapper(item, self._communicator,)
         except Exception:
-            raise ValueError("Unable to interpret data: \"%s\"" % self._data)
+            raise ValueError('Unable to interpret data: "%s"' % self._data)
 
     def __getattr__(self, name):
         """
@@ -75,6 +73,7 @@ class ProxyWrapper(object):
     """
     A wrapper class for remotely-accessible data.
     """
+
     _LOCK = threading.Lock()
     _REGISTRY = dict()
 
@@ -179,11 +178,7 @@ class ProxyWrapper(object):
         remote connection. Any ordered arguments provided are passed through to
         the remote callable.
         """
-        return self._communicator.rpc_call(
-            self,
-            list(args),
-            parent=self._parent,
-        )
+        return self._communicator.rpc_call(self, list(args), parent=self._parent,)
 
     def __eq__(self, other):
         """
@@ -299,6 +294,7 @@ class ClassInstanceProxyWrapper(ProxyWrapper):
     """
     A ProxyWrapper for class instances.
     """
+
     def __call__(self, *args, **kwargs):
         """
         This method will take care of calling the new operator
@@ -309,4 +305,3 @@ class ClassInstanceProxyWrapper(ProxyWrapper):
             return instance
         else:
             raise
-
