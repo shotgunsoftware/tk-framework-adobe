@@ -156,7 +156,7 @@ if __name__ == "__main__":
         # startup the plugin which includes setting up the socket io client,
         # bootstrapping the engine, and starting the Qt event loop
         bootstrap(root_path, port, engine_name, app_id)
-    except Exception, e:
+    except Exception as e:
         sys.stdout.write("[ERROR]: %s" % (traceback.format_exc(),))
         sys.stdout.flush()
         sys.exit(EXIT_STATUS_ERROR)
