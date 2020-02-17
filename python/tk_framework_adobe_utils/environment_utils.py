@@ -1,6 +1,6 @@
 import os
-import sys
 
+from sgtk import util
 
 EXTENSION_NAME = "com.sg.basic.adobe"
 
@@ -8,9 +8,9 @@ EXTENSION_NAME = "com.sg.basic.adobe"
 def get_adobe_cep_dir():
 
     # the CEP install directory is OS-specific
-    if sys.platform == "win32":
+    if util.is_windows():
         app_data = os.getenv("APPDATA")
-    elif sys.platform == "darwin":
+    elif util.is_macos():
         app_data = os.path.expanduser("~/Library/Application Support")
     else:
         raise Exception("This engine only runs on OSX & Windows.")

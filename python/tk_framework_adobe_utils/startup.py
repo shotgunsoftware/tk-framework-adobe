@@ -16,8 +16,7 @@ from sgtk.util.filesystem import (
     move_folder,
 )
 
-
-import environment_utils
+from . import environment_utils
 
 
 def ensure_extension_up_to_date(logger):

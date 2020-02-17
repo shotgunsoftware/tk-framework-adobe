@@ -10,15 +10,12 @@
 import os
 import functools
 import threading
-
-
-from sgtk.platform.qt import QtCore
-
-
 import json
 
+from .rpc import Communicator
 
-from rpc import Communicator
+from sgtk.platform.qt import QtCore
+from tank_vendor import six
 
 
 ##########################################################################################
@@ -208,8 +205,7 @@ class AdobeBridge(Communicator):
             except Exception:
                 path = None
 
-            if isinstance(path, unicode):
-                path = path.encode("utf-8")
+            six.ensure_str(path)
 
         return path
 
