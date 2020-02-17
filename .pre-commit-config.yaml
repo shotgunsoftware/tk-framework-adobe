@@ -9,7 +9,7 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 # Styles the code properly
-# Exclude the UI files, as they are auto-generated.
+# Exclude the UI files, as they are auto-generated. Also exclude all the files in the cep folder.
 exclude: "cep|ui\/.*py$"
 # List of super useful formatters.
 repos:
