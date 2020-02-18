@@ -640,8 +640,8 @@ class Communicator(object):
             elif isinstance(param, ProxyWrapper):
                 processed.append(param.data)
             else:
-                if isinstance(param, six.string_types):
-                    param = six.ensure_str(param)
+                # ensure the string as unicode.
+                param = six.text_type(param)
                 processed.append(param)
 
         return processed
