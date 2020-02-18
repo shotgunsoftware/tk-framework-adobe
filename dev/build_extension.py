@@ -10,7 +10,9 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
+from __future__ import print_function
 import sys
+
 sys.dont_write_bytecode = True
 
 import argparse
@@ -60,9 +62,7 @@ def main():
     if args["sign"]:
         _sign_plugin(args)
     else:
-        logger.warning(
-            "Not signing the built plugin. This build can not be released!"
-        )
+        logger.warning("Not signing the built plugin. This build can not be released!")
 
     logger.info("Build successful.")
 
@@ -76,17 +76,14 @@ def _build_plugin(args):
 
     # construct the full extension output directory
     plugin_build_dir = os.path.abspath(
-        os.path.join(
-            args["output_dir"],
-            args["extension_name"]
-        )
+        os.path.join(args["output_dir"], args["extension_name"])
     )
 
     command = [
         sys.executable,
         os.path.join(args["core"], CORE_BUILD_SCRIPT),
         args["plugin_dir"],
-        plugin_build_dir
+        plugin_build_dir,
     ]
 
     # execute the build script
@@ -115,6 +112,7 @@ def _clean_plugin_dir(args):
     # remove all .pyc files recursively
     logger.info("Cleaning built plugin directory...")
     from sgtk.util.filesystem import safe_delete_file
+
     for (root, dir_names, file_names) in os.walk(args["plugin_build_dir"]):
         for file_name in file_names:
             if file_name.endswith(".pyc"):
@@ -129,67 +127,84 @@ def _parse_args():
     """
 
     parser = argparse.ArgumentParser(
-        description=("Build and package an Adobe extension for the "
-                     "engine. This includes signing the extension with the "
-                     "supplied certificate. The extension will be built "
-                     "in the engine repo unless an output directory is "
-                     "specified.")
+        description=(
+            "Build and package an Adobe extension for the "
+            "engine. This includes signing the extension with the "
+            "supplied certificate. The extension will be built "
+            "in the engine repo unless an output directory is "
+            "specified."
+        )
     )
 
     parser.add_argument(
-        "--core", "-c",
+        "--core",
+        "-c",
         metavar="/path/to/tk-core",
         help="The path to tk-core to use when building the toolkit plugin.",
         required=True,
     )
 
     parser.add_argument(
-        "--plugin_name", "-p",
+        "--plugin_name",
+        "-p",
         metavar="name",
         help="The name of the engine plugin to build. Ex: 'basic'.",
         required=True,
     )
 
     parser.add_argument(
-        "--extension_name", "-e",
+        "--extension_name",
+        "-e",
         metavar="name",
         help="The name of the output extension. Ex: 'com.sg.basic.ps'",
         required=True,
     )
 
     parser.add_argument(
-        "--sign", "-s",
+        "--sign",
+        "-s",
         nargs=3,
         metavar=("/path/to/ZXPSignCmd", "/path/to/certificate", "password"),
-        help=("If supplied, sign the build extension. Requires 3 arguments: "
-              "the path to the 'ZXPSignCmd', the certificate and the password."
-              "Note, the ZXPSignCmd can be downloaded here: "
-              "http://labs.adobe.com/downloads/extensionbuilder3.html"),
+        help=(
+            "If supplied, sign the build extension. Requires 3 arguments: "
+            "the path to the 'ZXPSignCmd', the certificate and the password."
+            "Note, the ZXPSignCmd can be downloaded here: "
+            "http://labs.adobe.com/downloads/extensionbuilder3.html"
+        ),
     )
 
     parser.add_argument(
-        "--bundle_cache", "-b",
+        "--bundle_cache",
+        "-b",
         action="store_true",
-        help=("If supplied, include the 'bundle_cache' directory in the build "
-              "plugin. If not, it is removed after the build."),
+        help=(
+            "If supplied, include the 'bundle_cache' directory in the build "
+            "plugin. If not, it is removed after the build."
+        ),
     )
 
     parser.add_argument(
-        "--version", "-v",
+        "--version",
+        "-v",
         metavar="v#.#.#",
-        help=("The version to attached to the built plugin. If not specified, "
-              "the version will be set to 'dev' and will override any version "
-              "of the extension at launch/install time. The current version "
-              "can be found in the .version file that lives next to the "
-              "existing .zxp file.")
+        help=(
+            "The version to attached to the built plugin. If not specified, "
+            "the version will be set to 'dev' and will override any version "
+            "of the extension at launch/install time. The current version "
+            "can be found in the .version file that lives next to the "
+            "existing .zxp file."
+        ),
     )
 
     parser.add_argument(
-        "--output_dir", "-o",
+        "--output_dir",
+        "-o",
         metavar="/path/to/output/extension",
-        help=("If supplied, output the built extension here. If not supplied, "
-              "the extension will be built in the engine directory at the top "
-              "level."),
+        help=(
+            "If supplied, output the built extension here. If not supplied, "
+            "the extension will be built in the engine directory at the top "
+            "level."
+        ),
     )
 
     return parser.parse_args()
@@ -201,10 +216,7 @@ def _remove_bundle_cache(args):
     """
 
     logger.info("Removing bundle cache from built extension...")
-    bundle_cache_dir = os.path.join(
-        args["plugin_build_dir"],
-        BUNDLE_CACHE_DIR
-    )
+    bundle_cache_dir = os.path.join(args["plugin_build_dir"], BUNDLE_CACHE_DIR)
     try:
         shutil.rmtree(bundle_cache_dir)
     except Exception:
@@ -222,6 +234,7 @@ def _sign_plugin(args):
     # remove the existing build file
     if os.path.exists(extension_path):
         from sgtk.util.filesystem import safe_delete_file
+
         safe_delete_file(extension_path)
 
     (sign_command, certificate_path, certificate_pwd) = args["sign"]
@@ -287,18 +300,17 @@ def _validate_args(args):
 
     # ensure core path exists and build script is there
     if not os.path.exists(args["core"]):
-        raise Exception(
-            "Supplied core path does not exist: %s" % (args["core"],)
-        )
+        raise Exception("Supplied core path does not exist: %s" % (args["core"],))
 
     # make sure we can import core
     try:
         sgtk_dir = os.path.join(args["core"], "python")
         sys.path.insert(0, sgtk_dir)  # make sure this one is found first
         import sgtk as imported_sgtk
+
         global sgtk
         sgtk = imported_sgtk
-    except Exception, e:
+    except Exception as e:
         raise Exception("Error import supplied core: %s" % (e,))
 
     # setup the logger for use from here on out
@@ -312,7 +324,7 @@ def _validate_args(args):
         global logger
         logger = sgtk.LogManager.get_logger("build_extension")
 
-    except Exception, e:
+    except Exception as e:
         raise Exception("Error creating toolkit logger: %s" % (e,))
 
     logger.info("Validating command line arguments...")
@@ -322,13 +334,13 @@ def _validate_args(args):
     build_script = os.path.join(args["core"], CORE_BUILD_SCRIPT)
     if not os.path.exists(build_script):
         raise Exception(
-            "Could not find plugin build script in supplied core: %s" %
-            (build_script,)
+            "Could not find plugin build script in supplied core: %s" % (build_script,)
         )
 
     # ensure the extension name is valid
     logger.info("Ensuring valid plugin & extension build names...")
     from sgtk.util.filesystem import create_valid_filename
+
     args["extension_name"] = create_valid_filename(args["extension_name"])
     logger.info("Extension name: %s" % (args["extension_name"]))
 
@@ -337,8 +349,8 @@ def _validate_args(args):
     if args["version"]:
         if not re.match(r"^v\d+\.\d+\.\d+$", args["version"]):
             raise Exception(
-                "Supplied version doesn't match the format 'v#.#.#'. Supplied: %s" %
-                (args["version"],)
+                "Supplied version doesn't match the format 'v#.#.#'. Supplied: %s"
+                % (args["version"],)
             )
     else:
         args["version"] = "dev"
@@ -349,32 +361,26 @@ def _validate_args(args):
         logger.info("Verifying 'ZXPSignCmd` path...")
         if not os.path.exists(args["sign"][0]):
             raise Exception(
-                "The supplied 'ZXPSignCmd' does not exist. Supplied path: %s " %
-                (args["sign"][0],)
+                "The supplied 'ZXPSignCmd' does not exist. Supplied path: %s "
+                % (args["sign"][0],)
             )
 
         logger.info("Verifying certificate path...")
         if not os.path.exists(args["sign"][1]):
             raise Exception(
-                "The supplied certificate does not exist. Supplied path: %s " %
-                (args["sign"][1],)
+                "The supplied certificate does not exist. Supplied path: %s "
+                % (args["sign"][1],)
             )
 
     # get the full path to the engine repo
     logger.info("Populating the engine directory...")
     args["engine_dir"] = os.path.abspath(
-        os.path.join(
-            os.path.dirname(__file__),
-            os.pardir
-        )
+        os.path.join(os.path.dirname(__file__), os.pardir)
     )
 
     # ensure the plugin can be found in the engine
     logger.info("Validating plugin name...")
-    plugin_dir = os.path.join(
-        args["engine_dir"],
-        "cep"
-    )
+    plugin_dir = os.path.join(args["engine_dir"], "cep")
     if not os.path.exists(plugin_dir):
         raise Exception(
             "Could not find plugin '%s' in engine." % (args["plugin_name"],)
@@ -387,6 +393,7 @@ def _validate_args(args):
     if args["output_dir"]:
         if not os.path.exists(args["output_dir"]):
             from sgtk.util.filesystem import ensure_folder_exists
+
             ensure_folder_exists(args["output_dir"])
     else:
         args["output_dir"] = args["engine_dir"]
@@ -406,8 +413,7 @@ def _write_version_file(args):
 
     # the file to create with the specified version
     bundle_version_file_path = os.path.join(
-        args["plugin_build_dir"],
-        "%s.%s" % (args["extension_name"], "version")
+        args["plugin_build_dir"], "%s.%s" % (args["extension_name"], "version")
     )
 
     # write the file
@@ -416,8 +422,7 @@ def _write_version_file(args):
         bundle_version_file.write(args["version"])
 
     engine_file_path = os.path.join(
-        args["engine_dir"],
-        "%s.%s" % (args["extension_name"], "version"),
+        args["engine_dir"], "%s.%s" % (args["extension_name"], "version"),
     )
 
     # write the file
@@ -431,10 +436,9 @@ if __name__ == "__main__":
     exit_code = 1
     try:
         exit_code = main()
-    except Exception, e:
-        print "ERROR: %s" % (e,)
+    except Exception as e:
+        print("ERROR: %s" % (e,))
     else:
         logger.info("Extension successfully built!")
 
     sys.exit(exit_code)
-

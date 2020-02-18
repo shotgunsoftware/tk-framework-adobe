@@ -70,14 +70,13 @@ def __ensure_extension_up_to_date(logger):
             os.path.dirname(__file__),
             os.path.pardir,
             os.path.pardir,
-            "%s.zxp" % (extension_name,)
+            "%s.zxp" % (extension_name,),
         )
     )
 
     if not os.path.exists(bundled_ext_path):
         raise sgtk.TankError(
-            "Could not find bundled extension. Expected: '%s'" %
-            (bundled_ext_path,)
+            "Could not find bundled extension. Expected: '%s'" % (bundled_ext_path,)
         )
 
     # now get the version of the bundled extension
@@ -85,17 +84,14 @@ def __ensure_extension_up_to_date(logger):
 
     bundled_version_file_path = os.path.abspath(
         os.path.join(
-            os.path.dirname(__file__),
-            os.path.pardir,
-            os.path.pardir,
-            version_file
+            os.path.dirname(__file__), os.path.pardir, os.path.pardir, version_file
         )
     )
 
     if not os.path.exists(bundled_version_file_path):
         raise sgtk.TankError(
-            "Could not find bundled version file. Expected: '%s'" %
-            (bundled_version_file_path,)
+            "Could not find bundled version file. Expected: '%s'"
+            % (bundled_version_file_path,)
         )
 
     # get the bundled version from the version file
@@ -117,13 +113,14 @@ def __ensure_extension_up_to_date(logger):
     installed_version_file_path = os.path.join(installed_ext_dir, version_file)
 
     logger.debug(
-        "The installed version file path is: %s" %
-        (installed_version_file_path,)
+        "The installed version file path is: %s" % (installed_version_file_path,)
     )
 
     if not os.path.exists(installed_version_file_path):
-        logger.debug("Could not find installed version file '%s'. Reinstalling" %
-                     (installed_version_file_path,))
+        logger.debug(
+            "Could not find installed version file '%s'. Reinstalling"
+            % (installed_version_file_path,)
+        )
         __install_extension(bundled_ext_path, installed_ext_dir, logger)
         return
 
@@ -136,16 +133,20 @@ def __ensure_extension_up_to_date(logger):
         installed_version = installed_version_file.read().strip()
 
     if installed_version is None:
-        logger.debug("Could not determine version for the installed extension. Reinstalling")
+        logger.debug(
+            "Could not determine version for the installed extension. Reinstalling"
+        )
         __install_extension(bundled_ext_path, installed_ext_dir, logger)
         return
 
     logger.debug("Installed extension's version is: %s" % (installed_version,))
 
     from sgtk.util.version import is_version_older
+
     if bundled_version != "dev" and installed_version != "dev":
-        if bundled_version == installed_version or \
-                is_version_older(bundled_version, installed_version):
+        if bundled_version == installed_version or is_version_older(
+            bundled_version, installed_version
+        ):
 
             # the bundled version is the same or older. or it is a 'dev' build
             # which means always install that one.
@@ -161,8 +162,10 @@ def __ensure_extension_up_to_date(logger):
         logger.debug("Installing the bundled 'dev' version of the extension.")
     else:
         logger.debug(
-            ("Bundled extension build is newer than the installed extension "
-             "build! Updating...")
+            (
+                "Bundled extension build is newer than the installed extension "
+                "build! Updating..."
+            )
         )
 
     # install the bundled .zxp file
@@ -198,16 +201,14 @@ def __install_extension(ext_path, dest_dir, logger):
             move_folder(backup_ext_dir, dest_dir)
             raise sgtk.TankError("Unable to remove the old extension during update.")
 
-    logger.debug(
-        "Installing bundled extension: '%s' to '%s'" % (ext_path, dest_dir))
+    logger.debug("Installing bundled extension: '%s' to '%s'" % (ext_path, dest_dir))
 
     # make sure the bundled extension exists
     if not os.path.exists(ext_path):
         # retrieve backup before aborting install
         move_folder(backup_ext_dir, dest_dir)
         raise sgtk.TankError(
-            "Expected CEP extension does not exist. Looking for %s" %
-            (ext_path,)
+            "Expected CEP extension does not exist. Looking for %s" % (ext_path,)
         )
 
     # extract the .zxp file into the destination dir
@@ -221,4 +222,3 @@ def __install_extension(ext_path, dest_dir, logger):
     except Exception:
         # can't remove temp dir. no biggie.
         pass
-

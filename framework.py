@@ -14,4 +14,3 @@ class AdobeFramework(sgtk.platform.Framework):
 
     def destroy_framework(self):
         self.logger.debug("%s: Destroying..." % self)
-

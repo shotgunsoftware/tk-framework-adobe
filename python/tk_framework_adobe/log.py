@@ -56,11 +56,9 @@ def get_sgtk_logger(sgtk):
     # the log should go to a file named like the engine, which is to be started
     # if the engine is unknown to the current environment, it will just log
     # into the frameworks own log-file
-    log_name = os.getenv('SHOTGUN_ENGINE', 'tk-framework-adobe')
+    log_name = os.getenv("SHOTGUN_ENGINE", "tk-framework-adobe")
 
     # initializes the file where logging output will go
     sgtk.LogManager().initialize_base_file_handler(log_name)
 
     return bootstrap_log_handler
-
-

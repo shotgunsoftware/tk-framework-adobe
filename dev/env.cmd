@@ -27,5 +27,3 @@ set "CERT_LOCALITY="
 set "CERT_ORG_UNIT="
 set "CERT_EMAIL="
 set "CERT_VALIDITY_DAYS="
-
-

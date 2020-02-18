@@ -1,3 +1,8 @@
+[![Build Status](https://dev.azure.com/shotgun-ecosystem/Toolkit/_apis/build/status/Frameworks/tk-framework-adobe?branchName=master)](https://dev.azure.com/shotgun-ecosystem/Toolkit/_build/latest?definitionId=62&branchName=master)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Linting](https://img.shields.io/badge/PEP8%20by-Hound%20CI-a873d1.svg)](https://houndci.com)
+
+
 # tk-framework-adobe
 
 A framework for Adobe engines
@@ -7,7 +12,7 @@ A framework for Adobe engines
 
 ### How to set up your development environment
 
-- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://labs.adobe.com/downloads/extensionbuilder3.html) tool provided by Adobe. 
+- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://labs.adobe.com/downloads/extensionbuilder3.html) tool provided by Adobe.
 - Once you have logged in using your existing Adobe user account, download the **CC Extensions Signing Toolkit**, which will provide you with the necessary executable.
 - If you are developing on a **Mac**, please set all necessary variables in `dev/env.mk`.
 - If you are developing on **Windows**, please set all necessary variables in `dev\env.cmd`
@@ -63,5 +68,3 @@ git update-index --skip-worktree dev/env.mk dev/env.cmd
 ```
 
 Please be aware that these files contain potentially-sensitive information, such as a certificate password. When making changes to these files and pushing them to a git repository, be sure that you've removed any data that might be considered confidential.
-
-

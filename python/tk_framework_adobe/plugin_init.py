@@ -77,7 +77,9 @@ def toolkit_plugin_bootstrap(plugin_root_path):
     logger.info("Bootstrapping toolkit...")
     engine_to_start = os.getenv("SHOTGUN_ENGINE", None)
     if engine_to_start is None:
-        logger.error("No engine to start is specified. Make shure SHOTGUN_ENGINE is set in the bootstrap of your engine.")
+        logger.error(
+            "No engine to start is specified. Make shure SHOTGUN_ENGINE is set in the bootstrap of your engine."
+        )
         return
 
     toolkit_mgr.bootstrap_engine(engine_to_start, entity=entity)
@@ -87,5 +89,3 @@ def toolkit_plugin_bootstrap(plugin_root_path):
     logger.debug("Removed bootstrap log handler from root logger...")
 
     logger.info("Toolkit Bootstrapped!")
-
-

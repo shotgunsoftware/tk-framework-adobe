@@ -55,5 +55,3 @@ sign: ../${PLUGIN_NAME}.zxp create_certificate
 
 test: ${ADOBE_CEP_FOLDER}
 	@"${PYTHON_EXE}" "./build_extension.py" -c "${TKCORE_FOLDER}" -p basic -e "${PLUGIN_NAME}" -o  "${ADOBE_CEP_FOLDER}"
-
-

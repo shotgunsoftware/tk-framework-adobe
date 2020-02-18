@@ -22,13 +22,13 @@ sys.path.insert(
     0,
     os.path.normpath(
         os.path.join(
-            os.path.dirname(__file__), # ./python/tk_framework_adobe/rpc
-            os.pardir,                      # ./python/tk_framework_adobe
-            os.pardir,                      # ./python
-            os.pardir,                      # .
-            "pkgs.zip",                # ./pkgs.zip
+            os.path.dirname(__file__),  # ./python/tk_framework_adobe/rpc
+            os.pardir,  # ./python/tk_framework_adobe
+            os.pardir,  # ./python
+            os.pardir,  # .
+            "pkgs.zip",  # ./pkgs.zip
         )
-    )
+    ),
 )
 
 
@@ -44,6 +44,7 @@ class Communicator(object):
     a server that the communicator connects to at instantiation
     time. Basic RPC calls are also implemented.
     """
+
     _RESULTS = dict()
     _UID = 0
     _LOCK = threading.Lock()
@@ -51,7 +52,15 @@ class Communicator(object):
     _REGISTRY = dict()
     _COMMAND_REGISTRY = dict()
 
-    def __init__(self, port=8090, host="localhost", disconnect_callback=None, logger=None, network_debug=False, event_processor=None):
+    def __init__(
+        self,
+        port=8090,
+        host="localhost",
+        disconnect_callback=None,
+        logger=None,
+        network_debug=False,
+        event_processor=None,
+    ):
         """
         Constructor. Rather than instantiating the Communicator directly,
         it is advised to make use of the get_or_create() classmethod as
@@ -287,12 +296,12 @@ class Communicator(object):
                 msg = "Failed to call method %s bound to %s with arguments %s" % (
                     proxy_object,
                     parent,
-                    params[1:], # The first item is the UID, which isn't relevant.
+                    params[1:],  # The first item is the UID, which isn't relevant.
                 )
             else:
                 msg = "Failed to call function %s with arguments %s" % (
                     proxy_object,
-                    params[1:], # The first item is the UID, which isn't relevant.
+                    params[1:],  # The first item is the UID, which isn't relevant.
                 )
             raise RuntimeError(msg)
 
@@ -314,19 +323,9 @@ class Communicator(object):
 
         for value in (left, right):
             if isinstance(value, ProxyWrapper):
-                packages.append(
-                    dict(
-                        is_wrapped=True,
-                        value=value.uid,
-                    )
-                )
+                packages.append(dict(is_wrapped=True, value=value.uid,))
             else:
-                packages.append(
-                    dict(
-                        is_wrapped=False,
-                        value=value,
-                    )
-                )
+                packages.append(dict(is_wrapped=False, value=value,))
         try:
             return self.__run_rpc_command(
                 method="is_equal",
@@ -374,10 +373,7 @@ class Communicator(object):
         """
         self.log_network_debug("Sending a get message using rpc_get...")
         self.log_network_debug(
-            "Getting property %s from object UID %s" % (
-                property_name,
-                proxy_object.uid
-            )
+            "Getting property %s from object UID %s" % (property_name, proxy_object.uid)
         )
 
         try:
@@ -390,10 +386,8 @@ class Communicator(object):
             )
         except RuntimeError:
             raise AttributeError(
-                "Failed to get property %s of object %s" % (
-                    property_name,
-                    proxy_object,
-                )
+                "Failed to get property %s of object %s"
+                % (property_name, proxy_object,)
             )
 
     def rpc_get_index(self, proxy_object, index):
@@ -408,10 +402,7 @@ class Communicator(object):
         """
         self.log_network_debug("Sending a get_index message using rpc_get_index...")
         self.log_network_debug(
-            "Getting index %s of object UID %s" % (
-                index,
-                proxy_object.uid
-            )
+            "Getting index %s of object UID %s" % (index, proxy_object.uid)
         )
 
         try:
@@ -423,10 +414,7 @@ class Communicator(object):
             )
         except RuntimeError:
             raise IndexError(
-                "Failed to get index %d of list %s" % (
-                    index,
-                    proxy_object,
-                )
+                "Failed to get index %d of list %s" % (index, proxy_object,)
             )
 
     def rpc_new(self, class_name, *args):
@@ -465,11 +453,8 @@ class Communicator(object):
         """
         self.log_network_debug("Sending a set message using rpc_set...")
         self.log_network_debug(
-            "Setting property %s to %s for object UID %s" % (
-                property_name,
-                value,
-                proxy_object.uid
-            )
+            "Setting property %s to %s for object UID %s"
+            % (property_name, value, proxy_object.uid)
         )
 
         try:
@@ -481,11 +466,8 @@ class Communicator(object):
             )
         except RuntimeError:
             raise AttributeError(
-                "Unable to set property %s to value %s on object %s" % (
-                    property_name,
-                    value,
-                    proxy_object,
-                )
+                "Unable to set property %s to value %s on object %s"
+                % (property_name, value, proxy_object,)
             )
 
     def wait(self, timeout=0.1, single_loop=False, process_events=True):
@@ -507,9 +489,7 @@ class Communicator(object):
         self.log_network_debug("single_loop is %s" % single_loop)
         self.log_network_debug("process_events is %s" % process_events)
         self.process_new_messages(
-            wait=float(timeout),
-            single_loop=single_loop,
-            process_events=process_events,
+            wait=float(timeout), single_loop=single_loop, process_events=process_events,
         )
 
     ##########################################################################################
@@ -556,12 +536,7 @@ class Communicator(object):
         :returns: The payload dictionary, formatted for JSON-RPC
                   use.
         """
-        payload = dict(
-            id=self.__get_uid(),
-            method=method,
-            jsonrpc="2.0",
-            params=[],
-        )
+        payload = dict(id=self.__get_uid(), method=method, jsonrpc="2.0", params=[],)
 
         if proxy_object:
             payload["params"] = [proxy_object.serialized]
@@ -596,7 +571,9 @@ class Communicator(object):
         except KeyError:
             if not self._response_logging_silenced:
                 self.logger.error("RPC command (UID=%s) failed!" % uid)
-                self.logger.debug("Failed command payload: %s" % self._COMMAND_REGISTRY[uid])
+                self.logger.debug(
+                    "Failed command payload: %s" % self._COMMAND_REGISTRY[uid]
+                )
                 self.logger.debug("Failure raw response: %s" % response)
                 self.logger.debug("Failure results: %s" % result)
             # This is all happening with a deal of asynchronicity, so we
@@ -604,9 +581,7 @@ class Communicator(object):
             # but let the listener decide how and when to raise.
             self._RESULTS[uid] = RuntimeError()
 
-        self.log_network_debug(
-            "Processed response data: %s" % self._RESULTS[uid]
-        )
+        self.log_network_debug("Processed response data: %s" % self._RESULTS[uid])
 
     def _ensure_utf8(self, in_string):
         """
@@ -685,7 +660,9 @@ class Communicator(object):
 
         return processed
 
-    def __run_rpc_command(self, method, proxy_object, params, wrapper_class, attach_parent=None):
+    def __run_rpc_command(
+        self, method, proxy_object, params, wrapper_class, attach_parent=None
+    ):
         """
         Emits the requested JSON-RPC method via socket.io and handles
         the returned result when it arrives.
@@ -701,9 +678,7 @@ class Communicator(object):
         :returns: The wrapped results of the RPC call.
         """
         payload = self._get_payload(
-            method=method,
-            proxy_object=proxy_object,
-            params=params,
+            method=method, proxy_object=proxy_object, params=params,
         )
 
         self._COMMAND_REGISTRY[payload["id"]] = payload
@@ -729,4 +704,6 @@ class Communicator(object):
             # in case the requested attribute doesn't exist
             # we will try to generate a new instance of the
             # requested name
-            return ClassInstanceProxyWrapper({"__class__": name, "__uniqueid": -1}, self)
+            return ClassInstanceProxyWrapper(
+                {"__class__": name, "__uniqueid": -1}, self
+            )
