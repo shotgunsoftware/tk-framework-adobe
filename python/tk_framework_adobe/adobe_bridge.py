@@ -206,7 +206,7 @@ class AdobeBridge(Communicator):
             except Exception:
                 path = None
 
-            six.ensure_str(path)
+            path = six.ensure_str(path)
 
         return path
 
