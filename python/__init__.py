@@ -13,4 +13,4 @@ from sgtk import util
 
 
 if util.is_windows():
-    import tk_framework_adobe_utils.win_32_api
+    from .tk_framework_adobe_utils import win_32_api
