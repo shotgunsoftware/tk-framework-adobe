@@ -7,7 +7,6 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-import json
 import threading
 import sys
 import os.path
@@ -36,6 +35,7 @@ import socketIO_client.exceptions
 from socketIO_client import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
+import sgtk
 from tank_vendor import six
 
 
@@ -562,12 +562,12 @@ class Communicator(object):
         """
         self.log_network_debug("Handling RPC response...")
 
-        result = json.loads(response)
+        result = sgtk.util.json.loads(response)
         uid = result["id"]
         self.log_network_debug("Response UID is %s" % uid)
 
         try:
-            self._RESULTS[uid] = json.loads(six.ensure_str(result["result"]))
+            self._RESULTS[uid] = sgtk.util.json.loads(result["result"])
         except (TypeError, ValueError):
             self._RESULTS[uid] = six.ensure_str(result.get("result"))
         except KeyError:
