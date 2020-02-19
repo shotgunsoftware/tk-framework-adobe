@@ -569,7 +569,12 @@ class Communicator(object):
         try:
             self._RESULTS[uid] = sgtk.util.json.loads(result["result"])
         except (TypeError, ValueError):
-            self._RESULTS[uid] = six.ensure_str(result.get("result"))
+            # TODO: This feels like it would cause an error later if the result is a string. We need
+            #  further clarification on what this catch is trying to achieve.
+            result = result.get("result")
+            if result is six.text_type():
+                result = six.ensure_str()
+            self._RESULTS[uid] = result
         except KeyError:
             if not self._response_logging_silenced:
                 self.logger.error("RPC command (UID=%s) failed!" % uid)
