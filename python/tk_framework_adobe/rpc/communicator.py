@@ -573,7 +573,7 @@ class Communicator(object):
             #  further clarification on what this catch is trying to achieve.
             result = result.get("result")
             if result is six.text_type():
-                result = six.ensure_str()
+                result = six.ensure_str(result)
             self._RESULTS[uid] = result
         except KeyError:
             if not self._response_logging_silenced:
