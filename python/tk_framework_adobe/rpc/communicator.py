@@ -7,7 +7,6 @@
 # By accessing, using, copying or modifying this work you indicate your
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
-import json
 import threading
 import sys
 import os.path
@@ -35,6 +34,9 @@ sys.path.insert(
 import socketIO_client.exceptions
 from socketIO_client import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
+
+import sgtk
+from tank_vendor import six
 
 
 class Communicator(object):
@@ -560,14 +562,19 @@ class Communicator(object):
         """
         self.log_network_debug("Handling RPC response...")
 
-        result = json.loads(response)
+        result = sgtk.util.json.loads(response)
         uid = result["id"]
         self.log_network_debug("Response UID is %s" % uid)
 
         try:
-            self._RESULTS[uid] = self._ensure_utf8(json.loads(result["result"]))
+            self._RESULTS[uid] = sgtk.util.json.loads(result["result"])
         except (TypeError, ValueError):
-            self._RESULTS[uid] = self._ensure_utf8(result.get("result"))
+            # TODO: This feels like it would cause an error later if the result is a string. We need
+            #  further clarification on what this catch is trying to achieve.
+            result = result.get("result")
+            if result is six.text_type():
+                result = six.ensure_str(result)
+            self._RESULTS[uid] = result
         except KeyError:
             if not self._response_logging_silenced:
                 self.logger.error("RPC command (UID=%s) failed!" % uid)
@@ -582,21 +589,6 @@ class Communicator(object):
             self._RESULTS[uid] = RuntimeError()
 
         self.log_network_debug("Processed response data: %s" % self._RESULTS[uid])
-
-    def _ensure_utf8(self, in_string):
-        """
-        If the given string is unicode, it will be returned as utf-8 encoded
-        string.
-
-        :param str in_string: The input string.
-
-        :returns: A utf-8 encoded string.
-        :rtype: str
-        """
-        if isinstance(in_string, unicode):
-            in_string = in_string.encode("utf-8")
-
-        return in_string
 
     def _wait_for_response(self, uid):
         """
@@ -653,9 +645,8 @@ class Communicator(object):
             elif isinstance(param, ProxyWrapper):
                 processed.append(param.data)
             else:
-                if isinstance(param, basestring) and not isinstance(param, unicode):
-                    # ensure the strings are unicode
-                    param = param.decode("utf-8")
+                if isinstance(param, six.string_types):
+                    param = six.ensure_str(param)
                 processed.append(param)
 
         return processed

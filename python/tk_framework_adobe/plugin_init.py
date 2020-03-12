@@ -9,7 +9,8 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 import sys
 import os
-import log
+
+from . import log
 
 
 # Note: the sgtk_plugin_basic_photoshopcc module is created

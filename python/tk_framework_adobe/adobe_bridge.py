@@ -10,15 +10,13 @@
 import os
 import functools
 import threading
-
-
-from sgtk.platform.qt import QtCore
-
-
 import json
 
+from .rpc import Communicator
 
-from rpc import Communicator
+import sgtk
+from sgtk.platform.qt import QtCore
+from tank_vendor import six
 
 
 ##########################################################################################
@@ -208,8 +206,8 @@ class AdobeBridge(Communicator):
             except Exception:
                 path = None
 
-            if isinstance(path, unicode):
-                path = path.encode("utf-8")
+            if path is not None:
+                path = six.ensure_str(path)
 
         return path
 
@@ -352,7 +350,7 @@ class AdobeBridge(Communicator):
                          is disregarded.
         """
         self.logger.debug("Emitting active_document_changed signal.")
-        response = json.loads(response)
+        response = sgtk.util.json.loads(response)
         self.active_document_changed.emit(response.get("active_document_path"))
 
     def _forward_command(self, response):
@@ -364,7 +362,7 @@ class AdobeBridge(Communicator):
                          that is the unique id of the command to be called.
         """
         self.logger.debug("Emitting command_received signal.")
-        self.command_received.emit(int(json.loads(response)))
+        self.command_received.emit(int(sgtk.util.json.loads(response)))
 
     def _forward_logging(self, response):
         """
@@ -376,7 +374,7 @@ class AdobeBridge(Communicator):
                          level of the logging message, and the message itself,
                          respectively.
         """
-        response = json.loads(response)
+        response = sgtk.util.json.loads(response)
         self.logging_received.emit(
             response.get("level"), response.get("message"),
         )

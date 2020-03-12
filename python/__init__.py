@@ -7,8 +7,10 @@ except ImportError:
     pass
 
 
-from tk_framework_adobe import adobe_bridge
+from .tk_framework_adobe import adobe_bridge
+
+from sgtk import util
 
 
-if sys.platform == "win32":
-    import tk_framework_adobe_utils.win_32_api
+if util.is_windows():
+    from .tk_framework_adobe_utils import win_32_api

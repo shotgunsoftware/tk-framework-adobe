@@ -12,6 +12,7 @@
 A minimal set of win32 functions to manage toolkit dialogs under Windows.
 """
 import ctypes
+from ctypes import wintypes
 
 ############################################################################
 # user32.dll

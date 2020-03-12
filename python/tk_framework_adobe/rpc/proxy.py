@@ -46,11 +46,14 @@ class ProxyScope(object):
             )
         """
         try:
-            for item_name, item in self._data.iteritems():
+            for item_name, item in self._data.items():
                 self._communicator.log_network_debug("Scope registry: %s" % item_name)
                 self.__registry[item_name] = ProxyWrapper(item, self._communicator,)
-        except Exception:
-            raise ValueError('Unable to interpret data: "%s"' % self._data)
+        except Exception as e:
+            self._communicator._logger.exception("Unable to interpret data")
+            raise ValueError(
+                'Unable to interpret data: "%s"\nError: %s' % (self._data, e)
+            )
 
     def __getattr__(self, name):
         """
@@ -102,7 +105,7 @@ class ProxyWrapper(object):
             else:
                 # New data, so we go ahead and instantiate a new wrapper
                 # object.
-                return object.__new__(cls, data, *args, **kwargs)
+                return super(ProxyWrapper, cls).__new__(cls)
 
     def __init__(self, data, communicator, parent=None):
         """
@@ -232,7 +235,7 @@ class ProxyWrapper(object):
                     yield self[i]
                     i = i + 1
             except IndexError:
-                raise StopIteration
+                return
 
     def __getattr__(self, name):
         """
@@ -241,12 +244,12 @@ class ProxyWrapper(object):
 
         :param str name: The attribute name to get.
         """
-        remote_names = self.data["properties"] + self.data["methods"].keys()
+        remote_names = self.data["properties"] + list(self.data["methods"])
 
         # TODO: Let's not hardcode this to Adobe-like behavior. We should
-        # allow for type-specific handlers that can be registered with the
-        # API in case higher-level code wants to customize how attribute
-        # lookup via RPC works.
+        #  allow for type-specific handlers that can be registered with the
+        #  API in case higher-level code wants to customize how attribute
+        #  lookup via RPC works.
         if name in remote_names or self.data.get("instanceof") == "Enumerator":
             return self._communicator.rpc_get(self, name)
         else:
@@ -270,7 +273,7 @@ class ProxyWrapper(object):
         :param str name: The attribute name to set.
         :param value: The value to set the attribute to.
         """
-        remote_names = self.data["properties"] + self.data["methods"].keys()
+        remote_names = self.data["properties"] + list(self.data["methods"])
 
         if name in remote_names:
             self._communicator.rpc_set(self, name, value)
