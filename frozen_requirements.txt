@@ -8,20 +8,7 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
-"""
-Adobe CC Framework
-"""
-
-import sgtk
-
-
-class AdobeFramework(sgtk.platform.Framework):
-
-    ##########################################################################################
-    # init and destroy
-
-    def init_framework(self):
-        self.logger.debug("%s: Initializing..." % self)
-
-    def destroy_framework(self):
-        self.logger.debug("%s: Destroying..." % self)
+requests==2.11.1
+six==1.10.0
+socketIO_client==0.7.2
+websocket_client==0.37.0
