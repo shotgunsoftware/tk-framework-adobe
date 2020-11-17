@@ -38,17 +38,11 @@ with TemporaryDirectory() as temp_dir:
     )
 
     # Figure out if those modules were installed as single file modules or folders.
-    module_names = []
-    with open("frozen_requirements.txt", "rt") as f:
-        for line in f:
-            module_name = line.split("==")[0]
-
-            python_file = temp_dir / f"{module_name}.py"
-
-            if python_file.exists():
-                module_names.append(f"{module_name}.py")
-            else:
-                module_names.append(module_name)
+    module_names = [
+        module
+        for module in os.listdir(temp_dir)
+        if "info" not in module and module != "bin"
+    ]
 
     # Write out the zip file
     pkgsZip = ZipFile(Path(__file__).parent / "pkgs.zip", "w")
