@@ -26,9 +26,12 @@ with TemporaryDirectory() as temp_dir:
             "install",
             "-r",
             "requirements.txt",
+            "--no-compile",
+            # The combination of --target and --upgrade forces pip to install
+            # all packages to the temporary directory, even if an already existing
+            # version is installed
             "--target",
             temp_dir,
-            "--no-compile",
             "--upgrade",
         ]
     )
@@ -37,22 +40,29 @@ with TemporaryDirectory() as temp_dir:
         stdout=open("frozen_requirements.txt", "w"),
     )
 
-    # Figure out if those modules were installed as single file modules or folders.
-    module_names = [
-        module
-        for module in os.listdir(temp_dir)
-        if "info" not in module and module != "bin"
+    # Quickly compute the number of requirements we have.
+    nb_dependencies = len([_ for _ in open("frozen_requirements.txt", "rt")])
+
+    # Figure out if those packages were installed as single file packages or folders.
+    package_names = [
+        package_name
+        for package_name in os.listdir(temp_dir)
+        if "info" not in package_name and package_name != "bin"
     ]
+
+    # Make sure we found as many Python packages as there
+    # are packages listed inside frozen_requirements.txt
+    assert len(package_names) == nb_dependencies
 
     # Write out the zip file
     pkgsZip = ZipFile(Path(__file__).parent / "pkgs.zip", "w")
-    # For every single module
-    for module_name in module_names:
-        print(f"Zipping {module_name}...")
+    # For every single package
+    for package_name in package_names:
+        print(f"Zipping {package_name}...")
         # If we have a .py file to zip, simple write it
-        full_module_path = temp_dir / module_name
-        if full_module_path.suffix == ".py":
-            pkgsZip.write(full_module_path, full_module_path.relative_to(temp_dir))
+        full_package_path = temp_dir / package_name
+        if full_package_path.suffix == ".py":
+            pkgsZip.write(full_package_path, full_package_path.relative_to(temp_dir))
         else:
-            # Otherwise zip folders recursively.
-            zip_recursively(pkgsZip, temp_dir, module_name)
+            # Otherwise zip package folders recursively.
+            zip_recursively(pkgsZip, temp_dir, package_name)
