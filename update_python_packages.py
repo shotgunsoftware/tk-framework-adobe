@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# Copyright (c) 2020 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
 
 import subprocess
 import os
@@ -8,7 +17,7 @@ from zipfile import ZipFile
 
 
 def zip_recursively(zip_file, root_dir, folder_name):
-    for root, dirs, files in os.walk(root_dir / folder_name):
+    for root, _, files in os.walk(root_dir / folder_name):
         for file in files:
             full_file_path = Path(os.path.join(root, file))
             zip_file.write(full_file_path, full_file_path.relative_to(root_dir))
