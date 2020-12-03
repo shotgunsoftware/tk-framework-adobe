@@ -246,8 +246,8 @@ def _sign_plugin(args):
         extension_path,
         certificate_path,
         certificate_pwd,
-        "-tsa",
-        TIMESTAMP_URL,
+        # "-tsa",
+        # TIMESTAMP_URL,
     ]
 
     # execute the build script
