@@ -47,6 +47,8 @@ sg_panel.Panel = new function() {
 
     var _log_file_path = undefined;
 
+    var _support_url = "https://support.shotgunsoftware.com"
+
     // ---- public methods
 
     this.clear = function() {
@@ -178,20 +180,6 @@ sg_panel.Panel = new function() {
         if (fav_header_div) {
             fav_header_div.innerHTML = "Run a command";
         }
-    };
-
-    // Open an email in default email client.
-    this.email_support = function(subject, body) {
-
-        const mailto_url = `mailto:support@shotgunsoftware.com?subject=${subject}&body=${body}`;
-
-        sg_logging.debug("Emailing support: " + mailto_url);
-
-        _clear_info();
-        _set_progress_info(100, "Composing SG support email...");
-        setTimeout(_clear_info, 2000);
-
-        this.open_external_url(mailto_url);
     };
 
     // Setup the Shotgun integration within the app.
@@ -655,9 +643,9 @@ sg_panel.Panel = new function() {
                 `<br>
                 If you encounter this problem consistently or have any other
                 questions, please send the following error and a description
-                of the steps to reproduce the problem to
-                <a href='#' onClick='sg_panel.Panel.email_support(\"${subject}\", \"${body}\")'>
-                  support@shotgunsoftware.com
+                of the steps to reproduce the problem to 
+                <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
+                  our support team
                 </a>.
                 <br><br>
                 <center>
@@ -668,8 +656,8 @@ sg_panel.Panel = new function() {
                 `<br>
                   If you encounter this problem consistently or have any other
                   questions, please send the steps to reproduce to
-                  <a href='#' onClick='sg_panel.Panel.email_support(\"${subject}\", \"${body}\")'>
-                    support@shotgunsoftware.com
+                  <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
+                    our support team
                   </a>.`;
         }
 
@@ -750,9 +738,9 @@ sg_panel.Panel = new function() {
             ${app_display_name} to load the Shotgun integration.
             <br><br>
             If you believe the error is incorrect or you have any further
-            questions, please contact
-            <a href='#' onClick='sg_panel.Panel.email_support(\"${subject}\", \"${body}\")'>
-              support@shotgunsoftware.com
+            questions, please
+            <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
+                contact our support team
             </a>.`;
 
         contents_html = "<div class='sg_container'>" + contents_html + "</div>";

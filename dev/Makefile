@@ -1,7 +1,7 @@
 include env.mk
 
 PLUGIN_NAME=com.sg.basic.adobe
-BUNDLE_CACHE_FOLDER=~/Library/Application\ Support/Shotgun/bundle_cache/app_store/tk-core
+BUNDLE_CACHE_FOLDER=~/Library/Caches/Shotgun/bundle_cache/app_store/tk-core
 ADOBE_CEP_FOLDER=~/Library/Application\ Support/Adobe/CEP/extensions
 
 ifndef TKCORE_FOLDER
