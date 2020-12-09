@@ -642,10 +642,10 @@ sg_panel.Panel = new function() {
             contents_html +=
                 `<br>
                 If you encounter this problem consistently or have any other
-                questions, please send the following error and a description
-                of the steps to reproduce the problem to 
+                questions, please send us the following error and a description
+                of the steps to reproduce the problem via
                 <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
-                  our support team
+                  ${_support_url}
                 </a>.
                 <br><br>
                 <center>
@@ -655,9 +655,9 @@ sg_panel.Panel = new function() {
             contents_html +=
                 `<br>
                   If you encounter this problem consistently or have any other
-                  questions, please send the steps to reproduce to
+                  questions, please send us the steps to reproduce via
                   <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
-                    our support team
+                    ${_support_url}
                   </a>.`;
         }
 
@@ -738,9 +738,9 @@ sg_panel.Panel = new function() {
             ${app_display_name} to load the Shotgun integration.
             <br><br>
             If you believe the error is incorrect or you have any further
-            questions, please
+            questions, please contact our support team via
             <a href='#' onClick='sg_panel.Panel.open_external_url(\"${_support_url}\")'>
-                contact our support team
+                ${_support_url}
             </a>.`;
 
         contents_html = "<div class='sg_container'>" + contents_html + "</div>";
