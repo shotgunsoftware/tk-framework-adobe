@@ -298,6 +298,11 @@ def _validate_args(args):
     # convert the args namespace to a dict
     args = vars(args)
 
+    if args["core"]:
+        args["core"] = os.path.expanduser(args["core"])
+    if args["output_dir"]:
+        args["output_dir"] = os.path.expanduser(args["output_dir"])
+
     # ensure core path exists and build script is there
     if not os.path.exists(args["core"]):
         raise Exception("Supplied core path does not exist: %s" % (args["core"],))

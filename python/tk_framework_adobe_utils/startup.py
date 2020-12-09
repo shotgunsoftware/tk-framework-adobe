@@ -40,8 +40,9 @@ def ensure_extension_up_to_date(logger):
             raise sgtk.TankError(
                 "There was a problem ensuring the Adobe integration extension "
                 "was up-to-date with your toolkit engine. If this is a "
-                "recurring issue please contact support@shotgunsoftware.com. "
-                "The specific error message encountered was:\n'%s'." % (exc,)
+                "recurring issue please contact us via %s. "
+                "The specific error message encountered was:\n'%s'."
+                % (sgtk.support_url, exc,)
             )
 
 

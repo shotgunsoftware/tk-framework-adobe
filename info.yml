@@ -18,7 +18,7 @@ display_name: "Adobe CC Framework"
 description: "CEP connection and rpc layer for engines that target any Adobe CC DCC-Package."
 
 # Required minimum versions for this item to run
-requires_core_version: "v0.19.1"
+requires_core_version: "v0.19.18"
 requires_desktop_version:
 
 # the frameworks this framework requires
