@@ -1372,14 +1372,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-=== chardet (https://pypi.org/project/chardet/) ============================
+=== Chardet (https://pypi.org/project/chardet/) ============================
 
  Copyright (C) 1991, 1999 Free Software Foundation, Inc.
      51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
 
-Chardet is licensed under the GNU  General Public License v.2, which can be found at
-http://www.gnu.org/licenses/old-licenses/gpl-2.0.html .
-You can obtain a text copy of this license and the source code for Chardet (and modifications made by Autodesk, if any)
-from www.autodesk.com/lgplsource.
+This Autodesk software contains Chardet v3.0.4.
+Chardet is licensed under the GNU Lesser General Public License v.2,
+which can be found at http://www.gnu.org/licenses/old-licenses/lgpl-2.0.txt.
+You may obtain a copy of the source code for Chardet v.3.0.4, from www.autodesk.com/lgplsource.
