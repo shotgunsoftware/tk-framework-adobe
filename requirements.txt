@@ -1,0 +1,16 @@
+# Copyright (c) 2020 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
+# Pinning certifi to a specific version to match others copies of certifi we use.
+certifi==2020.06.20
+requests==2.25.0
+six==1.10.0
+socketIO_client==0.7.2
+websocket_client==0.37.0
