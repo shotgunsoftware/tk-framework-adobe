@@ -286,6 +286,20 @@ class AdobeBridge(Communicator):
         self.logger.debug("Sending context about to change message.")
         self._io.emit("context_about_to_change")
 
+    def export_image(self, doc, file_path, settings):
+        """
+        """
+
+        opts = self.ExportOptionsSaveForWeb()
+
+        for setting_name, setting_value in settings.items():
+            if setting_name == "format":
+                opts.format = getattr(self.SaveDocumentType, setting_value)
+            else:
+                setattr(opts, setting_name, setting_value)
+
+        doc.exportDocument(self.File(file_path), self.ExportType.SAVEFORWEB, opts)
+
     def save_as(self, doc, file_path):
         """
         Performs a save-as operation on the given document, saving to the
