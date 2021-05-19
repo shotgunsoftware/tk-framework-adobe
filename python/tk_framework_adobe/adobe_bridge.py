@@ -300,6 +300,28 @@ class AdobeBridge(Communicator):
 
         doc.exportDocument(self.File(file_path), self.ExportType.SAVEFORWEB, opts)
 
+    def add_as_layer(self, file_path):
+        """
+        Add the file as a layer in the current document.
+
+        :param file_path:  Path to the file to add as layer
+        """
+
+        action_desc = self.ActionDescriptor()
+        action_desc.putPath(self.charIDToTypeID("null"), self.File(file_path))
+        action_desc.putEnumerated(
+            self.charIDToTypeID("FTcs"),  # freeTransformCenterState
+            self.charIDToTypeID("QCSt"),  # quadCenterState
+            self.charIDToTypeID("Qcsa"),  # QCSAverage
+        )
+
+        # Everything is setup. Adds the layer to the document.
+        self.executeAction(
+            self.charIDToTypeID("Plc "),  # placeEvent
+            action_desc,
+            self.DialogModes.NO,
+        )
+
     def save_as(self, doc, file_path):
         """
         Performs a save-as operation on the given document, saving to the
