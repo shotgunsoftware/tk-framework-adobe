@@ -64,7 +64,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>Shotgun Adobe Panel</Menu>
+                    <Menu>ShotGrid Adobe Panel</Menu>
                     <Geometry>
                         <Size>
                             <Height>350</Height>

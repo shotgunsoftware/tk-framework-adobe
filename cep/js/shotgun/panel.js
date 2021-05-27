@@ -72,7 +72,7 @@ sg_panel.Panel = new function() {
 
         _show_info(true);
         _set_info(
-            "Loading Shotgun Integration..."
+            "Loading ShotGrid Integration..."
         );
     };
 
@@ -105,7 +105,7 @@ sg_panel.Panel = new function() {
                     <tr>
                       <td id='sg_unknown_context_details'>
                         The currently active file can't be associated with a
-                        Shotgun context. Try switching to another file or
+                        ShotGrid context. Try switching to another file or
                         restarting ${app_display_name}.
                       </td>
                     </tr>

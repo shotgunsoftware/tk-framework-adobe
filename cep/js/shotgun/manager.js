@@ -52,7 +52,7 @@ sg_manager.Manager = new function() {
             if (!_app_is_supported()) {
                 _emit_python_critical_error({
                     message: "This CC product does not meet the minimum " +
-                        "requirements to run the Shotgun integration. The " +
+                        "requirements to run the ShotGrid integration. The " +
                         "Shotgun integration requires support for HTML " +
                         "panels and the extended panel menu.",
                     stack: undefined
