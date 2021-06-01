@@ -518,7 +518,7 @@ sg_panel.Panel = new function() {
                               Checked="false"/>';
 
             flyout_xml += '<MenuItem Id="sg_dev_reload" \
-                              Label="Reload Shotgun Extension" \
+                              Label="Reload ShotGrid Extension" \
                               Enabled="true" \
                               Checked="false"/>';
         }
