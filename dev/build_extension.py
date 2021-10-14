@@ -246,8 +246,9 @@ def _sign_plugin(args):
         extension_path,
         certificate_path,
         certificate_pwd,
-        "-tsa",
-        TIMESTAMP_URL,
+        # The timestamp is not working at the moment and is not required so it's commented out for now
+        # "-tsa",
+        # TIMESTAMP_URL,
     ]
 
     # execute the build script
