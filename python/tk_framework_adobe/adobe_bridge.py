@@ -88,7 +88,7 @@ class AdobeBridge(Communicator):
     """
 
     # Backwards compatibility added to support tk-photoshop environment vars.
-    # https://support.shotgunsoftware.com/hc/en-us/articles/219039748-Photoshop#If%20the%20engine%20does%20not%20start
+    # https://community.shotgridsoftware.com/t/adobe-engine-crashing-on-long-operations/8329
     SHOTGUN_ADOBE_RESPONSE_TIMEOUT = os.environ.get(
         "SHOTGUN_ADOBE_RESPONSE_TIMEOUT",
         os.environ.get("SGTK_PHOTOSHOP_TIMEOUT", 300.0,),
