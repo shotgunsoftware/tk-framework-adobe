@@ -47,7 +47,7 @@ sg_panel.Panel = new function() {
 
     var _log_file_path = undefined;
 
-    var _support_url = "https://support.shotgunsoftware.com";
+    var _support_url = "https://knowledge.autodesk.com/contact-support";
 
     // ---- public methods
 
