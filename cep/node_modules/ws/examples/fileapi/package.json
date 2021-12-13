@@ -1,0 +1,10 @@
+{
+  "author": "",
+  "name": "fileapi",
+  "version": "0.0.0",
+  "repository": "websockets/ws",
+  "dependencies": {
+    "express": "~4.14.0",
+    "ansi": "https://github.com/einaros/ansi.js/tarball/master"
+  }
+}
