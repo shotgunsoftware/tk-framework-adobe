@@ -12,5 +12,5 @@
 certifi==2020.06.20
 requests==2.25.0
 six==1.10.0
-socketIO_client==0.7.2
+socketIO-client-nexus==0.7.6
 websocket_client==0.37.0
