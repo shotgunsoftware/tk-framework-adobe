@@ -18,6 +18,25 @@ A framework for Adobe engines
 - If you are developing on a **Mac**, please set all necessary variables in `dev/env.mk`.
 - If you are developing on **Windows**, please set all necessary variables in `dev\env.cmd`
 
+This is what the env file should look like:
+```
+TARGET_VERSION=1.1.3 # Make sure this matches the tk-framework-adobe version you will be releasing
+
+TKCORE_VERSION=0.19.19  # This core version is expected to exist in your bundle cache
+
+ZXP_SIGN_TOOL=/path/to/bin/ZXPSignCmd
+
+CERTIFICATE_FILE=/path/to/file/location/cert.p12
+
+CERTIFICATE_PASS=<Make up your own secure password>
+CERT_COUNTRY=<Two Character Country Code>
+CERT_STATE=<Two Character State or Province Code>
+CERT_ORG=Autodesk
+CERT_CN=SGTK
+```
+
+Follow [this link](https://developer.shotgridsoftware.com/7c9867c0/#bundle-cache)
+  to find out where your bundle cache is located.
 
 ### To install the CEP extension for testing without signing:
 
