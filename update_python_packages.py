@@ -29,7 +29,7 @@ with TemporaryDirectory() as temp_dir:
     # Pip install everything and capture everything that was installed.
     subprocess.run(
         [
-            "python2",
+            "python",
             "-m",
             "pip",
             "install",
@@ -45,7 +45,7 @@ with TemporaryDirectory() as temp_dir:
         ]
     )
     subprocess.run(
-        ["python2", "-m", "pip", "freeze", "--path", temp_dir],
+        ["python", "-m", "pip", "freeze", "--path", temp_dir],
         stdout=open("frozen_requirements.txt", "w"),
     )
 
