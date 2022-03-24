@@ -145,7 +145,8 @@ sg_socket_io.SocketManager = new function() {
     this.start_socket_server = function (port, csLib) {
         var path = require('path');
         var jrpc = require('jrpc');
-        var io = require('socket.io').listen(port);
+        var io = require('socket.io')(port);
+
         sg_socket_io.io = io;
 
         sg_logging.info("Listening on port " + JSON.stringify(port));

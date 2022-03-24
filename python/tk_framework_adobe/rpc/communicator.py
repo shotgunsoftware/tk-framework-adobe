@@ -31,8 +31,8 @@ sys.path.insert(
 )
 
 
-import socketIO_client.exceptions
-from socketIO_client import SocketIO
+import socketIO_client_nexus.exceptions
+from socketIO_client_nexus import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
 import sgtk
@@ -237,7 +237,7 @@ class Communicator(object):
             while wait >= (time.time() - start) or single_loop:
                 try:
                     self._io._process_packets()
-                except socketIO_client.exceptions.TimeoutError:
+                except socketIO_client_nexus.exceptions.TimeoutError:
                     # Timeouts here are not a problem. It can be something
                     # as simple as the server being busy and not responding
                     # quickly enough, in which case subsequent attempts will
