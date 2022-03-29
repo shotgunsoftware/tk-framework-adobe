@@ -42,7 +42,10 @@ def ensure_extension_up_to_date(logger):
                 "was up-to-date with your toolkit engine. If this is a "
                 "recurring issue please contact us via %s. "
                 "The specific error message encountered was:\n'%s'."
-                % (sgtk.support_url, exc,)
+                % (
+                    sgtk.support_url,
+                    exc,
+                )
             )
 
 
