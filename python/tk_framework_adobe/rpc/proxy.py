@@ -48,7 +48,10 @@ class ProxyScope(object):
         try:
             for item_name, item in self._data.items():
                 self._communicator.log_network_debug("Scope registry: %s" % item_name)
-                self.__registry[item_name] = ProxyWrapper(item, self._communicator,)
+                self.__registry[item_name] = ProxyWrapper(
+                    item,
+                    self._communicator,
+                )
         except Exception as e:
             self._communicator._logger.exception("Unable to interpret data")
             raise ValueError(
@@ -181,7 +184,11 @@ class ProxyWrapper(object):
         remote connection. Any ordered arguments provided are passed through to
         the remote callable.
         """
-        return self._communicator.rpc_call(self, list(args), parent=self._parent,)
+        return self._communicator.rpc_call(
+            self,
+            list(args),
+            parent=self._parent,
+        )
 
     def __eq__(self, other):
         """

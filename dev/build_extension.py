@@ -428,7 +428,8 @@ def _write_version_file(args):
         bundle_version_file.write(args["version"])
 
     engine_file_path = os.path.join(
-        args["engine_dir"], "%s.%s" % (args["extension_name"], "version"),
+        args["engine_dir"],
+        "%s.%s" % (args["extension_name"], "version"),
     )
 
     # write the file

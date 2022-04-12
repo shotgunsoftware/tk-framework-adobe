@@ -31,8 +31,8 @@ sys.path.insert(
 )
 
 
-import socketIO_client.exceptions
-from socketIO_client import SocketIO
+import socketIO_client_nexus.exceptions
+from socketIO_client_nexus import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
 import sgtk
@@ -237,7 +237,7 @@ class Communicator(object):
             while wait >= (time.time() - start) or single_loop:
                 try:
                     self._io._process_packets()
-                except socketIO_client.exceptions.TimeoutError:
+                except socketIO_client_nexus.exceptions.TimeoutError:
                     # Timeouts here are not a problem. It can be something
                     # as simple as the server being busy and not responding
                     # quickly enough, in which case subsequent attempts will
@@ -325,9 +325,19 @@ class Communicator(object):
 
         for value in (left, right):
             if isinstance(value, ProxyWrapper):
-                packages.append(dict(is_wrapped=True, value=value.uid,))
+                packages.append(
+                    dict(
+                        is_wrapped=True,
+                        value=value.uid,
+                    )
+                )
             else:
-                packages.append(dict(is_wrapped=False, value=value,))
+                packages.append(
+                    dict(
+                        is_wrapped=False,
+                        value=value,
+                    )
+                )
         try:
             return self.__run_rpc_command(
                 method="is_equal",
@@ -389,7 +399,10 @@ class Communicator(object):
         except RuntimeError:
             raise AttributeError(
                 "Failed to get property %s of object %s"
-                % (property_name, proxy_object,)
+                % (
+                    property_name,
+                    proxy_object,
+                )
             )
 
     def rpc_get_index(self, proxy_object, index):
@@ -416,7 +429,11 @@ class Communicator(object):
             )
         except RuntimeError:
             raise IndexError(
-                "Failed to get index %d of list %s" % (index, proxy_object,)
+                "Failed to get index %d of list %s"
+                % (
+                    index,
+                    proxy_object,
+                )
             )
 
     def rpc_new(self, class_name, *args):
@@ -469,7 +486,11 @@ class Communicator(object):
         except RuntimeError:
             raise AttributeError(
                 "Unable to set property %s to value %s on object %s"
-                % (property_name, value, proxy_object,)
+                % (
+                    property_name,
+                    value,
+                    proxy_object,
+                )
             )
 
     def wait(self, timeout=0.1, single_loop=False, process_events=True):
@@ -491,7 +512,9 @@ class Communicator(object):
         self.log_network_debug("single_loop is %s" % single_loop)
         self.log_network_debug("process_events is %s" % process_events)
         self.process_new_messages(
-            wait=float(timeout), single_loop=single_loop, process_events=process_events,
+            wait=float(timeout),
+            single_loop=single_loop,
+            process_events=process_events,
         )
 
     ##########################################################################################
@@ -538,7 +561,12 @@ class Communicator(object):
         :returns: The payload dictionary, formatted for JSON-RPC
                   use.
         """
-        payload = dict(id=self.__get_uid(), method=method, jsonrpc="2.0", params=[],)
+        payload = dict(
+            id=self.__get_uid(),
+            method=method,
+            jsonrpc="2.0",
+            params=[],
+        )
 
         if proxy_object:
             payload["params"] = [proxy_object.serialized]
@@ -669,7 +697,9 @@ class Communicator(object):
         :returns: The wrapped results of the RPC call.
         """
         payload = self._get_payload(
-            method=method, proxy_object=proxy_object, params=params,
+            method=method,
+            proxy_object=proxy_object,
+            params=params,
         )
 
         self._COMMAND_REGISTRY[payload["id"]] = payload

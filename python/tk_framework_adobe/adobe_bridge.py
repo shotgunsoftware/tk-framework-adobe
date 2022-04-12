@@ -91,11 +91,17 @@ class AdobeBridge(Communicator):
     # https://community.shotgridsoftware.com/t/adobe-engine-crashing-on-long-operations/8329
     SHOTGUN_ADOBE_RESPONSE_TIMEOUT = os.environ.get(
         "SHOTGUN_ADOBE_RESPONSE_TIMEOUT",
-        os.environ.get("SGTK_PHOTOSHOP_TIMEOUT", 300.0,),
+        os.environ.get(
+            "SGTK_PHOTOSHOP_TIMEOUT",
+            300.0,
+        ),
     )
     SHOTGUN_ADOBE_HEARTBEAT_TIMEOUT = os.environ.get(
         "SHOTGUN_ADOBE_HEARTBEAT_TIMEOUT",
-        os.environ.get("SGTK_PHOTOSHOP_HEARTBEAT_TIMEOUT", 0.5,),
+        os.environ.get(
+            "SGTK_PHOTOSHOP_HEARTBEAT_TIMEOUT",
+            0.5,
+        ),
     )
 
     def __init__(self, *args, **kwargs):
@@ -395,7 +401,8 @@ class AdobeBridge(Communicator):
         """
         response = sgtk.util.json.loads(response)
         self.logging_received.emit(
-            response.get("level"), response.get("message"),
+            response.get("level"),
+            response.get("message"),
         )
 
     def _forward_run_tests(self, response):
