@@ -40,24 +40,11 @@ body {
 /* no underlining links */
 a {
     text-decoration: none;
-}
-
-a:link {
     color: #18A7E3;
 }
 
-a:link.sg_small_link {
-    color: #18A7E3;
+a.sg_small_link {
     font-size: 10px;
-}
-
-/* links typically found in context header. not SG blue */
-a:link.sg_value_link {
-    color: #D7D7D7;
-}
-
-a:link.sg_value_link:hover {
-    color: #FFFFFF;
 }
 
 /* white on hover */
