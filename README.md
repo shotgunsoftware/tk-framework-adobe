@@ -13,7 +13,7 @@ A framework for Adobe engines
 
 ### How to set up your development environment
 
-- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://labs.adobe.com/downloads/extensionbuilder3.html) tool provided by Adobe.
+- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://zxpinstaller.com/) tool provided by Adobe.
 - Once you have logged in using your existing Adobe user account, download the **CC Extensions Signing Toolkit**, which will provide you with the necessary executable.
 - If you are developing on a **Mac**, please set all necessary variables in `dev/env.mk`.
 - If you are developing on **Windows**, please set all necessary variables in `dev\env.cmd`
