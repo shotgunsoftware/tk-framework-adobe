@@ -9,7 +9,7 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 # Pinning certifi to a specific version to match others copies of certifi we use.
-certifi==2020.06.20
+certifi==2022.12.7
 requests==2.25.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
