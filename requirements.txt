@@ -10,7 +10,7 @@
 
 # Pinning certifi to a specific version to match others copies of certifi we use.
 certifi==2023.7.22
-requests==2.25.0
+requests==2.31.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
 websocket_client==0.37.0
