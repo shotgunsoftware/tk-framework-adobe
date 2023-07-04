@@ -1,8 +1,8 @@
 certifi==2023.7.22
-chardet==3.0.4
-idna==2.10
+charset-normalizer==3.2.0
+idna==3.4
 requests==2.31.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
-urllib3==1.26.16
+urllib3==2.0.4
 websocket-client==0.37.0
