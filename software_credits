@@ -85,7 +85,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 ===== NPM Packages =================
 ====================================
 
-===== Accepts (https://www.npmjs.com/package/accepts) =================
+===== Accepts (https://www.npmjs.com/package/accepts) =====
 
 (The MIT License)
 
@@ -110,7 +110,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== After (https://www.npmjs.com/package/after) =================
+===== After (https://www.npmjs.com/package/after) =====
 
 Copyright (c) 2011 Raynos.
 
@@ -132,7 +132,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== Arraybuffer.slice (https://www.npmjs.com/package/arraybuffer.slice) =================
+===== Arraybuffer.slice (https://www.npmjs.com/package/arraybuffer.slice) =====
 
 Copyright (C) 2013 Rase-
 
@@ -142,7 +142,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== backo2 (https://www.npmjs.com/package/backo2) =================
+===== backo2 (https://www.npmjs.com/package/backo2) =====
 
 Copyright (c) 2014 Mark Mokryn <mokesmokes@gmail.com>
 Copyright (c) 2014 TJ Holowaychuk <tj@vision-media.ca>
@@ -165,7 +165,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== base64-arraybuffer (https://www.npmjs.com/package/base64-arraybuffer) =================
+===== base64-arraybuffer (https://www.npmjs.com/package/base64-arraybuffer) =====
 
 Copyright (c) 2012 Niklas von Hertzen
 
@@ -190,7 +190,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-===== base64id (https://www.npmjs.com/package/base64id) =================
+===== base64id (https://www.npmjs.com/package/base64id) =====
 
 (The MIT License)
 
@@ -215,7 +215,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== benchmark (https://www.npmjs.com/package/benchmark) =================
+===== benchmark (https://www.npmjs.com/package/benchmark) =====
 
 Copyright 2010-2012 Mathias Bynens <http://mathiasbynens.be/>
 Based on JSLitmus.js, copyright Robert Kieffer <http://broofa.com/>
@@ -240,7 +240,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== better-assert (https://www.npmjs.com/package/better-assert) =================
+===== better-assert (https://www.npmjs.com/package/better-assert) =====
 (The MIT License)
 
 Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
@@ -263,7 +263,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== blob (https://www.npmjs.com/package/blob) =================
+===== blob (https://www.npmjs.com/package/blob) =====
 MIT License
 
 Copyright (C) 2014 Rase-
@@ -286,7 +286,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== callsite (https://www.npmjs.com/package/callsite) =================
+===== callsite (https://www.npmjs.com/package/callsite) =====
 
 (The MIT License)
 
@@ -311,7 +311,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== component-bind (https://www.npmjs.com/package/component-bind) =================
+===== component-bind (https://www.npmjs.com/package/component-bind) =====
 
 The MIT License (MIT)
 =====================
@@ -336,7 +336,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== component-emitter (https://www.npmjs.com/package/component-emitter) =================
+===== component-emitter (https://www.npmjs.com/package/component-emitter) =====
 
 (The MIT License)
 
@@ -363,7 +363,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-===== component-inherit (https://www.npmjs.com/package/component-inherit) =================
+===== component-inherit (https://www.npmjs.com/package/component-inherit) =====
 
 The MIT License (MIT)
 =====================
@@ -388,7 +388,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== debug (https://www.npmjs.com/package/debug) =================
+===== debug (https://www.npmjs.com/package/debug) =====
 
 (The MIT License)
 
@@ -409,7 +409,7 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== engine.io (https://www.npmjs.com/package/engine.io) =================
+===== engine.io (https://www.npmjs.com/package/engine.io) =====
 
 (The MIT License)
 
@@ -430,7 +430,7 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FO
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== engine.io-client (https://www.npmjs.com/package/engine.io-client) =================
+===== engine.io-client (https://www.npmjs.com/package/engine.io-client) =====
 
 (The MIT License)
 
@@ -455,7 +455,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== engine.io-parser (https://www.npmjs.com/package/engine.io-parser) =================
+===== engine.io-parser (https://www.npmjs.com/package/engine.io-parser) =====
 
 (The MIT License)
 
@@ -480,7 +480,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== has-binary (https://www.npmjs.com/package/has-binary) =================
+===== has-binary (https://www.npmjs.com/package/has-binary) =====
 
 The MIT License (MIT)
 
@@ -503,7 +503,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== has-cors (https://www.npmjs.com/package/has-cors) =================
+===== has-cors (https://www.npmjs.com/package/has-cors) =====
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -522,7 +522,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== indexof (https://www.npmjs.com/package/indexof) =================
+===== indexof (https://www.npmjs.com/package/indexof) =====
 
 The MIT License (MIT)
 =====================
@@ -547,7 +547,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== isarray (https://www.npmjs.com/package/isarray) =================
+===== isarray (https://www.npmjs.com/package/isarray) =====
 
 MIT License
 
@@ -571,7 +571,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== jrpc (https://www.npmjs.com/package/jrpc) =================
+===== jrpc (https://www.npmjs.com/package/jrpc) =====
 
 MIT License
 
@@ -595,7 +595,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== json3 (https://www.npmjs.com/package/json3) =================
+===== json3 (https://www.npmjs.com/package/json3) =====
 
 Copyright (c) 2012-2013 Kit Cambridge.
 http://kitcambridge.be/
@@ -618,7 +618,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== mine-db (https://www.npmjs.com/package/mime-db) =================
+===== mine-db (https://www.npmjs.com/package/mime-db) =====
 
 The MIT License (MIT)
 
@@ -642,7 +642,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== mine-types (https://www.npmjs.com/package/mime-types) =================
+===== mine-types (https://www.npmjs.com/package/mime-types) =====
 
 The MIT License (MIT)
 
@@ -666,7 +666,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== ms (https://www.npmjs.com/package/ms) =================
+===== ms (https://www.npmjs.com/package/ms) =====
 
 (The MIT License)
 
@@ -689,7 +689,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== ms (https://www.npmjs.com/package/ms) =================
+===== ms (https://www.npmjs.com/package/ms) =====
 
 (The MIT License)
 
@@ -715,7 +715,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== negotiator (https://www.npmjs.com/package/negotiator) =================
+===== negotiator (https://www.npmjs.com/package/negotiator) =====
 
 (The MIT License)
 
@@ -741,7 +741,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== object-component (https://www.npmjs.com/package/object-component) =================
+===== object-component (https://www.npmjs.com/package/object-component) =====
 
 The MIT License (MIT)
 =====================
@@ -766,7 +766,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== options (https://www.npmjs.com/package/options) =================
+===== options (https://www.npmjs.com/package/options) =====
 
 (The MIT License)
 
@@ -790,7 +790,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== parsejson (https://www.npmjs.com/package/parsejson) =================
+===== parsejson (https://www.npmjs.com/package/parsejson) =====
 
 The MIT License (MIT)
 
@@ -814,7 +814,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== parseqs (https://www.npmjs.com/package/parseqs) =================
+===== parseqs (https://www.npmjs.com/package/parseqs) =====
 
 The MIT License (MIT)
 
@@ -838,7 +838,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== parseuri (https://www.npmjs.com/package/parseuri) =================
+===== parseuri (https://www.npmjs.com/package/parseuri) =====
 
 The MIT License (MIT)
 
@@ -862,7 +862,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== socket.io (https://www.npmjs.com/package/socket.io) =================
+===== socket.io (https://www.npmjs.com/package/socket.io) =====
 
 (The MIT License)
 
@@ -887,7 +887,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== socket.io-adapter (https://www.npmjs.com/package/socket.io-adapter) =================
+===== socket.io-adapter (https://www.npmjs.com/package/socket.io-adapter) =====
 
 (The MIT License)
 
@@ -910,7 +910,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== socket.io-client (https://www.npmjs.com/package/socket.io-client) =================
+===== socket.io-client (https://www.npmjs.com/package/socket.io-client) =====
 
 The MIT License (MIT)
 
@@ -934,7 +934,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== socket.io-parser (https://www.npmjs.com/package/socket.io-parser) =================
+===== socket.io-parser (https://www.npmjs.com/package/socket.io-parser) =====
 
 (The MIT License)
 
@@ -957,7 +957,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== to-array (https://www.npmjs.com/package/to-array) =================
+===== to-array (https://www.npmjs.com/package/to-array) =====
 
 Copyright (c) 2012 Raynos.
 
@@ -979,7 +979,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-===== ultron (https://www.npmjs.com/package/ultron) =================
+===== ultron (https://www.npmjs.com/package/ultron) =====
 
 The MIT License (MIT)
 
@@ -1003,7 +1003,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== utf8 (https://www.npmjs.com/package/utf8) =================
+===== utf8 (https://www.npmjs.com/package/utf8) =====
 
 Copyright Mathias Bynens <https://mathiasbynens.be/>
 
@@ -1026,7 +1026,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-===== ws (https://www.npmjs.com/package/ws) =================
+===== ws (https://www.npmjs.com/package/ws) =====
 
 The MIT License (MIT)
 
@@ -1050,7 +1050,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-===== xmlhttprequest-ssl (https://www.npmjs.com/package/xmlhttprequest-ssl) =================
+===== xmlhttprequest-ssl (https://www.npmjs.com/package/xmlhttprequest-ssl) =====
 
 Copyright (c) 2010 passive.ly LLC
 
@@ -1075,7 +1075,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-===== yeast (https://www.npmjs.com/package/yeast) =================
+===== yeast (https://www.npmjs.com/package/yeast) =====
 
 The MIT License (MIT)
 
@@ -1104,7 +1104,7 @@ SOFTWARE.
 ===== Python Packages ==============
 ====================================
 
-=== six (https://pypi.org/project/six/) ============================
+===== six (https://pypi.org/project/six/) =====
 
 Copyright (c) 2010-2020 Benjamin Peterson
 
@@ -1125,7 +1125,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-=== websocket-client (https://pypi.org/project/websocket-client/) ============================
+===== websocket-client (https://pypi.org/project/websocket-client/) =====
 
 Copyright 2018 Hiroki Ohtani.
 
@@ -1139,7 +1139,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-=== requests (https://pypi.org/project/requests/) ============================
+===== requests (https://pypi.org/project/requests/) =====
 
                                  Apache License
                            Version 2.0, January 2004
@@ -1316,7 +1316,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
       incurred by, or claims asserted against, such Contributor by reason
       of your accepting any such warranty or additional liability.
 
-=== socketIO-client (https://pypi.org/project/socketIO-client/) ============================
+===== socketIO-client (https://pypi.org/project/socketIO-client/) =====
 
 Copyright (c) 2013 Roy Hyunjin Han and contributors
 
@@ -1338,7 +1338,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-=== idna (https://pypi.org/project/idna/) ============================
+===== idna (https://pypi.org/project/idna/) =====
 
 Copyright (c) 2013-2020, Kim Davies. All rights reserved.
 
@@ -1352,13 +1352,13 @@ Redistribution and use in source and binary forms, with or without modification,
 
 #. THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-=== certifi (https://pypi.org/project/certifi/) =======================
+===== certifi (https://pypi.org/project/certifi/) =====
 
 This Source Code Form is subject to the terms of the Mozilla Public License,
 v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
 one at http://mozilla.org/MPL/2.0/.
 
-=== urllib3 (https://pypi.org/project/urllib3/) =======================
+===== urllib3 (https://pypi.org/project/urllib3/) =====
 
 MIT License
 
@@ -1382,7 +1382,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-=== Chardet (https://pypi.org/project/chardet/) ============================
+===== Chardet (https://pypi.org/project/chardet/) =====
 
  Copyright (C) 1991, 1999 Free Software Foundation, Inc.
      51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
