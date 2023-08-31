@@ -80,6 +80,11 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
+
+====================================
+===== NPM Packages =================
+====================================
+
 ===== Accepts (https://www.npmjs.com/package/accepts) =================
 
 (The MIT License)
@@ -1093,6 +1098,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+====================================
+===== Python Packages ==============
+====================================
 
 === six (https://pypi.org/project/six/) ============================
 
