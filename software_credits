@@ -1254,9 +1254,12 @@ SOFTWARE.
 
 ===== certifi (https://pypi.org/project/certifi/) =====
 
-This Source Code Form is subject to the terms of the Mozilla Public License,
-v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
-one at http://mozilla.org/MPL/2.0/.
+This Autodesk software contains the unmodified python-certifi package.
+The use and distribution terms for this software are covered by the Mozilla
+Public License 2.0 (https://www.mozilla.org/en-US/MPL/2.0/).
+By using this software in any fashion, you are agreeing to be bound by the terms
+of this license.
+The source code for python-certifi is available from https://github.com/certifi/python-certifi.
 
 
 ===== Chardet (https://pypi.org/project/chardet/) =====
