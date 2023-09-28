@@ -1858,14 +1858,6 @@ of this license.
 The source code for python-certifi is available from https://github.com/certifi/python-certifi.
 
 
-===== Chardet (https://pypi.org/project/chardet/) =====
-
- Copyright (C) 1991, 1999 Free Software Foundation, Inc.
-     51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
-
-
 ===== idna (https://pypi.org/project/idna/) =====
 
 Copyright (c) 2013-2020, Kim Davies. All rights reserved.
