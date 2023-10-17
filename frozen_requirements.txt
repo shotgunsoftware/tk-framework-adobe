@@ -4,5 +4,5 @@ idna==3.4
 requests==2.31.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
-urllib3==2.0.4
+urllib3==2.0.7
 websocket-client==0.37.0
