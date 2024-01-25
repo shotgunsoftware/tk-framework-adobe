@@ -64,7 +64,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>ShotGrid Adobe Panel</Menu>
+                    <Menu>Flow Production Tracking Adobe Panel</Menu>
                     <Geometry>
                         <Size>
                             <Height>350</Height>

@@ -72,7 +72,7 @@ sg_panel.Panel = new function() {
 
         _show_info(true);
         _set_info(
-            "Loading ShotGrid Integration..."
+            "Loading Flow Production Tracking Integration..."
         );
     };
 
@@ -105,7 +105,7 @@ sg_panel.Panel = new function() {
                     <tr>
                       <td id='sg_unknown_context_details'>
                         The currently active file can't be associated with a
-                        ShotGrid context. Try switching to another file or
+                        Flow Production Tracking context. Try switching to another file or
                         restarting ${app_display_name}.
                       </td>
                     </tr>
@@ -518,7 +518,7 @@ sg_panel.Panel = new function() {
                               Checked="false"/>';
 
             flyout_xml += '<MenuItem Id="sg_dev_reload" \
-                              Label="Reload ShotGrid Extension" \
+                              Label="Reload Flow Production Tracking Extension" \
                               Enabled="true" \
                               Checked="false"/>';
         }
