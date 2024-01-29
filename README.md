@@ -13,7 +13,7 @@ A framework for Adobe engines
 
 ### How to set up your development environment
 
-- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://labs.adobe.com/downloads/extensionbuilder3.html) tool provided by Adobe.
+- To setup the development environment for this project, you will need to obtain the [**ZXPSignCmd**](https://zxpinstaller.com/) tool provided by Adobe.
 - Once you have logged in using your existing Adobe user account, download the **CC Extensions Signing Toolkit**, which will provide you with the necessary executable.
 - If you are developing on a **Mac**, please set all necessary variables in `dev/env.mk`.
 - If you are developing on **Windows**, please set all necessary variables in `dev\env.cmd`
@@ -35,7 +35,7 @@ CERT_ORG=Autodesk
 CERT_CN=SGTK
 ```
 
-Follow [this link](https://developer.shotgridsoftware.com/7c9867c0/#bundle-cache)
+Follow [this link](https://help.autodesk.com/view/SGDEV/ENU/?guid=SGD_qa_administering_qa_where_is_my_cache_html#bundle-cache)
   to find out where your bundle cache is located.
 
 ### To install the CEP extension for testing without signing:

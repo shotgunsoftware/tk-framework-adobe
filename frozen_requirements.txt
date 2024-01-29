@@ -1,8 +1,8 @@
-certifi==2020.6.20
-chardet==3.0.4
-idna==2.10
-requests==2.25.0
+certifi==2023.7.22
+charset-normalizer==3.3.2
+idna==3.6
+requests==2.31.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
-urllib3==1.26.9
+urllib3==2.1.0
 websocket-client==0.37.0
