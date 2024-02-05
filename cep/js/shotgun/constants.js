@@ -52,10 +52,18 @@ sg_constants.product_info = {
         display_name: "After Effects",
         tk_engine_name: "tk-aftereffects",
         debug_url: "http://localhost:45218"
+    },
+
+    // Premiere Pro
+    PPRO: {
+        display_name: "Premiere",
+        tk_engine_name: "tk-premiere",
+        debug_url: "http://localhost:45219"
     }
 
     // NOTE: the debug ports are defined in .debug file at the top level of the
     // plugin.
+
 };
 
 // This is simply a lookup of panel div ids. The keys of this should never
