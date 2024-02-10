@@ -214,7 +214,7 @@ sg_panel.Panel = new function() {
         }
 
         // Here we send the "AppOnline" event strictly in the event of a manual
-        // reload/restart of the SG extension. For initial launch of PS, this
+        // reload/restart of the PTR extension. For initial launch of PS, this
         // will be a no-op since the manager will already be running. For the
         // reload scenario, this is the jumpstart that the manager requires to
         // start up.
