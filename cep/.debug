@@ -5,6 +5,7 @@
            <Host Name="PHSP" Port="45216"/>
            <Host Name="PHXS" Port="45217"/>
            <Host Name="AEFT" Port="45218"/>
+           <Host Name="PPRO" Port="45219"/>
         </HostList>
     </Extension>
     <Extension Id="com.sg.basic.adobe.manager">
@@ -12,6 +13,7 @@
            <Host Name="PHSP" Port="45226"/>
            <Host Name="PHXS" Port="45227"/>
            <Host Name="AEFT" Port="45228"/>
+           <Host Name="PPRO" Port="45229"/>
         </HostList>
     </Extension>
 </ExtensionList>
