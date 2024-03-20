@@ -66,7 +66,7 @@ sg_socket_io.rpc_state_requested = function() {
 
 /*
 Emits a "command" message from the currently open socket.io server. The given
-uid references an SGTK engine command by the same id, which will be used to look
+uid references an PTR engine command by the same id, which will be used to look
 up the appropriate callback once the message is handled by a client.
 
 :param uid: The unique id associated with the command to be by the remote client.

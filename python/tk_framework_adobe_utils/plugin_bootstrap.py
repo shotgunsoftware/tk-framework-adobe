@@ -67,7 +67,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     from sgtk.platform.qt import QtGui
     from sgtk.platform.engine_logging import ToolkitEngineHandler
 
-    app_name = "ShotGrid Framework for Adobe CC"
+    app_name = "Flow Production Tracking Framework for Adobe CC"
 
     # create and set up the Qt app. we don't want the app to close when the
     # last window is shut down since it's running in parallel to the CC product.

@@ -72,7 +72,7 @@ sg_panel.Panel = new function() {
 
         _show_info(true);
         _set_info(
-            "Loading ShotGrid Integration..."
+            "Loading Flow Production Tracking Integration..."
         );
     };
 
@@ -105,7 +105,7 @@ sg_panel.Panel = new function() {
                     <tr>
                       <td id='sg_unknown_context_details'>
                         The currently active file can't be associated with a
-                        ShotGrid context. Try switching to another file or
+                        Flow Production Tracking context. Try switching to another file or
                         restarting ${app_display_name}.
                       </td>
                     </tr>
@@ -214,7 +214,7 @@ sg_panel.Panel = new function() {
         }
 
         // Here we send the "AppOnline" event strictly in the event of a manual
-        // reload/restart of the SG extension. For initial launch of PS, this
+        // reload/restart of the PTR extension. For initial launch of PS, this
         // will be a no-op since the manager will already be running. For the
         // reload scenario, this is the jumpstart that the manager requires to
         // start up.
@@ -518,7 +518,7 @@ sg_panel.Panel = new function() {
                               Checked="false"/>';
 
             flyout_xml += '<MenuItem Id="sg_dev_reload" \
-                              Label="Reload ShotGrid Extension" \
+                              Label="Reload Flow Production Tracking Extension" \
                               Enabled="true" \
                               Checked="false"/>';
         }
