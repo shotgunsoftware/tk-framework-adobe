@@ -27,6 +27,7 @@ with TemporaryDirectory() as temp_dir:
     temp_dir = Path(temp_dir)
 
     # Pip install everything and capture everything that was installed.
+    print("Installing Python requirements...")
     subprocess.run(
         [
             "python",
@@ -44,6 +45,7 @@ with TemporaryDirectory() as temp_dir:
             "--upgrade",
         ]
     )
+    print("Writing out frozen requirements...")
     subprocess.run(
         ["python", "-m", "pip", "freeze", "--path", temp_dir],
         stdout=open("frozen_requirements.txt", "w"),
@@ -75,3 +77,8 @@ with TemporaryDirectory() as temp_dir:
         else:
             # Otherwise zip package folders recursively.
             zip_recursively(pkgsZip, temp_dir, package_name)
+
+    # In case new binaries are added, they should be signed
+    # Otherwise, notarization of desktop app will fail.
+    # See "Adobe Framework" wiki page for help.
+    print("Action Required: Sign the contents of the pkgs.zip file.")
