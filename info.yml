@@ -14,8 +14,8 @@ configuration:
 requires_shotgun_fields:
 
 # More verbose description of this item
-display_name: "Adobe CC Framework"
-description: "CEP connection and rpc layer for engines that target any Adobe CC DCC-Package."
+display_name: "Adobe Framework"
+description: "CEP connection and rpc layer for engines that target any Adobe DCC-Package."
 
 # Required minimum versions for this item to run
 requires_core_version: "v0.19.18"
