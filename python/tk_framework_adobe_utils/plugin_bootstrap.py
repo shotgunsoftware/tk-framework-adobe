@@ -64,8 +64,12 @@ def bootstrap(root_path, port, engine_name, app_id):
     # get a handle on the newly bootstrapped engine
     engine = sgtk.platform.current_engine()
 
-    from sgtk.platform.qt import QtGui
+    from sgtk.platform.qt import QtGui, QtCore
     from sgtk.platform.engine_logging import ToolkitEngineHandler
+
+    # Enable High DPI support in Qt5 (default enabled in Qt6)
+    if QtCore.qVersion()[0] == "5":
+        QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
 
     app_name = "Flow Production Tracking Framework for Adobe CC"
 
