@@ -64,7 +64,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     # get a handle on the newly bootstrapped engine
     engine = sgtk.platform.current_engine()
 
-    from sgtk.platform.qt import QtGui, QtCore
+    from sgtk.platform.qt import QtCore, QtGui
     from sgtk.platform.engine_logging import ToolkitEngineHandler
 
     # Enable High DPI support in Qt5 (default enabled in Qt6)
