@@ -17,18 +17,22 @@ import contextlib
 
 # Add our third-party packages to sys.path. We've created a zip file because some of the file paths
 # are pretty long. We're also normalizing the path or we're getting import errors.
-sys.path.insert(
-    0,
-    os.path.normpath(
-        os.path.join(
-            os.path.dirname(__file__),  # ./python/tk_framework_adobe/rpc
-            os.pardir,  # ./python/tk_framework_adobe
-            os.pardir,  # ./python
-            os.pardir,  # .
-            "pkgs.zip",  # ./pkgs.zip
-        )
-    ),
+PYTHON_VERSION = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
+PKGS_ZIP_PATH = os.path.normpath(
+    os.path.join(
+        os.path.dirname(__file__),  # ./python/tk_framework_adobe/rpc
+        os.pardir,                  # ./python/tk_framework_adobe
+        os.pardir,                  # ./python
+        os.pardir,                  # .
+        "requirements",             # ./requirements
+        PYTHON_VERSION,             # ./requirements/3.10 (i.e. Python 3.10)
+        "pkgs.zip",                 # ./requirements/3.10/pkgs.zip
+    )
 )
+if not os.path.exists(PKGS_ZIP_PATH):
+    raise RuntimeError(f"Could not find the required packages at {PKGS_ZIP_PATH}")
+
+sys.path.insert(0, PKGS_ZIP_PATH)
 
 
 import socketIO_client_nexus.exceptions
