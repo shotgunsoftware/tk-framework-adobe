@@ -60,7 +60,14 @@ with TemporaryDirectory() as temp_dir:
     )
 
     # Quickly compute the number of requirements we have.
-    nb_dependencies = len([_ for _ in open(f"requirements/{PYTHON_VERSION}/frozen_requirements.txt", "rt")])
+    nb_dependencies = len(
+        [
+            _
+            for _ in open(
+                f"requirements/{PYTHON_VERSION}/frozen_requirements.txt", "rt"
+            )
+        ]
+    )
 
     # Figure out if those packages were installed as single file packages or folders.
     package_names = [
@@ -74,7 +81,9 @@ with TemporaryDirectory() as temp_dir:
     assert len(package_names) == nb_dependencies
 
     # Write out the zip file
-    pkgsZip = ZipFile(Path(__file__).parent / "requirements" / PYTHON_VERSION / "pkgs.zip", "w")
+    pkgsZip = ZipFile(
+        Path(__file__).parent / "requirements" / PYTHON_VERSION / "pkgs.zip", "w"
+    )
     # For every single package
     for package_name in package_names:
         print(f"Zipping {package_name}...")

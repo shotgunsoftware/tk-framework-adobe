@@ -21,12 +21,12 @@ PYTHON_VERSION = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
 PKGS_ZIP_PATH = os.path.normpath(
     os.path.join(
         os.path.dirname(__file__),  # ./python/tk_framework_adobe/rpc
-        os.pardir,                  # ./python/tk_framework_adobe
-        os.pardir,                  # ./python
-        os.pardir,                  # .
-        "requirements",             # ./requirements
-        PYTHON_VERSION,             # ./requirements/3.10 (i.e. Python 3.10)
-        "pkgs.zip",                 # ./requirements/3.10/pkgs.zip
+        os.pardir,  # ./python/tk_framework_adobe
+        os.pardir,  # ./python
+        os.pardir,  # .
+        "requirements",  # ./requirements
+        PYTHON_VERSION,  # ./requirements/3.10 (i.e. Python 3.10)
+        "pkgs.zip",  # ./requirements/3.10/pkgs.zip
     )
 )
 if not os.path.exists(PKGS_ZIP_PATH):
