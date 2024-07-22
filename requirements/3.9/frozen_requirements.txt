@@ -1,7 +1,7 @@
-certifi==2023.7.22
+certifi==2024.7.4
 charset-normalizer==3.3.2
 idna==3.7
-requests==2.31.0
+requests==2.32.0
 six==1.10.0
 socketIO-client-nexus==0.7.6
 urllib3==2.2.2
