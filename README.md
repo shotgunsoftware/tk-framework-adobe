@@ -92,7 +92,7 @@ Please be aware that these files contain potentially-sensitive information, such
 
 # Packaging
 
-This components require a pkgs.zip file that bundles all dependencies. This file is built by running:
+This component requires a pkgs.zip file that bundles Python third-party dependencies. This file is built by running:
 
 ```
 python update_python_packages.py

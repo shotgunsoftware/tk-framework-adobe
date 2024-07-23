@@ -17,7 +17,7 @@ from tempfile import TemporaryDirectory
 from zipfile import ZipFile
 
 
-PYTHON_VERSION = "{}.{}".format(sys.version_info.major, sys.version_info.minor)
+PYTHON_VERSION = f"{sys.version_info.major}.{sys.version_info.minor}"
 
 
 def zip_recursively(zip_file, root_dir, folder_name):
