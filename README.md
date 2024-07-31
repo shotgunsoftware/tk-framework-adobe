@@ -89,3 +89,25 @@ git update-index --skip-worktree dev/env.mk dev/env.cmd
 ```
 
 Please be aware that these files contain potentially-sensitive information, such as a certificate password. When making changes to these files and pushing them to a git repository, be sure that you've removed any data that might be considered confidential.
+
+# Packaging
+
+This component requires a pkgs.zip file that bundles Python third-party dependencies. This file is built by running:
+
+```
+python update_python_packages.py
+```
+
+And it will write a file in `requirements/<environment Python version>/pkgs.zip` based on its corresponding `requirements.txt` file. It will also update `frozen_requirements.txt`.
+
+You should run this script with all supported Python versions. Example:
+
+```
+pyenv shell 3.7
+python update_python_packages.py
+
+pyenv shell 3.9
+python update_python_packages.py
+
+# and so on...
+```
