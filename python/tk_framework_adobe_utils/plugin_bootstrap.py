@@ -67,7 +67,7 @@ def bootstrap(root_path, port, engine_name, app_id):
     from sgtk.platform.qt import QtGui
     from sgtk.platform.engine_logging import ToolkitEngineHandler
 
-    app_name = "Flow Production Tracking Framework for Adobe CC"
+    app_name = "Flow Production Tracking Framework for Adobe"
 
     # create and set up the Qt app. we don't want the app to close when the
     # last window is shut down since it's running in parallel to the CC product.
@@ -92,8 +92,8 @@ def bootstrap(root_path, port, engine_name, app_id):
     )
 
     # debug logging for the app name/version as well
-    engine.logger.debug("Adobe CC Product: %s" % host_info["name"])
-    engine.logger.debug("Adobe CC Version: %s" % host_info["version"])
+    engine.logger.debug("Adobe Product: %s" % host_info["name"])
+    engine.logger.debug("Adobe Version: %s" % host_info["version"])
 
     # once the event loop starts, the bootstrap process is complete and
     # everything should be connected. this is a blocking call, so nothing else

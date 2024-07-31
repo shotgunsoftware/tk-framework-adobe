@@ -725,7 +725,7 @@ sg_panel.Panel = new function() {
         const subject = encodeURIComponent("Adobe Integration Error");
         const body = encodeURIComponent(
             "Greetings Shotgun Support Team!\n\n" +
-            "We have some questions about the Adobe CC Integration.\n\n" +
+            "We have some questions about the Adobe Integration.\n\n" +
             "*** Please enter your questions here... ***\n\n"
         );
 
@@ -1152,7 +1152,7 @@ sg_panel.Panel = new function() {
 
         return encodeURIComponent(
             "Greetings Shotgun Support Team!\n\n" +
-            "We are experiencing some difficulties with the Photoshop CC Integration. " +
+            "We are experiencing some difficulties with the Photoshop Integration. " +
             "The details are included below.\n\n" +
             "Summary of the issue:\n\n" +
             "*** Please enter a summary of the issue here... ***\n\n" +

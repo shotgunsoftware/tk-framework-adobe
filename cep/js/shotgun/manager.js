@@ -51,7 +51,7 @@ sg_manager.Manager = new function() {
             // ensure this app is supported by our extension
             if (!_app_is_supported()) {
                 _emit_python_critical_error({
-                    message: "This CC product does not meet the minimum " +
+                    message: "This Adobe product does not meet the minimum " +
                         "requirements to run the Flow Production Tracking integration. The " +
                         "Shotgun integration requires support for HTML " +
                         "panels and the extended panel menu.",
