@@ -40,7 +40,11 @@ from socketIO_client_nexus import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
 import sgtk
-from tank_vendor import six
+
+try:
+    from tank_vendor import sgutils
+except ImportError:
+    from tank_vendor import six as sgutils
 
 
 class Communicator(object):
@@ -604,8 +608,8 @@ class Communicator(object):
             # TODO: This feels like it would cause an error later if the result is a string. We need
             #  further clarification on what this catch is trying to achieve.
             result = result.get("result")
-            if result is six.text_type():
-                result = six.ensure_str(result)
+            if isinstance(result, str):
+                result = sgutils.ensure_str(result)
             self._RESULTS[uid] = result
         except KeyError:
             if not self._response_logging_silenced:
@@ -677,8 +681,8 @@ class Communicator(object):
             elif isinstance(param, ProxyWrapper):
                 processed.append(param.data)
             else:
-                if isinstance(param, six.string_types):
-                    param = six.ensure_str(param)
+                if isinstance(param, str):
+                    param = sgutils.ensure_str(param)
                 processed.append(param)
 
         return processed
