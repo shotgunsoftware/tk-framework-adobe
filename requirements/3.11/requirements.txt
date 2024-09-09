@@ -1,0 +1,17 @@
+# Copyright (c) 2024 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+
+# Pinning certifi to a specific version to match others copies of certifi we use.
+certifi==2024.7.4
+idna==3.7
+requests==2.32.2
+six==1.10.0
+socketIO-client-nexus==0.7.6
+websocket_client==0.37.0
