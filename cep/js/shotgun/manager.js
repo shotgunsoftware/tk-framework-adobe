@@ -43,7 +43,6 @@ sg_manager.Manager = new function() {
 
     // Setup the Shotgun integration within the app.
     this.on_load = function() {
-
         // Execute the startup payload and catch *any* errors. If there are
         // errors, display them in the panel if possible.
         try {
@@ -512,6 +511,16 @@ sg_manager.Manager = new function() {
 
     }.bind(this);
 
+    const setupManagerCloseListener = function() {
+        _cs_interface.addEventListener("com.adobe.csxs.events.CloseManager", function() {
+            console.log("Close event received in manager.html");
+            setTimeout(function() {
+                _cs_interface.closeExtension();
+            }, 500); 
+            //_cs_interface.closeExtension();  // Cierra la extensión manager.html
+        });
+    }
+
     // Setup listeners for any events that need to be processed by the manager
     const _setup_event_listeners = function() {
 
@@ -562,6 +571,7 @@ sg_manager.Manager = new function() {
             'documentAfterActivate',
             _active_document_check
         );
+        setupManagerCloseListener();
 
         sg_logging.debug("Event listeners created.");
     };
