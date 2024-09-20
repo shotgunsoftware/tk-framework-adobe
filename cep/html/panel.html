@@ -90,22 +90,7 @@ are reserved by Shotgun Software Inc.
       // Should run when panel start is requested
       window.addEventListener("load", sg_panel.Panel.on_load);
       // Should run when panel is closed down.
-      // window.addEventListener("unload", sg_panel.Panel.on_unload);
-      function closeManagerWindow() {
-          var event = new CSEvent("com.adobe.csxs.events.CloseManager", "APPLICATION");
-          _cs_interface.dispatchEvent(event); // _cs_interface debe estar definido con CSInterface
-          console.log("Dispatched close event to manager.html");
-      }
-      
-      window.addEventListener("unload", function() {
-          console.log("The unload event is firing!");
-          var event = new CSEvent("com.adobe.csxs.events.CloseManager", "APPLICATION");
-          console.log("EVENT; ", event);
-          console.log("_cs_interface: ", _cs_interface);
-          _cs_interface.dispatchEvent(event); // _cs_interface debe estar definido con CSInterface
-          console.log("Dispatched close event to manager.html");
-          sg_panel.Panel.on_unload();
-      });
+      window.addEventListener("unload", sg_panel.Panel.on_unload);
     </script>
   </body>
 </html>

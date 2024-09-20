@@ -72,7 +72,7 @@ sg_panel.Panel = new function() {
 
         _show_info(true);
         _set_info(
-            "Loading Flow Production Tracking Integration... Lalo"
+            "Loading Flow Production Tracking Integration..."
         );
     };
 
@@ -228,7 +228,6 @@ sg_panel.Panel = new function() {
     // Code to run when the extension panel is unloaded
     this.on_unload = function() {
         sg_logging.debug("Panel unloaded.");
-        console.log("UNLOAD from function");
     };
 
     // Open the supplied url in the default browser

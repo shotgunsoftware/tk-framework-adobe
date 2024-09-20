@@ -38,7 +38,7 @@
                         <!-- Adobe CEP startup event -->
                         <Event>com.adobe.csxs.events.AppOnline</Event>
                         <!-- Adobe CEP startup event -->
-                        
+                        <Event>com.adobe.csxs.events.ApplicationActivate</Event>
                     </StartOn>
                 </Lifecycle>
                 <UI>
