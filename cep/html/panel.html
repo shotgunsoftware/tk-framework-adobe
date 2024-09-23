@@ -87,10 +87,17 @@ are reserved by Shotgun Software Inc.
     <script>
       "use strict";
 
-      // Should run when panel start is requested
+      // // Should run when panel start is requested
       window.addEventListener("load", sg_panel.Panel.on_load);
-      // Should run when panel is closed down.
-      window.addEventListener("unload", sg_panel.Panel.on_unload);
+      // // Should run when panel is closed down.
+      window.addEventListener("unload", function() {
+        try {
+          var event = new CSEvent("com.adobe.csxs.events.CloseManager", "APPLICATION");
+          sg_panel.Panel._cs_interface.dispatchEvent(event);
+        } catch (error) {
+          console.error("Error closing extension:", error);
+        }
+      });
     </script>
   </body>
 </html>

@@ -23,6 +23,7 @@ sg_panel.Panel = new function() {
 
     // adobe interface
     const _cs_interface = new CSInterface();
+    this._cs_interface = _cs_interface;
 
     // keep track of timeout ids for showing and hiding tooltips. these will be
     // used over and over during session.

@@ -512,6 +512,16 @@ sg_manager.Manager = new function() {
 
     }.bind(this);
 
+    const _manager_close_listener = function() {
+        _cs_interface.addEventListener("com.adobe.csxs.events.CloseManager", function() {
+            console.log("Close event received in manager.html");
+            sg_logging.debug(" Closing manager extension.");
+            setTimeout(function() {
+                _cs_interface.closeExtension();
+            }, 1000);
+        });
+    }
+
     // Setup listeners for any events that need to be processed by the manager
     const _setup_event_listeners = function() {
 
@@ -562,7 +572,7 @@ sg_manager.Manager = new function() {
             'documentAfterActivate',
             _active_document_check
         );
-
+        _manager_close_listener();
         sg_logging.debug("Event listeners created.");
     };
 
