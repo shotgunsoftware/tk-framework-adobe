@@ -516,9 +516,7 @@ sg_manager.Manager = new function() {
         _cs_interface.addEventListener("com.adobe.csxs.events.CloseManager", function() {
             console.log("Close event received in manager.html");
             sg_logging.debug(" Closing manager extension.");
-            setTimeout(function() {
-                _cs_interface.closeExtension();
-            }, 1000);
+            _cs_interface.closeExtension();
         });
     }
 
