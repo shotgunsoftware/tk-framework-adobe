@@ -1,3 +1,5 @@
+
+rem set this to the target version you want to set this to
 set "TARGET_VERSION=0.0.1"
 
 rem set this to the core you are working with. eg:0.18.160
