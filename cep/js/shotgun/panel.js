@@ -226,11 +226,6 @@ sg_panel.Panel = new function() {
 
     }.bind(this);
 
-    // Code to run when the extension panel is unloaded
-    this.on_unload = function() {
-        sg_logging.debug("Panel unloaded.");
-    };
-
     // Open the supplied url in the default browser
     this.open_external_url = function(url) {
         sg_logging.debug("Opening external url: " + url);
@@ -247,9 +242,6 @@ sg_panel.Panel = new function() {
 
         // turn off persistence so we can close the panel
         _make_persistent(false);
-
-        // close the panel
-        this.on_unload();
 
         // request manager reload and close the panel
         sg_panel.REQUEST_MANAGER_RELOAD.emit();
