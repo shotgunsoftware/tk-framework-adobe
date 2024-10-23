@@ -143,9 +143,23 @@ sg_socket_io.SocketManager = new function() {
     :param csLib: A handle to the standard Adobe CSInterface object.
     */
     this.start_socket_server = function (port, csLib) {
+        const socketio_server_options = {
+            // ping_timeout - default is 5000ms
+            // pingInterval - default is 25000ms
+        };
+
+        const ping_timeout = parseInt(
+            process.env.SHOTGUN_ADOBE_SERVER_PING_TIMEOUT
+        );
+
+        if (ping_timeout != NaN && ping_timeout>0) {
+            sg_logging.info("Set SocketIO server pingTimeout to: " + ping_timeout);
+            socketio_server_options['pingTimeout'] = ping_timeout;
+        }
+
         var path = require('path');
         var jrpc = require('jrpc');
-        var io = require('socket.io')(port);
+        var io = require('socket.io')(port, socketio_server_options);
 
         sg_socket_io.io = io;
 
