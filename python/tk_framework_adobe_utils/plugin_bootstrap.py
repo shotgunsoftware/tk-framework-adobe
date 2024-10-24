@@ -64,8 +64,19 @@ def bootstrap(root_path, port, engine_name, app_id):
     # get a handle on the newly bootstrapped engine
     engine = sgtk.platform.current_engine()
 
-    from sgtk.platform.qt import QtGui
-    from sgtk.platform.engine_logging import ToolkitEngineHandler
+    try:
+        # First, make sure we can import PySide.
+        # If not, there's no need to continue.
+        from sgtk.platform.qt import QtGui
+
+        if QtGui is None:
+            raise ImportError("PySide not found in Toolkit.")
+    except ImportError:
+        sys.stdout.write("[ERROR]: %s" % (traceback.format_exc(),))
+        sys.stdout.flush()
+        sys.exit(EXIT_STATUS_NO_PYSIDE)
+    finally:
+        from sgtk.platform.engine_logging import ToolkitEngineHandler
 
     app_name = "Flow Production Tracking Framework for Adobe"
 
@@ -135,18 +146,6 @@ if __name__ == "__main__":
     # the communication port is supplied by javascript. the toolkit engine
     # env to bootstrap into is also supplied by javascript
     (port, engine_name, app_id) = sys.argv[1:4]
-    try:
-        # First, make sure we can import PySide or PySide2.
-        # If not, there's no need to continue.
-        from PySide2 import QtCore, QtGui
-    except ImportError:
-        try:
-            # No PySide2, let's try PySide6.
-            from PySide6 import QtCore, QtGui
-        except ImportError:
-            sys.stdout.write("[ERROR]: %s" % (traceback.format_exc(),))
-            sys.stdout.flush()
-            sys.exit(EXIT_STATUS_NO_PYSIDE)
 
     # wrap the entire plugin boostrap process so that we can respond to any
     # errors and display them in the panel.
