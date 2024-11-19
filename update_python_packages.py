@@ -11,12 +11,19 @@
 
 import subprocess
 import os
+import re
 import sys
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile
 
 def main():
+    COMPONENT_EXCLUDE = {
+        "charset_normalizer": [
+            re.compile("md.*\\.(pyd|so)"),
+        ],
+    }
+
     PYTHON_VERSION = f"{sys.version_info.major}.{sys.version_info.minor}"
 
     with TemporaryDirectory() as temp_dir:
@@ -85,7 +92,12 @@ def main():
                 pkgsZip.write(full_package_path, full_package_path.relative_to(temp_dir))
             else:
                 # Otherwise zip package folders recursively.
-                zip_recursively(pkgsZip, temp_dir, package_name)
+                zip_recursively(
+                    pkgsZip,
+                    temp_dir,
+                    package_name,
+                    excludes=COMPONENT_EXCLUDE.get(package_name),
+                )
 
         # In case new binaries are added, they should be signed
         # Otherwise, notarization of desktop app will fail.
@@ -93,11 +105,25 @@ def main():
         print("Action Required: Sign the contents of the pkgs.zip file.")
 
 
-def zip_recursively(zip_file, root_dir, folder_name):
+def zip_recursively(zip_file, root_dir, folder_name, excludes=None):
     for root, _, files in os.walk(root_dir / folder_name):
         for file in files:
             full_file_path = Path(os.path.join(root, file))
+            if is_filename_excluded(file, excludes):
+                continue
+
             zip_file.write(full_file_path, full_file_path.relative_to(root_dir))
+
+
+def is_filename_excluded(filename, excludes):
+    if not isinstance(excludes, list):
+        return False
+
+    for regex in excludes:
+        if regex.match(filename):
+            return True
+
+    return False
 
 
 if __name__ == "__main__":
