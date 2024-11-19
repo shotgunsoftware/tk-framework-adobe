@@ -41,13 +41,13 @@ def main():
                 # all packages to the temporary directory, even if an already existing
                 # version is installed
                 "--target",
-                temp_dir,
+                str(temp_dir),
                 "--upgrade",
             ]
         )
         print("Writing out frozen requirements...")
         subprocess.run(
-            ["python", "-m", "pip", "freeze", "--path", temp_dir],
+            ["python", "-m", "pip", "freeze", "--path", str(temp_dir)],
             stdout=open(f"requirements/{PYTHON_VERSION}/frozen_requirements.txt", "w"),
         )
 
