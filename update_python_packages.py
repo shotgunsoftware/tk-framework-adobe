@@ -99,11 +99,6 @@ def main():
                     excludes=COMPONENT_EXCLUDE.get(package_name),
                 )
 
-        # In case new binaries are added, they should be signed
-        # Otherwise, notarization of desktop app will fail.
-        # See "Adobe Framework" wiki page for help.
-        print("Action Required: Sign the contents of the pkgs.zip file.")
-
 
 def zip_recursively(zip_file, root_dir, folder_name, excludes=None):
     for root, _, files in os.walk(root_dir / folder_name):
