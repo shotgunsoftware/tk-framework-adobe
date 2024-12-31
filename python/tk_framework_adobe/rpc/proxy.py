@@ -125,11 +125,11 @@ class ProxyWrapper(object):
         # We have to use super here because I've implemented a
         # __setattr__ on this class. This will prevent infinite
         # recursion when setting these attributes.
-        super(ProxyWrapper, self).__setattr__("_data", data)
-        super(ProxyWrapper, self).__setattr__("_serialized", json.dumps(data))
-        super(ProxyWrapper, self).__setattr__("_parent", parent)
-        super(ProxyWrapper, self).__setattr__("_communicator", communicator)
-        super(ProxyWrapper, self).__setattr__("_uid", data.get("__uniqueid"))
+        super().__setattr__("_data", data)
+        super().__setattr__("_serialized", json.dumps(data))
+        super().__setattr__("_parent", parent)
+        super().__setattr__("_communicator", communicator)
+        super().__setattr__("_uid", data.get("__uniqueid"))
 
         # Everything is registered by unique id. This allows us get
         # JSON data back from CEP and map it to an existing ProxyWrapper.
@@ -285,7 +285,7 @@ class ProxyWrapper(object):
         if name in remote_names:
             self._communicator.rpc_set(self, name, value)
         else:
-            super(ProxyWrapper, self).__setattr__(name, value)
+            super().__setattr__(name, value)
 
     def __repr__(self):
         """
