@@ -17,6 +17,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from zipfile import ZipFile
 
+
 def main():
     COMPONENT_EXCLUDE = {
         "charset_normalizer": [
@@ -89,7 +90,9 @@ def main():
             # If we have a .py file to zip, simple write it
             full_package_path = temp_dir / package_name
             if full_package_path.suffix == ".py":
-                pkgsZip.write(full_package_path, full_package_path.relative_to(temp_dir))
+                pkgsZip.write(
+                    full_package_path, full_package_path.relative_to(temp_dir)
+                )
             else:
                 # Otherwise zip package folders recursively.
                 zip_recursively(
