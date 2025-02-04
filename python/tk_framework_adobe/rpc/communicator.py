@@ -112,18 +112,7 @@ class Communicator(object):
         self._event_processor = event_processor
         self._response_logging_silenced = False
 
-        my_logger = sgtk.LogManager.get_logger(__name__)
-        my_logger.info("")
-        my_logger.info("")
-        my_logger.info("Create SocketIO client instance")
-
         self._io = socketIO_client_nexus.SocketIO(host, port)
-        my_logger.info(f"Instance: {self._io}")
-        my_logger.info(f"_http_session: {self._io._http_session}")
-
-        my_logger.info("")
-        my_logger.info("")
-
         self._io.on("return", self._handle_response)
 
         self._global_scope = None
