@@ -46,8 +46,11 @@ try:
 except ImportError:
     from tank_vendor import six as sgutils
 
-if os.environ.get("SGTK_ENFORE_PROXY_LOCALHOST", "0").lower() not in [
-    "1", "y", "yes",
+if os.environ.get("SGTK_ENFORE_PROXY_LOCALHOST", "0").strip().lower() not in [
+    "1",
+    "true"
+    "y",
+    "yes",
 ]:
     # Hook socketIO_client_nexus.prepare_http_session to disable Proxy
     prepare_http_session_bak = socketIO_client_nexus.prepare_http_session
