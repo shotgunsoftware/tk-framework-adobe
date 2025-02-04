@@ -9,7 +9,7 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 import threading
 import sys
-import os.path
+import os
 import time
 import logging
 import contextlib
@@ -46,16 +46,18 @@ try:
 except ImportError:
     from tank_vendor import six as sgutils
 
+if os.environ.get("SGTK_ENFORE_PROXY_LOCALHOST", "0").lower() not in [
+    "1", "y", "yes",
+]:
+    # Hook socketIO_client_nexus.prepare_http_session to disable Proxy
+    prepare_http_session_bak = socketIO_client_nexus.prepare_http_session
 
-## Hook socketIO_client_nexus.prepare_http_session to disable Proxy
-prepare_http_session_bak = socketIO_client_nexus.prepare_http_session
+    def my_prepare_http_session(kw):
+        http_session = prepare_http_session_bak(kw)
+        http_session.trust_env = False
+        return http_session
 
-def my_prepare_http_session(kw):
-    http_session = prepare_http_session_bak(kw)
-    http_session.trust_env = False
-    return http_session
-
-socketIO_client_nexus.prepare_http_session=my_prepare_http_session
+    socketIO_client_nexus.prepare_http_session = my_prepare_http_session
 
 
 class Communicator(object):
@@ -110,7 +112,18 @@ class Communicator(object):
         self._event_processor = event_processor
         self._response_logging_silenced = False
 
+        my_logger = sgtk.LogManager.get_logger(__name__)
+        my_logger.info("")
+        my_logger.info("")
+        my_logger.info("Create SocketIO client instance")
+
         self._io = socketIO_client_nexus.SocketIO(host, port)
+        my_logger.info(f"Instance: {self._io}")
+        my_logger.info(f"_http_session: {self._io._http_session}")
+
+        my_logger.info("")
+        my_logger.info("")
+
         self._io.on("return", self._handle_response)
 
         self._global_scope = None
