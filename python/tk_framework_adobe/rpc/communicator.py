@@ -48,7 +48,7 @@ except ImportError:
 
 if os.environ.get("SGTK_ENFORE_PROXY_LOCALHOST", "0").strip().lower() not in [
     "1",
-    "true"
+    "true",
     "y",
     "yes",
 ]:
