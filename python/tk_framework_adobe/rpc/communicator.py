@@ -46,7 +46,7 @@ try:
 except ImportError:
     from tank_vendor import six as sgutils
 
-if os.environ.get("SGTK_ENFORE_PROXY_LOCALHOST", "0").strip().lower() not in [
+if os.environ.get("SGTK_ENFORCE_PROXY_LOCALHOST", "0").strip().lower() not in [
     "1",
     "true",
     "y",
