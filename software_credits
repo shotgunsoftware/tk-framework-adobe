@@ -530,12 +530,19 @@ Creative Commons Notice
 
 =========== Adobe CEP JS (https://github.com/Adobe-CEP/CEP-Resources/blob/CEP9/CEP_7.x) =====
 
-Copyright 2013 Adobe Systems Incorporated.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
+/**************************************************************************************************
+*
+* ADOBE SYSTEMS INCORPORATED
+* Copyright 2013 Adobe Systems Incorporated
+* All Rights Reserved.
+*
+* NOTICE: Adobe permits you to use, modify, and distribute this file in accordance with the
+* terms of the Adobe license agreement accompanying it. If you have received this file from a
+* source other than Adobe, then your use, modification, or distribution of it requires the prior
+* written permission of Adobe.
+*
+**************************************************************************************************/
+License site: https://github.com/Adobe-CEP/CEP-Resources/blob/master/License/GenSDK_IHC-en_US-20120323_1224.pd
 
 
 =========== json2.js (https://github.com/douglascrockford/JSON-js) ============
