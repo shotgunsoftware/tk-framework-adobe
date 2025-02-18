@@ -109,7 +109,7 @@ class AdobeBridge(Communicator):
     )
 
     def __init__(self, *args, **kwargs):
-        super(AdobeBridge, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.logger.debug(
             "SHOTGUN_ADOBE_RESPONSE_TIMEOUT "
@@ -179,7 +179,7 @@ class AdobeBridge(Communicator):
         Pings the socket.io server to test whether the connection is still
         active.
         """
-        super(AdobeBridge, self).ping()
+        super().ping()
 
     def get_active_document(self):
         """
@@ -441,7 +441,7 @@ class AdobeBridge(Communicator):
 
         :returns: The raw returned results data.
         """
-        return super(AdobeBridge, self)._wait_for_response(uid)
+        return super()._wait_for_response(uid)
 
 
 ##########################################################################################
