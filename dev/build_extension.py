@@ -112,7 +112,7 @@ def _clean_plugin_dir(args):
     logger.info("Cleaning built plugin directory...")
     from sgtk.util.filesystem import safe_delete_file
 
-    for (root, dir_names, file_names) in os.walk(args["plugin_build_dir"]):
+    for root, dir_names, file_names in os.walk(args["plugin_build_dir"]):
         for file_name in file_names:
             if file_name.endswith(".pyc"):
                 full_path = os.path.join(root, file_name)
