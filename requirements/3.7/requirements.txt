@@ -9,7 +9,7 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
 # Pinning certifi to a specific version to match others copies of certifi we use.
-certifi==2024.7.4
+certifi==2024.12.14
 idna==3.7
 requests==2.31.0
 six==1.10.0

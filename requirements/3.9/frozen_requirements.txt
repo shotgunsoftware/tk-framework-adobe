@@ -1,8 +1,8 @@
-certifi==2024.7.4
-charset-normalizer==3.4.0
+certifi==2024.12.14
+charset-normalizer==3.4.1
 idna==3.7
 requests==2.32.2
 six==1.10.0
 socketIO-client-nexus==0.7.6
-urllib3==2.2.3
+urllib3==2.3.0
 websocket-client==1.8.0

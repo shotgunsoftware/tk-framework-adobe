@@ -1,6 +1,7 @@
 """
 Utilities for installing the CEP extension in case this is out of date
 """
+
 import os
 import traceback
 import shutil
