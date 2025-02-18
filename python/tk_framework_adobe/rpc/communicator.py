@@ -9,7 +9,7 @@
 # not expressly granted therein are reserved by Shotgun Software Inc.
 import threading
 import sys
-import os.path
+import os
 import time
 import logging
 import contextlib
@@ -35,8 +35,8 @@ if not os.path.exists(pkgs_zip_path):
 sys.path.insert(0, pkgs_zip_path)
 
 
+import socketIO_client_nexus
 import socketIO_client_nexus.exceptions
-from socketIO_client_nexus import SocketIO
 from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
 import sgtk
@@ -45,6 +45,22 @@ try:
     from tank_vendor import sgutils
 except ImportError:
     from tank_vendor import six as sgutils
+
+if os.environ.get("SGTK_ENFORCE_PROXY_LOCALHOST", "0").strip().lower() not in [
+    "1",
+    "true",
+    "y",
+    "yes",
+]:
+    # Hook socketIO_client_nexus.prepare_http_session to disable Proxy
+    prepare_http_session_bak = socketIO_client_nexus.prepare_http_session
+
+    def my_prepare_http_session(kw):
+        http_session = prepare_http_session_bak(kw)
+        http_session.trust_env = False
+        return http_session
+
+    socketIO_client_nexus.prepare_http_session = my_prepare_http_session
 
 
 class Communicator(object):
@@ -99,7 +115,7 @@ class Communicator(object):
         self._event_processor = event_processor
         self._response_logging_silenced = False
 
-        self._io = SocketIO(host, port)
+        self._io = socketIO_client_nexus.SocketIO(host, port)
         self._io.on("return", self._handle_response)
 
         self._global_scope = None
