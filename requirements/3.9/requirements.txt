@@ -11,7 +11,7 @@
 # Pinning certifi to a specific version to match others copies of certifi we use.
 certifi==2024.12.14
 idna==3.7
-requests==2.32.2
+requests==2.32.4
 six==1.10.0
 socketIO-client-nexus==0.7.6
 websocket-client==1.8.0
