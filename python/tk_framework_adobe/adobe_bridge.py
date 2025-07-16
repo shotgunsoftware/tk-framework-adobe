@@ -17,12 +17,6 @@ from .rpc import Communicator
 import sgtk
 from sgtk.platform.qt import QtCore
 
-try:
-    from tank_vendor import sgutils
-except ImportError:
-    from tank_vendor import six as sgutils
-
-
 ##########################################################################################
 # functions
 
@@ -217,7 +211,7 @@ class AdobeBridge(Communicator):
                 path = None
 
             if path is not None:
-                path = sgutils.ensure_str(path)
+                path = str(path)
 
         return path
 

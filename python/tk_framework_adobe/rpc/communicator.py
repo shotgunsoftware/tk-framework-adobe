@@ -41,11 +41,6 @@ from .proxy import ProxyScope, ProxyWrapper, ClassInstanceProxyWrapper
 
 import sgtk
 
-try:
-    from tank_vendor import sgutils
-except ImportError:
-    from tank_vendor import six as sgutils
-
 if os.environ.get("SGTK_ENFORCE_PROXY_LOCALHOST", "0").strip().lower() not in [
     "1",
     "true",
@@ -624,8 +619,6 @@ class Communicator(object):
             # TODO: This feels like it would cause an error later if the result is a string. We need
             #  further clarification on what this catch is trying to achieve.
             result = result.get("result")
-            if isinstance(result, str):
-                result = sgutils.ensure_str(result)
             self._RESULTS[uid] = result
         except KeyError:
             if not self._response_logging_silenced:
@@ -697,8 +690,6 @@ class Communicator(object):
             elif isinstance(param, ProxyWrapper):
                 processed.append(param.data)
             else:
-                if isinstance(param, str):
-                    param = sgutils.ensure_str(param)
                 processed.append(param)
 
         return processed
