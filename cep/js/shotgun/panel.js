@@ -48,7 +48,7 @@ sg_panel.Panel = new function() {
 
     var _log_file_path = undefined;
 
-    var _support_url = "https://knowledge.autodesk.com/contact-support";
+    var _support_url = "https://www.autodesk.com/support";
 
     // ---- public methods
 
