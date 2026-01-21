@@ -12,7 +12,6 @@ import os
 
 from . import log
 
-
 # Note: the sgtk_plugin_basic_photoshopcc module is created
 # as part of the plugin build process.
 try:

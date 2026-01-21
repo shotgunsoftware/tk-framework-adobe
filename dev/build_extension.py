@@ -236,7 +236,7 @@ def _sign_plugin(args):
 
         safe_delete_file(extension_path)
 
-    (sign_command, certificate_path, certificate_pwd) = args["sign"]
+    sign_command, certificate_path, certificate_pwd = args["sign"]
 
     command = [
         sign_command,
