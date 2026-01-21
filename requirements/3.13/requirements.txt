@@ -8,7 +8,7 @@
 # agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
 # not expressly granted therein are reserved by Shotgun Software Inc.
 
-# Pinning certifi to a specific version to match others copies of certifi we use.
+# Pinning certifi to a specific version to match other copies of certifi we use.
 certifi==2024.12.14
 idna==3.7
 requests==2.32.5
