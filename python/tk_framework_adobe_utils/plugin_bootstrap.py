@@ -16,7 +16,6 @@ import os
 import traceback
 from environment_utils import get_extension_install_directory
 
-
 # exit status codes used when the python process dies. these are known by the
 # js process that spawned python so they can be used as a primitive form of
 # communication.
@@ -145,7 +144,7 @@ if __name__ == "__main__":
 
     # the communication port is supplied by javascript. the toolkit engine
     # env to bootstrap into is also supplied by javascript
-    (port, engine_name, app_id) = sys.argv[1:4]
+    port, engine_name, app_id = sys.argv[1:4]
 
     # wrap the entire plugin boostrap process so that we can respond to any
     # errors and display them in the panel.

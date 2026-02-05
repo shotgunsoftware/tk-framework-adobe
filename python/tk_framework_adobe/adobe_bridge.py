@@ -319,7 +319,7 @@ class AdobeBridge(Communicator):
         :param doc: The document to be saved.
         :param str file_path: The destination file path.
         """
-        (root, ext) = os.path.splitext(file_path)
+        root, ext = os.path.splitext(file_path)
 
         if ext.lower() == ".psb":
             self.save_as_psb(file_path)

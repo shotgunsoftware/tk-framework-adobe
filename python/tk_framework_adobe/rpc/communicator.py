@@ -14,7 +14,6 @@ import time
 import logging
 import contextlib
 
-
 # Add our third-party packages to sys.path. We've created a zip file because some of the file paths
 # are pretty long. We're also normalizing the path or we're getting import errors.
 python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
