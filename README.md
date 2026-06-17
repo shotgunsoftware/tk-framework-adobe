@@ -104,9 +104,6 @@ And it will write a file in `requirements/<environment Python version>/pkgs.zip`
 You should run this script with all supported Python versions. Example:
 
 ```
-pyenv shell 3.7
-python update_python_packages.py
-
 pyenv shell 3.9
 python update_python_packages.py
 

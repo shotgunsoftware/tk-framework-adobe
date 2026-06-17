@@ -20,6 +20,7 @@ description: "CEP connection and rpc layer for engines that target any Adobe DCC
 # Required minimum versions for this item to run
 requires_core_version: "v0.19.18"
 requires_desktop_version:
+minimum_python_version: "3.9"
 
 # the frameworks this framework requires
 frameworks: []
