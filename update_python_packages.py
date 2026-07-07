@@ -70,10 +70,14 @@ def main():
         )
 
         # Figure out if those packages were installed as single file packages or folders.
+        # Top-level .pyd/.so files are mypyc-compiled extensions (e.g. from charset-normalizer)
+        # that are not standalone packages and should not be counted or zipped separately.
         package_names = [
             package_name
             for package_name in os.listdir(temp_dir)
-            if "info" not in package_name and package_name != "bin"
+            if "info" not in package_name
+            and package_name != "bin"
+            and not package_name.endswith((".pyd", ".so"))
         ]
 
         # Make sure we found as many Python packages as there
