@@ -1,6 +1,6 @@
 {
   "name": "tk-framework-adobe",
-  "version": "1.0.0",
+  "version": "v1.2.11",
   "description": "Node.js dependencies of the Flow Production Tracking CEP extension",
   "engines": {
     "node": "15.9.0"
