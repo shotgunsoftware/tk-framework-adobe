@@ -24,7 +24,7 @@
     "component-emitter": "1.2.1",
     "cookie": "0.4.2",
     "cors": "2.8.5",
-    "debug": "4.1.1",
+    "debug": "4.3.1",
     "component-inherit": "0.0.3",
     "engine.io": "4.0.6",
     "has-binary": "0.1.7",
