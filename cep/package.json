@@ -22,7 +22,7 @@
     "callsite": "1.0.0",
     "component-bind": "1.0.0",
     "component-emitter": "1.2.1",
-    "cookie": "0.4.2",
+    "cookie": "0.7.0",
     "cors": "2.8.5",
     "debug": "4.1.1",
     "component-inherit": "0.0.3",
